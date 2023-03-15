@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "back-pez"
+version = "0.1.0"
+description = ""
+authors = ["Laura-Mora <46944834+Laura-Mora@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "back_pez"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+prolog = "^0.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
