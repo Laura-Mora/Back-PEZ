@@ -1,4 +1,5 @@
 from back_pez.db.model.asignatura import Asignatura
+from back_pez.db.model.subComponente import subComponente
 
 
 class Componente():
@@ -7,3 +8,4 @@ class Componente():
     cantCreditos: int
     asignaturasObligatorias: Asignatura = []
     asignaturasElectivas: Asignatura = []
+    subcomponentes: subComponente = []
