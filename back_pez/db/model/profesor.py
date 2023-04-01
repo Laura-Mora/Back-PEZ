@@ -6,6 +6,7 @@ from sqlalchemy.orm import Mapped
 
 
 class Profesor(Base):
+    __tablename__ = "profesores"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str]
