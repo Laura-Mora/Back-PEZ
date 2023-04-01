@@ -9,8 +9,15 @@ packages = [{include = "back_pez"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 prolog = "^0.3.1"
+sqlalchemy = "^2.0.8"
+psycopg2-binary = "^2.9.5"
+fastapi = "^0.95.0"
+uvicorn = "^0.21.1"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "back_pez.wrapper:start"

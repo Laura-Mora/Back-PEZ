@@ -5,9 +5,9 @@ router = APIRouter(prefix="/perfilEstudiante",
                    tags=["perfilEstudiante"],
                    responses={404: {"message": "No encontrado"}})
 
-@router.get("/", response_model=list[PerfilEstudiante])
+@router.get("/")
 async def perfilesEstudiante():
-    return 
+    return None
 
 @router.get("/{id}")  # Path
 async def perfilEstudiante(id: str):
@@ -22,6 +22,6 @@ def search_perfilEstudiante(field: str, key):
     try:
         #user = db_client.users.find_one({field: key})
         #return Contenido(**user_schema(contenido))
-        return
+        return None
     except:
         return {"error": "No se ha encontrado el contenido"}

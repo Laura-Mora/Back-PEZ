@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import APIRouter
 from db.model.actividad import Actividad
 
@@ -5,9 +6,9 @@ router = APIRouter(prefix="/actividad",
                    tags=["actividad"],
                    responses={404: {"message": "No encontrado"}})
 
-@router.get("/", response_model=list[Actividad])
+@router.get("/")
 async def actividades():
-    return 
+    return None
 
 @router.get("/{id}")  # Path
 async def actividad(id: str):
@@ -22,6 +23,6 @@ def search_actividad(field: str, key):
     try:
         #user = db_client.users.find_one({field: key})
         #return Contenido(**user_schema(contenido))
-        return
+        return None
     except:
         return {"error": "No se ha encontrado el contenido"}

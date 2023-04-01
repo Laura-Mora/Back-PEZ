@@ -5,9 +5,9 @@ router = APIRouter(prefix="/componenteClase",
                    tags=["componenteClase"],
                    responses={404: {"message": "No encontrado"}})
 
-@router.get("/", response_model=list[ComponenteClase])
+@router.get("/")
 async def componentesClase():
-    return 
+    return None
 
 @router.get("/{id}")  # Path
 async def componenteClase(id: str):
@@ -22,6 +22,6 @@ def search_componenteClase(field: str, key):
     try:
         #user = db_client.users.find_one({field: key})
         #return Contenido(**user_schema(contenido))
-        return
+        return None
     except:
         return {"error": "No se ha encontrado el contenido"}
