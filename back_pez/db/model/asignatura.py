@@ -23,6 +23,34 @@ asignaturas_profesores = Table(
     Column("profesores_id", ForeignKey("profesores.id"), primary_key=True),
 )
 
+asignaturas_horarios = Table(
+    "asignaturas_horarios",
+    Base.metadata,
+    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("horarios_id", ForeignKey("horarios.id"), primary_key=True),
+)
+
+asignaturas_competencia = Table(
+    "asignaturas_competencia",
+    Base.metadata,
+    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("competencias_id", ForeignKey("competencias.id"), primary_key=True),
+)
+
+asignaturas_actividades = Table(
+    "asignaturas_actividadesa",
+    Base.metadata,
+    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("actividades_id", ForeignKey("actividades.id"), primary_key=True),
+)
+
+asignaturas_contenido = Table(
+    "asignaturas_actividadesa",
+    Base.metadata,
+    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("contenidos_id", ForeignKey("contenidos.id"), primary_key=True),
+)
+
 class Asignatura(Base):
     __tablename__ = "asignaturas"
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -33,8 +61,8 @@ class Asignatura(Base):
     modalidad: Mapped[ComponenteClase] #Mirar esto en la documentación relacion uno muchos
     profesores: Mapped[List[Profesor]] = relationship(secondary = asignaturas_profesores)
     modoEnsenianza: Mapped[ModoEnsenianza]
-    horarios: Horario = []
-    competencias: Competencia = []
-    actividades: Actividad = []
-    tematicas: Contenido = []
+    horarios: Mapped[List[Horario]] = relationship(secondary = asignaturas_horarios)
+    competencias: Mapped[List[Competencia]] = relationship(secondary = asignaturas_competencia)
+    actividades: Mapped[List[Actividad]] = relationship(secondary = asignaturas_actividades)
+    tematicas: Mapped[List[Contenido]] = relationship(secondary = asignaturas_contenido)
 
