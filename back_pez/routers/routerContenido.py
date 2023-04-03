@@ -1,27 +1,35 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from sqlalchemy.orm import sessionmaker
 from db.model.contenido import Contenido
+from db.dbconfig import engine
 
 router = APIRouter(prefix="/contenido",
                    tags=["contenido"],
                    responses={404: {"message": "No encontrado"}})
 
+Session = sessionmaker(bind=engine)
+
 @router.get("/")
 async def contenidos():
-    return None
+    session = Session()
+    contenidos = session.query(Contenido).all()
+    session.close()
+    return contenidos
 
 @router.get("/{id}")  # Path
 async def contenido(id: str):
-    return search_contenido("_id", id)
+    session = Session()
+    contenido = session.query(Contenido).filter(Contenido.id == id).first()
+    session.close()
+    if not contenido:
+        raise HTTPException(status_code=404, detail='Contenido no encontrado')
+    return contenido
 
-
-@router.get("/")  # Query
-async def contenido(id: str):
-    return search_contenido("_id", id)
-
-def search_contenido(field: str, key):
-    try:
-        #user = db_client.users.find_one({field: key})
-        #return Contenido(**user_schema(contenido))
-        return None
-    except:
-        return {"error": "No se ha encontrado el contenido"}
+@router.post('/')
+async def crear_contenido(id: int,nombre: str):
+    session = Session()
+    nuevo_contenido = Contenido(id=id,nombre=nombre)
+    session.add(nuevo_contenido)
+    session.commit()
+    session.close()
+    return nuevo_contenido

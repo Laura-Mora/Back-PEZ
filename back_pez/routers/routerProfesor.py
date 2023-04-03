@@ -1,27 +1,36 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from sqlalchemy.orm import sessionmaker
 from db.model.profesor import Profesor
+from db.dbconfig import engine
 
 router = APIRouter(prefix="/profesor",
                    tags=["profesor"],
                    responses={404: {"message": "No encontrado"}})
 
+Session = sessionmaker(bind=engine)
+
 @router.get("/")
 async def profesores():
-    return None
+    session = Session()
+    profesores = session.query(Profesor).all()
+    session.close()
+    return profesores
 
 @router.get("/{id}")  # Path
 async def profesor(id: str):
-    return search_profesor("_id", id)
+    session = Session()
+    profesor = session.query(Profesor).filter(Profesor.id == id).first()
+    session.close()
+    if not profesor:
+        raise HTTPException(status_code=404, detail='Profesor no encontrado')
+    return profesor
 
 
-@router.get("/")  # Query
-async def profesor(id: str):
-    return search_profesor("_id", id)
-
-def search_profesor(field: str, key):
-    try:
-        #user = db_client.users.find_one({field: key})
-        #return Contenido(**user_schema(contenido))
-        return None
-    except:
-        return {"error": "No se ha encontrado el contenido"}
+@router.post('/')
+async def crear_profesor(id: int,nombre: str):
+    session = Session()
+    nuevo_profesor = Profesor(id=id,nombre=nombre)
+    session.add(nuevo_profesor)
+    session.commit()
+    session.close()
+    return nuevo_profesor

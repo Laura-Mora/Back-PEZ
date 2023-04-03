@@ -1,5 +1,8 @@
 from back_pez.db.model.componente import Componente
 from sqlalchemy.orm import mapped_column
+
+from back_pez.db.model.usuario import Usuario
+from back_pez.db.model.usuario import usuarios_programas
 from .base import Base
 
 from sqlalchemy.orm import Mapped
@@ -10,11 +13,11 @@ from sqlalchemy import ForeignKey
 
 from typing import List
 
-programas_contenidos= Table(
-    "programas_contenidos",
+programas_componentes= Table(
+    "programas_componentes",
     Base.metadata,
     Column("programas_id", ForeignKey("programas.id"), primary_key=True),
-    Column("contenidos_id", ForeignKey("contenidos.id"), primary_key=True),
+    Column("componentes_id", ForeignKey("componentes.id"), primary_key=True),
 )
 
 class Programa(Base):
@@ -23,6 +26,7 @@ class Programa(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str]
     cantCreditos: Mapped[int]
-    componentes: Mapped[List[Componente]] = relationship(secondary = programas_contenidos)
+    componentes: Mapped[List[Componente]] = relationship(secondary = programas_componentes)
+    usuarios: Mapped[List[Usuario]] = relationship(secondary = usuarios_programas)
     
     

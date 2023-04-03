@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from routers import routerActividad, routerAsignatura, routerCompetencia, routerComponente, routerComponenteClase, routerContenido, routerHorario, routerModoEnsenianza, routerPerfilEstudiante, routerProfesor, routerPrograma, routerSubComponente, routerUsuario
 
 app = FastAPI()

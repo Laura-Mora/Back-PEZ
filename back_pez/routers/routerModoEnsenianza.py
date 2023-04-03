@@ -1,27 +1,36 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from sqlalchemy.orm import sessionmaker
 from db.model.modoEnsenianza import ModoEnsenianza
+from db.dbconfig import engine
 
 router = APIRouter(prefix="/modoEnsenianza",
                    tags=["modoEnsenianza"],
                    responses={404: {"message": "No encontrado"}})
 
+Session = sessionmaker(bind=engine)
+
 @router.get("/")
 async def modosEnsenianza():
-    return None
+    session = Session()
+    modos = session.query(ModoEnsenianza).all()
+    session.close()
+    return modos
 
 @router.get("/{id}")  # Path
 async def modoEnsenianza(id: str):
-    return search_modo("_id", id)
+    session = Session()
+    modo = session.query(ModoEnsenianza).filter(ModoEnsenianza.id == id).first()
+    session.close()
+    if not modo:
+        raise HTTPException(status_code=404, detail='Modo de enseñanza no encontrado')
+    return modo
 
 
-@router.get("/")  # Query
-async def modoEnsenianza(id: str):
-    return search_modo("_id", id)
-
-def search_modo(field: str, key):
-    try:
-        #user = db_client.users.find_one({field: key})
-        #return Contenido(**user_schema(contenido))
-        return None
-    except:
-        return {"error": "No se ha encontrado el contenido"}
+@router.post('/')
+async def crear_modo(id: int,nombre: str):
+    session = Session()
+    nuevo_modo = ModoEnsenianza(id=id,nombre=nombre)
+    session.add(nuevo_modo)
+    session.commit()
+    session.close()
+    return nuevo_modo

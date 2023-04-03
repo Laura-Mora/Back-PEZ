@@ -45,7 +45,7 @@ asignaturas_actividades = Table(
 )
 
 asignaturas_contenido = Table(
-    "asignaturas_actividadesa",
+    "asignaturas_contenido",
     Base.metadata,
     Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
     Column("contenidos_id", ForeignKey("contenidos.id"), primary_key=True),
