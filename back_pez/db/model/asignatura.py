@@ -6,6 +6,7 @@ from back_pez.db.model.contenido import Contenido
 from back_pez.db.model.horario import Horario
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza
 from back_pez.db.model.profesor import Profesor
+from back_pez.db.model.reseniaAsignatura import ReseniaAsignatura
 
 from sqlalchemy.orm import mapped_column
 from .base import Base
@@ -65,4 +66,5 @@ class Asignatura(Base):
     competencias: Mapped[List[Competencia]] = relationship(secondary = asignaturas_competencia)
     actividades: Mapped[List[Actividad]] = relationship(secondary = asignaturas_actividades)
     tematicas: Mapped[List[Contenido]] = relationship(secondary = asignaturas_contenido)
+    resenias: Mapped[List[ReseniaAsignatura]]
 

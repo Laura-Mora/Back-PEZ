@@ -1,27 +1,40 @@
-from fastapi import APIRouter
+from typing import List
+
+from fastapi import APIRouter, HTTPException
+from sqlalchemy.orm import sessionmaker
 from db.model.programa import Programa
+from back_pez.db.model.componente import Componente
+from back_pez.db.model.usuario import Usuario
+
+from db.dbconfig import engine
 
 router = APIRouter(prefix="/programa",
                    tags=["programa"],
                    responses={404: {"message": "No encontrado"}})
 
+Session = sessionmaker(bind=engine)
+
 @router.get("/")
 async def programas():
-    return None
+    session = Session()
+    programas = session.query(Programa).all()
+    session.close()
+    return programas
 
 @router.get("/{id}")  # Path
 async def programa(id: str):
-    return search_programa("_id", id)
+    session = Session()
+    programa = session.query(Programa).filter(Programa.id == id).first()
+    session.close()
+    if not programa:
+        raise HTTPException(status_code=404, detail='Programa no encontrado')
+    return programa
 
-
-@router.get("/")  # Query
-async def programa(id: str):
-    return search_programa("_id", id)
-
-def search_programa(field: str, key):
-    try:
-        #user = db_client.users.find_one({field: key})
-        #return Contenido(**user_schema(contenido))
-        return None
-    except:
-        return {"error": "No se ha encontrado el contenido"}
+@router.post('/')
+async def crear_programa(id: int,nombre: str, cantCreditos: int,componentes: List[Componente],usuarios: List[Usuario]):
+    session = Session()
+    nuevo_programa = Programa(id=id,nombre=nombre,cantCreditos=cantCreditos,componentes=componentes,usuarios=usuarios)
+    session.add(nuevo_programa)
+    session.commit()
+    session.close()
+    return nuevo_programa

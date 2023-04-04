@@ -1,27 +1,37 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from sqlalchemy.orm import sessionmaker
 from db.model.competencia import Competencia
+
+from db.dbconfig import engine
 
 router = APIRouter(prefix="/competencia",
                    tags=["competencia"],
                    responses={404: {"message": "No encontrado"}})
 
+Session = sessionmaker(bind=engine)
+
 @router.get("/")
 async def competencias():
-    return None
+    session = Session()
+    competencias = session.query(Competencia).all()
+    session.close()
+    return competencias
 
 @router.get("/{id}")  # Path
 async def competencia(id: str):
-    return search_competencia("_id", id)
+    session = Session()
+    competencia = session.query(Competencia).filter(Competencia.id == id).first()
+    session.close()
+    if not competencia:
+        raise HTTPException(status_code=404, detail='Competencia no encontrado')
+    return competencia
 
 
-@router.get("/")  # Query
-async def competencia(id: str):
-    return search_competencia("_id", id)
-
-def search_competencia(field: str, key):
-    try:
-        #user = db_client.users.find_one({field: key})
-        #return Contenido(**user_schema(contenido))
-        return None
-    except:
-        return {"error": "No se ha encontrado el contenido"}
+@router.post('/')
+async def crear_competencia(id: int,nombre: str):
+    session = Session()
+    nueva_competencia = Competencia(id=id,nombre=nombre)
+    session.add(nueva_competencia)
+    session.commit()
+    session.close()
+    return nueva_competencia
