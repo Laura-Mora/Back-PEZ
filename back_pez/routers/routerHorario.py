@@ -35,3 +35,16 @@ async def crear_horario(id: int,dia: str, hora:datetime.time):
     session.commit()
     session.close()
     return nuevo_hoario 
+
+@router.put('/{id}')
+def actualizar_horario(id: int, horario_update: dict):
+    session = Session()
+    horario = session.query(Horario).filter(Horario.id == id).first()
+    if not horario:
+        raise HTTPException(status_code=404, detail='Horario no encontrado')
+    for campo, valor in horario_update.items():
+        setattr(horario, campo, valor)
+    session.add(horario)
+    session.commit()
+    session.close()
+    return horario

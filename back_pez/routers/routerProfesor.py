@@ -34,3 +34,16 @@ async def crear_profesor(id: int,nombre: str):
     session.commit()
     session.close()
     return nuevo_profesor
+
+@router.put('/{id}')
+def actualizar_perfil(id: int, profesor_update: dict):
+    session = Session()
+    profesor = session.query(Profesor).filter(Profesor.id == id).first()
+    if not profesor:
+        raise HTTPException(status_code=404, detail='Profesor no encontrado')
+    for campo, valor in profesor_update.items():
+        setattr(profesor, campo, valor)
+    session.add(profesor)
+    session.commit()
+    session.close()
+    return profesor

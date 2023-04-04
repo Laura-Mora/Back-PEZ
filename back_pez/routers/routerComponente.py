@@ -38,3 +38,16 @@ async def crear_componente(id: int,nombre: str, asignaturasObligatorias:List[Asi
     session.commit()
     session.close()
     return nuevo_componente
+
+@router.put('/{id}')
+def actualizar_componente(id: int, componente_update: dict):
+    session = Session()
+    componente = session.query(Componente).filter(Componente.id == id).first()
+    if not componente:
+        raise HTTPException(status_code=404, detail='Competencia no encontrado')
+    for campo, valor in componente_update.items():
+        setattr(componente, campo, valor)
+    session.add(componente)
+    session.commit()
+    session.close()
+    return componente

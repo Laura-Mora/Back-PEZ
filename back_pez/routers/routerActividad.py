@@ -34,3 +34,16 @@ async def crear_actividad(id: int,nombre: str):
     session.commit()
     session.close()
     return nueva_actividad 
+
+@router.put('/{id}')
+def actualizar_actividad(id: int, actividad_update: dict):
+    session = Session()
+    actividad = session.query(Actividad).filter(Actividad.id == id).first()
+    if not actividad:
+        raise HTTPException(status_code=404, detail='Actividad no encontrado')
+    for campo, valor in actividad_update.items():
+        setattr(actividad, campo, valor)
+    session.add(actividad)
+    session.commit()
+    session.close()
+    return actividad

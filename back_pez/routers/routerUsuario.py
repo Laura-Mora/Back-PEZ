@@ -38,3 +38,16 @@ async def crear_usuario(id: int,nombre: str, correo: str, contrasenia: str,
     session.commit()
     session.close()
     return nuevo_usuario
+
+@router.put('/{id}')
+def actualizar_usuario(id: int, usuario_update: dict):
+    session = Session()
+    usuario = session.query(Usuario).filter(Usuario.id == id).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail='Usuario no encontrado')
+    for campo, valor in usuario_update.items():
+        setattr(usuario, campo, valor)
+    session.add(usuario)
+    session.commit()
+    session.close()
+    return usuario

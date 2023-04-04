@@ -52,3 +52,16 @@ async def crear_perfil(id: int, profesion: str, javeriano: bool, semestre: int, 
     session.commit()
     session.close()
     return nuevo_perfil
+
+@router.put('/{id}')
+def actualizar_perfil(id: int, perfil_update: dict):
+    session = Session()
+    perfil = session.query(PerfilEstudiante).filter(PerfilEstudiante.id == id).first()
+    if not perfil:
+        raise HTTPException(status_code=404, detail='Perfil no encontrado')
+    for campo, valor in perfil_update.items():
+        setattr(perfil, campo, valor)
+    session.add(perfil)
+    session.commit()
+    session.close()
+    return perfil

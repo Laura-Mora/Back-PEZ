@@ -43,3 +43,16 @@ async def crear_resenia(id: int, aprendizaje: bool, tematicaRequeridas: bool, es
     session.commit()
     session.close()
     return nuevo_resenia
+
+@router.put('/{id}')
+def actualizar_resenia(id: int, resenia_update: dict):
+    session = Session()
+    resenia = session.query(ReseniaAsignatura).filter(ReseniaAsignatura.id == id).first()
+    if not resenia:
+        raise HTTPException(status_code=404, detail='Reseña no encontrado')
+    for campo, valor in resenia_update.items():
+        setattr(resenia, campo, valor)
+    session.add(resenia)
+    session.commit()
+    session.close()
+    return resenia

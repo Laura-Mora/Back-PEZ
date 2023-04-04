@@ -33,3 +33,16 @@ async def crear_contenido(id: int,nombre: str):
     session.commit()
     session.close()
     return nuevo_contenido
+
+@router.put('/{id}')
+def actualizar_contenido(id: int, contenido_update: dict):
+    session = Session()
+    contenido = session.query(Contenido).filter(Contenido.id == id).first()
+    if not contenido:
+        raise HTTPException(status_code=404, detail='Competencia no encontrado')
+    for campo, valor in contenido_update.items():
+        setattr(contenido, campo, valor)
+    session.add(contenido)
+    session.commit()
+    session.close()
+    return contenido

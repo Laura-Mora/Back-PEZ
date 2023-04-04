@@ -48,3 +48,16 @@ async def crear_asignatura(id: int,nombre: str, poblacionObjetivo: str, creditos
     session.commit()
     session.close()
     return nueva_asignatura
+
+@router.put('/{id}')
+def actualizar_asignatura(id: int, asignatura_update: dict):
+    session = Session()
+    asignatura = session.query(Asignatura).filter(Asignatura.id == id).first()
+    if not asignatura:
+        raise HTTPException(status_code=404, detail='Asignatura no encontrado')
+    for campo, valor in asignatura_update.items():
+        setattr(asignatura, campo, valor)
+    session.add(asignatura)
+    session.commit()
+    session.close()
+    return asignatura

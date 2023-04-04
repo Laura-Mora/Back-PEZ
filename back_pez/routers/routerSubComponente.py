@@ -33,9 +33,22 @@ async def subcomponente(id: str):
 async def crear_subcomponente(id: int,nombre: str, cantCreditos: int,cantAsignaturas: int,
     asignaturasObligatorias: List[Asignatura], asignaturasElectivas: List[Asignatura] ):
     session = Session()
-    nuevo_subcomponente = Asignatura(id=id,nombre=nombre, cantCreditos=cantCreditos,cantAsignaturas=cantAsignaturas,
+    nuevo_subcomponente = subComponente(id=id,nombre=nombre, cantCreditos=cantCreditos,cantAsignaturas=cantAsignaturas,
     asignaturasObligatorias=asignaturasObligatorias, asignaturasElectivas=asignaturasElectivas)
     session.add(nuevo_subcomponente)
     session.commit()
     session.close()
     return nuevo_subcomponente
+
+@router.put('/{id}')
+def actualizar_subcomponente(id: int, subcomponente_update: dict):
+    session = Session()
+    subcomponente = session.query(subComponente).filter(subComponente.id == id).first()
+    if not subcomponente:
+        raise HTTPException(status_code=404, detail='SubComponente no encontrado')
+    for campo, valor in subcomponente_update.items():
+        setattr(subcomponente, campo, valor)
+    session.add(subcomponente)
+    session.commit()
+    session.close()
+    return subcomponente

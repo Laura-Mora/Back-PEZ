@@ -35,3 +35,16 @@ async def crear_competencia(id: int,nombre: str):
     session.commit()
     session.close()
     return nueva_competencia
+
+@router.put('/{id}')
+def actualizar_competencia(id: int, competencia_update: dict):
+    session = Session()
+    competencia = session.query(Competencia).filter(Competencia.id == id).first()
+    if not competencia:
+        raise HTTPException(status_code=404, detail='Competencia no encontrado')
+    for campo, valor in competencia_update.items():
+        setattr(competencia, campo, valor)
+    session.add(competencia)
+    session.commit()
+    session.close()
+    return competencia

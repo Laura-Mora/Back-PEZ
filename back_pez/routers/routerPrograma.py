@@ -38,3 +38,16 @@ async def crear_programa(id: int,nombre: str, cantCreditos: int,componentes: Lis
     session.commit()
     session.close()
     return nuevo_programa
+
+@router.put('/{id}')
+def actualizar_programa(id: int, programa_update: dict):
+    session = Session()
+    programa = session.query(Programa).filter(Programa.id == id).first()
+    if not programa:
+        raise HTTPException(status_code=404, detail='Programa no encontrado')
+    for campo, valor in programa_update.items():
+        setattr(programa, campo, valor)
+    session.add(programa)
+    session.commit()
+    session.close()
+    return programa
