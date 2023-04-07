@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
 from db.model.usuario import Usuario
-from back_pez.db.model.programa import Programa, ProgramaModel
+from back_pez.db.model.programa import ProgramaModel
 
 from db.dbconfig import engine
 

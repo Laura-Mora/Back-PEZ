@@ -5,7 +5,7 @@ from back_pez.db.model.perfilEstudiante import PerfilEstudiante, PerfilEstudiant
 
 from sqlalchemy.orm import mapped_column
 
-#from back_pez.db.model.programa import ProgramaModel
+from back_pez.db.model.programa import Programa, ProgramaModel
 from .base import Base
 from sqlalchemy.orm import Mapped
 
@@ -30,7 +30,7 @@ class Usuario(Base):
     nombre: Mapped[str]
     correo: Mapped[str]
     contrasenia: Mapped[str]
-    #programa: Mapped[List["Programa"]] = relationship(secondary = usuarios_programas)
+    programa: Mapped[List[Programa]] = relationship(secondary = usuarios_programas)
     tipo: Mapped[str]
     perfilEstudiante_id: Mapped[int] = mapped_column(ForeignKey("perfilesEstudiantes.id"))
     perfilEstudiante: Mapped[PerfilEstudiante] = relationship()
@@ -42,7 +42,7 @@ class UsuarioModelo(BaseModel):
     nombre: str
     correo: str
     contrasenia: str
-    #programa: List[ProgramaModel]
+    programa: List[ProgramaModel]
     tipo: str
     perfilEstudiante_id: int
     perfilEstudiante: PerfilEstudianteModelo

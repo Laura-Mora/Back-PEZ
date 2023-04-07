@@ -1,8 +1,7 @@
 from back_pez.db.model.componente import Componente, ComponenteModelo
 from sqlalchemy.orm import mapped_column
 
-from back_pez.db.model.usuario import Usuario
-from back_pez.db.model.usuario import usuarios_programas
+
 from .base import Base
 
 from sqlalchemy.orm import Mapped
@@ -29,7 +28,6 @@ class Programa(Base):
     nombre: Mapped[str]
     cantCreditos: Mapped[int]
     componentes: Mapped[List[Componente]] = relationship(secondary = programas_componentes)
-    #usuarios: Mapped[List[Usuario]] = relationship(secondary = usuarios_programas)
     
 class ProgramaModel(BaseModel):
 
