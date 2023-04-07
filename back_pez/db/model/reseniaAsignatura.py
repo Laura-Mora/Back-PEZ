@@ -4,12 +4,14 @@ from .base import Base
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import relationship
 
-from back_pez.db.model.asignatura import Asignatura
+from pydantic import BaseModel
+
+#from back_pez.db.model.asignatura import Asignatura
 
 class ReseniaAsignatura(Base):
     __tablename__ = "reseniaAsignatura"
 
-    id: Mapped[int]
+    id: Mapped[int] = mapped_column(primary_key=True)
     aprendizaje: Mapped[bool]
     tematicaRequeridas: Mapped[bool]
     estrategiasPedagogicasProfesor: Mapped[bool]
@@ -23,4 +25,21 @@ class ReseniaAsignatura(Base):
     retroalimentacion: Mapped[bool]
     comentarios: Mapped[str]
     incidenciaProfesor: Mapped[str]
-    asignatura: Mapped[Asignatura]
+   # asignatura: Mapped[Asignatura]
+
+class ReseniaAsignaturaModelo(BaseModel):
+
+    id: int
+    aprendizaje: bool
+    tematicaRequeridas: bool
+    estrategiasPedagogicasProfesor: bool
+    actividadesAsignatura: bool
+    complejidad: str
+    agradoProfesor: bool
+    vidaOTrabajo: str
+    cargaAsigantura: bool
+    nivelExigencia: str
+    entregaNotas: bool
+    retroalimentacion: bool
+    comentarios: str
+    incidenciaProfesor: str

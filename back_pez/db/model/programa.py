@@ -1,4 +1,4 @@
-from back_pez.db.model.componente import Componente
+from back_pez.db.model.componente import Componente, ComponenteModelo
 from sqlalchemy.orm import mapped_column
 
 from back_pez.db.model.usuario import Usuario
@@ -12,6 +12,8 @@ from sqlalchemy import Table
 from sqlalchemy import ForeignKey
 
 from typing import List
+
+from pydantic import BaseModel
 
 programas_componentes= Table(
     "programas_componentes",
@@ -27,6 +29,11 @@ class Programa(Base):
     nombre: Mapped[str]
     cantCreditos: Mapped[int]
     componentes: Mapped[List[Componente]] = relationship(secondary = programas_componentes)
-    usuarios: Mapped[List[Usuario]] = relationship(secondary = usuarios_programas)
+    #usuarios: Mapped[List[Usuario]] = relationship(secondary = usuarios_programas)
     
-    
+class ProgramaModel(BaseModel):
+
+    id: int
+    nombre:str
+    cantCreditos: int
+    componentes: List[ComponenteModelo]

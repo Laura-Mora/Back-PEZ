@@ -10,14 +10,14 @@ router = APIRouter(prefix="/componenteClase",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def componentesClase():
+def componentesClase():
     session = Session()
     modalidades = session.query(ComponenteClase).all()
     session.close()
     return modalidades
 
 @router.get("/{id}")  # Path
-async def componenteClase(id: str):
+def componenteClase(id: str):
     session = Session()
     modalidad = session.query(ComponenteClase).filter(ComponenteClase.id == id).first()
     session.close()
@@ -27,7 +27,7 @@ async def componenteClase(id: str):
 
 
 @router.post('/')
-async def crear_modalidad(id: int,nombre: str):
+def crear_modalidad(id: int,nombre: str):
     session = Session()
     nuevo_modalidad = ComponenteClase(id=id,nombre=nombre)
     session.add(nuevo_modalidad)

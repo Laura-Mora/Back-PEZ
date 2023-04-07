@@ -14,14 +14,14 @@ router = APIRouter(prefix="/resenia",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def resenias():
+def resenias():
     session = Session()
     resenias = session.query(ReseniaAsignatura).all()
     session.close()
     return resenias
 
 @router.get("/{id}")  # Path
-async def resenia(id: str):
+def resenia(id: str):
     session = Session()
     resenia = session.query(ReseniaAsignatura).filter(ReseniaAsignatura.id == id).first()
     session.close()
@@ -30,7 +30,7 @@ async def resenia(id: str):
     return resenia
 
 @router.post('/')
-async def crear_resenia(id: int, aprendizaje: bool, tematicaRequeridas: bool, estrategiasPedagogicasProfesor: bool,
+def crear_resenia(id: int, aprendizaje: bool, tematicaRequeridas: bool, estrategiasPedagogicasProfesor: bool,
     actividadesAsignatura: bool, complejidad: str, agradoProfesor: bool, vidaOTrabajo: str, cargaAsigantura: bool,
     nivelExigencia: str, entregaNotas: bool, retroalimentacion: bool, comentarios: str, incidenciaProfesor: str,
     asignatura: Asignatura):

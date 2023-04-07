@@ -1,12 +1,12 @@
 from typing import List
 
-from back_pez.db.model.actividad import Actividad
-from back_pez.db.model.asignatura import Asignatura
-from back_pez.db.model.competencia import Competencia
-from back_pez.db.model.componenteClase import ComponenteClase
-from back_pez.db.model.contenido import Contenido
-from back_pez.db.model.horario import Horario
-from back_pez.db.model.modoEnsenianza import ModoEnsenianza
+from back_pez.db.model.actividad import Actividad, ActividadModelo
+from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
+from back_pez.db.model.competencia import Competencia, CompetenciaModel
+from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseModelo
+from back_pez.db.model.contenido import Contenido, ContenidoModelo
+from back_pez.db.model.horario import Horario, HorarioModel
+from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
 
 from sqlalchemy.orm import mapped_column
 from .base import Base
@@ -16,6 +16,8 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Column
 from sqlalchemy import Table
 from sqlalchemy import ForeignKey
+
+from pydantic import BaseModel
 
 perfiles_asignaturasCursadas = Table(
     "perfiles_asignaturasCursadas",
@@ -89,3 +91,19 @@ class PerfilEstudiante(Base):
     competenciasGusto: Mapped[List[Competencia]] = relationship(secondary = perfiles_competencias)
     actividadesGusto: Mapped[List[Actividad]] = relationship(secondary = perfiles_actividades)
     tematicasGusto: Mapped[List[Contenido]] = relationship(secondary = perfiles_contenidos)
+
+class PerfilEstudianteModelo(BaseModel):
+ 
+    id: int
+    profesion: str
+    javeriano: bool
+    semestre: int
+    areaDesempenio: str
+    asignaturasCursadas: List[AsignaturaModelo]
+    asignaturasGustadas: List[AsignaturaModelo]
+    modalidadPreferencia: List[ComponenteClaseModelo]
+    modoEnsenianzaPreferencia: List[ModoEnsenianzaModel]
+    horariosPreferencias: List[HorarioModel]
+    competenciasGusto: List[CompetenciaModel]
+    actividadesGusto: List[ActividadModelo]
+    tematicasGusto: List[ContenidoModelo]

@@ -1,12 +1,14 @@
 from typing import List
-from back_pez.db.model.actividad import Actividad
-from back_pez.db.model.competencia import Competencia
-from back_pez.db.model.componenteClase import ComponenteClase
-from back_pez.db.model.contenido import Contenido
-from back_pez.db.model.horario import Horario
-from back_pez.db.model.modoEnsenianza import ModoEnsenianza
-from back_pez.db.model.profesor import Profesor
-from back_pez.db.model.reseniaAsignatura import ReseniaAsignatura
+from back_pez.db.model.actividad import Actividad, ActividadModelo
+from back_pez.db.model.competencia import Competencia, CompetenciaModel
+from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseModelo
+from back_pez.db.model.contenido import Contenido, ContenidoModelo
+from back_pez.db.model.horario import Horario, HorarioModel
+from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
+from back_pez.db.model.profesor import Profesor, ProfesorModel
+from back_pez.db.model.reseniaAsignatura import ReseniaAsignatura, ReseniaAsignaturaModelo
+
+from pydantic import BaseModel
 
 from sqlalchemy.orm import mapped_column
 from .base import Base
@@ -39,7 +41,7 @@ asignaturas_competencia = Table(
 )
 
 asignaturas_actividades = Table(
-    "asignaturas_actividadesa",
+    "asignaturas_actividades",
     Base.metadata,
     Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
     Column("actividades_id", ForeignKey("actividades.id"), primary_key=True),
@@ -59,12 +61,27 @@ class Asignatura(Base):
     poblacionObjetivo: Mapped[str]
     creditos: Mapped[int]
     complejidad: Mapped[str]
-    modalidad: Mapped[ComponenteClase] #Mirar esto en la documentación relacion uno muchos
+    modalidad: Mapped[ComponenteClase] = relationship()
     profesores: Mapped[List[Profesor]] = relationship(secondary = asignaturas_profesores)
-    modoEnsenianza: Mapped[ModoEnsenianza]
+    modoEnsenianza: Mapped[ModoEnsenianza] = relationship()
     horarios: Mapped[List[Horario]] = relationship(secondary = asignaturas_horarios)
     competencias: Mapped[List[Competencia]] = relationship(secondary = asignaturas_competencia)
     actividades: Mapped[List[Actividad]] = relationship(secondary = asignaturas_actividades)
     tematicas: Mapped[List[Contenido]] = relationship(secondary = asignaturas_contenido)
-    resenias: Mapped[List[ReseniaAsignatura]]
+    resenias: Mapped[List[ReseniaAsignatura]] = relationship()
 
+class AsignaturaModelo(BaseModel):
+
+    id: int
+    nombre: str
+    poblacionObjetivo: str
+    creditos: int
+    complejidad: str
+    modalidad: ComponenteClaseModelo 
+    profesores: list[ProfesorModel]
+    modoEnsenianza: ModoEnsenianzaModel
+    horarios: list[HorarioModel]
+    competencias: list[CompetenciaModel]
+    actividades: list[ActividadModelo]
+    tematicas: list[ContenidoModelo]
+    resenias: list[ReseniaAsignaturaModelo]

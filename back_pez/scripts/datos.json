@@ -1,0 +1,48 @@
+{
+    "actividades": [
+        {
+            "id":1,
+            "nombre":"taller"
+        },
+        {
+            "id":2,
+            "nombre":"parcial"
+        },
+        {
+            "id":3,
+            "nombre":"quiz"
+        },
+        {
+            "id":4,
+            "nombre":"proyecto"
+        }
+    ],
+    "ModoEnsenianza": [
+        {
+            "id":1,
+            "nombre":"teorico"
+        },
+        {
+            "id":2,
+            "nombre":"practico"
+        },
+        {
+            "id":3,
+            "nombre":"teorico-practico"
+        }
+    ],
+    "ComponenteClase":[
+        {
+            "id":1,
+            "nombre":"presencial"
+        },
+        {
+            "id":2,
+            "nombre":"virtual"
+        },
+        {
+            "id":3,
+            "nombre":"hibrido"
+        }
+    ]
+}

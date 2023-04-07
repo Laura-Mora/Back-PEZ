@@ -10,14 +10,14 @@ router = APIRouter(prefix="/contenido",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def contenidos():
+def contenidos():
     session = Session()
     contenidos = session.query(Contenido).all()
     session.close()
     return contenidos
 
 @router.get("/{id}")  # Path
-async def contenido(id: str):
+def contenido(id: str):
     session = Session()
     contenido = session.query(Contenido).filter(Contenido.id == id).first()
     session.close()
@@ -26,7 +26,7 @@ async def contenido(id: str):
     return contenido
 
 @router.post('/')
-async def crear_contenido(id: int,nombre: str):
+def crear_contenido(id: int,nombre: str):
     session = Session()
     nuevo_contenido = Contenido(id=id,nombre=nombre)
     session.add(nuevo_contenido)

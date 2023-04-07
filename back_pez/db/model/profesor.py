@@ -4,8 +4,10 @@ from .base import Base
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import relationship
 
-from back_pez.db.model.asignatura import Asignatura
-from back_pez.db.model.asignatura import asignaturas_profesores
+from pydantic import BaseModel
+
+#from back_pez.db.model.asignatura import Asignatura
+#from back_pez.db.model.asignatura import asignaturas_profesores
 
 
 
@@ -14,6 +16,8 @@ class Profesor(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str]
-    asignaturas: Mapped[List[Asignatura]] = relationship(secondary = asignaturas_profesores)
+    #asignaturas: Mapped[List[Asignatura]] = relationship(secondary = asignaturas_profesores,nullable=True)
     
-
+class ProfesorModel(BaseModel):
+    id: int
+    nombre: str

@@ -1,9 +1,12 @@
 from typing import List
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.componente import ComponenteModelo
 from db.model.componente import Componente
-from back_pez.db.model.asignatura import Asignatura
-from back_pez.db.model.subComponente import subComponente
+from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
+from back_pez.db.model.subComponente import subComponente, subComponenteModelo
+
+from negocio import negocioComponente
 
 from db.dbconfig import engine
 
@@ -14,14 +17,14 @@ router = APIRouter(prefix="/componente",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def componentes():
+def componentes():
     session = Session()
     componentes = session.query(Componente).all()
     session.close()
     return componentes
 
 @router.get("/{id}")  # Path
-async def componentes(id: str):
+def componentes(id: str):
     session = Session()
     componente = session.query(Componente).filter(Componente.id == id).first()
     session.close()
@@ -29,17 +32,13 @@ async def componentes(id: str):
         raise HTTPException(status_code=404, detail='Componente no encontrado')
     return componente
 
-@router.post('/')
-async def crear_componente(id: int,nombre: str, asignaturasObligatorias:List[Asignatura],
-    asignaturasElectivas: List[Asignatura], subcomponentes:List[subComponente]):
-    session = Session()
-    nuevo_componente = Componente(id=id,nombre=nombre,asignaturasObligatorias=asignaturasObligatorias,asignaturasElectivas=asignaturasElectivas,subcomponentes=subcomponentes)
-    session.add(nuevo_componente)
-    session.commit()
-    session.close()
-    return nuevo_componente
+@router.post("/",response_model=ComponenteModelo)
+def crear_componente(id: int,nombre: str, asignaturasObligatorias:List[AsignaturaModelo],
+    asignaturasElectivas: List[AsignaturaModelo], subcomponentes:List[subComponenteModelo])->ComponenteModelo:
+    return negocioComponente.crear_componente(id,nombre,asignaturasObligatorias,asignaturasElectivas,subcomponentes)
+    
 
-@router.put('/{id}')
+@router.put("/{id}")
 def actualizar_componente(id: int, componente_update: dict):
     session = Session()
     componente = session.query(Componente).filter(Componente.id == id).first()

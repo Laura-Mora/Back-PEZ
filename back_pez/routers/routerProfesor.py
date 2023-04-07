@@ -10,14 +10,14 @@ router = APIRouter(prefix="/profesor",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def profesores():
+def profesores():
     session = Session()
     profesores = session.query(Profesor).all()
     session.close()
     return profesores
 
 @router.get("/{id}")  # Path
-async def profesor(id: str):
+def profesor(id: str):
     session = Session()
     profesor = session.query(Profesor).filter(Profesor.id == id).first()
     session.close()
@@ -27,7 +27,7 @@ async def profesor(id: str):
 
 
 @router.post('/')
-async def crear_profesor(id: int,nombre: str):
+def crear_profesor(id: int,nombre: str):
     session = Session()
     nuevo_profesor = Profesor(id=id,nombre=nombre)
     session.add(nuevo_profesor)

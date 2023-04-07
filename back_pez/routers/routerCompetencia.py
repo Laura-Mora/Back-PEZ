@@ -11,14 +11,14 @@ router = APIRouter(prefix="/competencia",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def competencias():
+def competencias():
     session = Session()
     competencias = session.query(Competencia).all()
     session.close()
     return competencias
 
 @router.get("/{id}")  # Path
-async def competencia(id: str):
+def competencia(id: str):
     session = Session()
     competencia = session.query(Competencia).filter(Competencia.id == id).first()
     session.close()
@@ -28,7 +28,7 @@ async def competencia(id: str):
 
 
 @router.post('/')
-async def crear_competencia(id: int,nombre: str):
+def crear_competencia(id: int,nombre: str):
     session = Session()
     nueva_competencia = Competencia(id=id,nombre=nombre)
     session.add(nueva_competencia)

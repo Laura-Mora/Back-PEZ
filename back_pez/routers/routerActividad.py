@@ -11,14 +11,14 @@ router = APIRouter(prefix="/actividad",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def actividades():
+def actividades():
     session = Session()
     actividades = session.query(Actividad).all()
     session.close()
     return actividades
 
 @router.get("/{id}")  # Path
-async def actividad(id: int):
+def actividad(id: int):
     session = Session()
     actividad = session.query(Actividad).filter(Actividad.id == id).first()
     session.close()
@@ -27,7 +27,7 @@ async def actividad(id: int):
     return actividad
 
 @router.post('/')
-async def crear_actividad(id: int,nombre: str):
+def crear_actividad(id: int,nombre: str):
     session = Session()
     nueva_actividad = Actividad(id=id,nombre=nombre)
     session.add(nueva_actividad)

@@ -3,13 +3,13 @@ from typing import List
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
 from db.model.perfilEstudiante import PerfilEstudiante
-from back_pez.db.model.actividad import Actividad
-from back_pez.db.model.asignatura import Asignatura
-from back_pez.db.model.competencia import Competencia
-from back_pez.db.model.componenteClase import ComponenteClase
-from back_pez.db.model.contenido import Contenido
-from back_pez.db.model.horario import Horario
-from back_pez.db.model.modoEnsenianza import ModoEnsenianza
+from back_pez.db.model.actividad import Actividad, ActividadModelo
+from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
+from back_pez.db.model.competencia import Competencia, CompetenciaModel
+from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseModelo
+from back_pez.db.model.contenido import Contenido, ContenidoModelo
+from back_pez.db.model.horario import Horario, HorarioModel
+from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
 
 from db.dbconfig import engine
 
@@ -20,14 +20,14 @@ router = APIRouter(prefix="/perfilEstudiante",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def perfilesEstudiante():
+def perfilesEstudiante():
     session = Session()
     perfiles = session.query(PerfilEstudiante).all()
     session.close()
     return perfiles
 
 @router.get("/{id}")  # Path
-async def perfilEstudiante(id: str):
+def perfilEstudiante(id: str):
     session = Session()
     perfil = session.query(PerfilEstudiante).filter(PerfilEstudiante.id == id).first()
     session.close()
@@ -37,11 +37,11 @@ async def perfilEstudiante(id: str):
 
 
 @router.post('/')
-async def crear_perfil(id: int, profesion: str, javeriano: bool, semestre: int, areaDesempenio: str,
-    asignaturasCursadas: List[Asignatura], asignaturasGustadas: List[Asignatura],
-    modalidadPreferencia:List[ComponenteClase],modoEnsenianzaPreferencia: List[ModoEnsenianza],
-    horariosPreferencias: List[Horario], competenciasGusto: List[Competencia],actividadesGusto: List[Actividad],
-    tematicasGusto: List[Contenido]):
+def crear_perfil(id: int, profesion: str, javeriano: bool, semestre: int, areaDesempenio: str,
+    asignaturasCursadas: List[AsignaturaModelo], asignaturasGustadas: List[AsignaturaModelo],
+    modalidadPreferencia:List[ComponenteClaseModelo],modoEnsenianzaPreferencia: List[ModoEnsenianzaModel],
+    horariosPreferencias: List[HorarioModel], competenciasGusto: List[CompetenciaModel],actividadesGusto: List[ActividadModelo],
+    tematicasGusto: List[ContenidoModelo]):
     session = Session()
     nuevo_perfil = PerfilEstudiante(id=id,profesion=profesion, javeriano=javeriano, semestre=semestre, areaDesempenio=areaDesempenio,
     asignaturasCursadas=asignaturasCursadas, asignaturasGustadas=asignaturasGustadas,

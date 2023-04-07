@@ -2,6 +2,7 @@ from typing import List
 
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.asignatura import AsignaturaModelo
 from db.model.asignatura import Asignatura
 from db.model.subComponente import subComponente
 
@@ -14,24 +15,24 @@ router = APIRouter(prefix="/componente",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def subComponentes():
+def subComponentes():
     session = Session()
     subcomponentes = session.query(subComponente).all()
     session.close()
     return subcomponentes
 
 @router.get("/{id}")  # Path
-async def subcomponente(id: str):
+def subcomponente(id: str):
     session = Session()
-    subcomponente = session.query(subComponente).filter(Asignatura.id == id).first()
+    subcomponente = session.query(subComponente).filter(subComponente.id == id).first()
     session.close()
     if not subcomponente:
         raise HTTPException(status_code=404, detail='Subcomponente no encontrada')
     return subcomponente
 
 @router.post('/')
-async def crear_subcomponente(id: int,nombre: str, cantCreditos: int,cantAsignaturas: int,
-    asignaturasObligatorias: List[Asignatura], asignaturasElectivas: List[Asignatura] ):
+def crear_subcomponente(id: int,nombre: str, cantCreditos: int,cantAsignaturas: int,
+    asignaturasObligatorias: List[AsignaturaModelo], asignaturasElectivas: List[AsignaturaModelo] ):
     session = Session()
     nuevo_subcomponente = subComponente(id=id,nombre=nombre, cantCreditos=cantCreditos,cantAsignaturas=cantAsignaturas,
     asignaturasObligatorias=asignaturasObligatorias, asignaturasElectivas=asignaturasElectivas)

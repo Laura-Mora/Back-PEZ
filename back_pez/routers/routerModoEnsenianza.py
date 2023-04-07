@@ -10,14 +10,14 @@ router = APIRouter(prefix="/modoEnsenianza",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
-async def modosEnsenianza():
+def modosEnsenianza():
     session = Session()
     modos = session.query(ModoEnsenianza).all()
     session.close()
     return modos
 
 @router.get("/{id}")  # Path
-async def modoEnsenianza(id: str):
+def modoEnsenianza(id: str):
     session = Session()
     modo = session.query(ModoEnsenianza).filter(ModoEnsenianza.id == id).first()
     session.close()
@@ -27,7 +27,7 @@ async def modoEnsenianza(id: str):
 
 
 @router.post('/')
-async def crear_modo(id: int,nombre: str):
+def crear_modo(id: int,nombre: str):
     session = Session()
     nuevo_modo = ModoEnsenianza(id=id,nombre=nombre)
     session.add(nuevo_modo)

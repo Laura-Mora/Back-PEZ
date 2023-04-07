@@ -1,9 +1,11 @@
 from typing import List
 
-from back_pez.db.model.perfilEstudiante import PerfilEstudiante
-from back_pez.db.model.programa import Programa
+from back_pez.db.model.perfilEstudiante import PerfilEstudiante, PerfilEstudianteModelo
+#from back_pez.db.model.programa import Programa
 
 from sqlalchemy.orm import mapped_column
+
+#from back_pez.db.model.programa import ProgramaModel
 from .base import Base
 from sqlalchemy.orm import Mapped
 
@@ -11,6 +13,8 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Column
 from sqlalchemy import Table
 from sqlalchemy import ForeignKey
+
+from pydantic import BaseModel
 
 usuarios_programas = Table(
     "usuarios_programas",
@@ -26,6 +30,19 @@ class Usuario(Base):
     nombre: Mapped[str]
     correo: Mapped[str]
     contrasenia: Mapped[str]
-    programa: Mapped[List[Programa]] = relationship(secondary = usuarios_programas)
+    #programa: Mapped[List["Programa"]] = relationship(secondary = usuarios_programas)
     tipo: Mapped[str]
-    perfilEstudiante: Mapped[PerfilEstudiante]
+    perfilEstudiante_id: Mapped[int] = mapped_column(ForeignKey("perfilesEstudiantes.id"))
+    perfilEstudiante: Mapped[PerfilEstudiante] = relationship()
+
+class UsuarioModelo(BaseModel):
+    __tablename__ = "usuarios"
+
+    id: int
+    nombre: str
+    correo: str
+    contrasenia: str
+    #programa: List[ProgramaModel]
+    tipo: str
+    perfilEstudiante_id: int
+    perfilEstudiante: PerfilEstudianteModelo
