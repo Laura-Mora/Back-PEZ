@@ -6,7 +6,6 @@ from back_pez.db.model.contenido import Contenido, ContenidoModelo
 from back_pez.db.model.horario import Horario, HorarioModel
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
 from back_pez.db.model.profesor import Profesor, ProfesorModel
-from back_pez.db.model.reseniaAsignatura import ReseniaAsignatura, ReseniaAsignaturaModelo
 
 from pydantic import BaseModel
 
@@ -15,43 +14,54 @@ from .base import Base
 from sqlalchemy.orm import Mapped
 
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, ForeignKeyConstraint, Integer, String
 from sqlalchemy import Table
 from sqlalchemy import ForeignKey
 
 asignaturas_profesores = Table(
     "asignaturas_profesores",
     Base.metadata,
-    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
-    Column("profesores_id", ForeignKey("profesores.id"), primary_key=True),
+    Column("asignaturas_id", ForeignKey('asignaturas.id'), primary_key=True),
+    Column("profesores_id", ForeignKey(Profesor.id), primary_key=True),
+    ForeignKeyConstraint(['profesores_id'], [Profesor.id]),
+    ForeignKeyConstraint(['asignaturas_id'], ['asignaturas.id'])
 )
 
 asignaturas_horarios = Table(
     "asignaturas_horarios",
     Base.metadata,
     Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
-    Column("horarios_id", ForeignKey("horarios.id"), primary_key=True),
+    Column("horarios_id", ForeignKey(Horario.id), primary_key=True),
+    ForeignKeyConstraint(['horarios_id'], [Horario.id]),
+    ForeignKeyConstraint(['asignaturas_id'], ['asignaturas.id'])
 )
 
 asignaturas_competencia = Table(
     "asignaturas_competencia",
     Base.metadata,
     Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
-    Column("competencias_id", ForeignKey("competencias.id"), primary_key=True),
+    Column("competencias_id", ForeignKey(Competencia.id), primary_key=True),
+    ForeignKeyConstraint(['competencias_id'], [Competencia.id]),
+    ForeignKeyConstraint(['asignaturas_id'], ['asignaturas.id'])
 )
 
 asignaturas_actividades = Table(
     "asignaturas_actividades",
     Base.metadata,
     Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
-    Column("actividades_id", ForeignKey("actividades.id"), primary_key=True),
+    Column("actividades_id", ForeignKey(Actividad.id), primary_key=True),
+    ForeignKeyConstraint(['actividades_id'], [Actividad.id]),
+    ForeignKeyConstraint(['asignaturas_id'], ['asignaturas.id'])
 )
+
 
 asignaturas_contenido = Table(
     "asignaturas_contenido",
     Base.metadata,
     Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
-    Column("contenidos_id", ForeignKey("contenidos.id"), primary_key=True),
+    Column("contenidos_id", ForeignKey(Contenido.id), primary_key=True),
+    ForeignKeyConstraint(['contenidos_id'], [Contenido.id]),
+    ForeignKeyConstraint(['asignaturas_id'], ['asignaturas.id'])
 )
 
 class Asignatura(Base):
@@ -63,14 +73,15 @@ class Asignatura(Base):
     poblacionObjetivo = Column(String)
     creditos = Column(Integer)
     complejidad = Column(String)
+    componenteClase_id = Column(Integer, ForeignKey(ComponenteClase.id))
     modalidad = relationship(ComponenteClase)
-    profesores = relationship("Profesor", secondary=asignaturas_profesores)
+    profesores = relationship(Profesor, secondary=asignaturas_profesores)
+    modoEnsenianza_id = Column(Integer, ForeignKey(ModoEnsenianza.id))
     modoEnsenianza = relationship(ModoEnsenianza)
     horarios = relationship(Horario, secondary=asignaturas_horarios)
     competencias = relationship(Competencia, secondary=asignaturas_competencia)
     actividades = relationship(Actividad, secondary=asignaturas_actividades)
     tematicas = relationship(Contenido, secondary=asignaturas_contenido)
-    resenias = relationship(ReseniaAsignatura)
 
 
 class AsignaturaModelo(BaseModel):
@@ -87,4 +98,4 @@ class AsignaturaModelo(BaseModel):
     competencias: list[CompetenciaModel]
     actividades: list[ActividadModelo]
     tematicas: list[ContenidoModelo]
-    resenias: list[ReseniaAsignaturaModelo]
+

@@ -6,10 +6,10 @@ from sqlalchemy.orm import relationship
 
 from pydantic import BaseModel
 
-#from back_pez.db.model.asignatura import Asignatura
+from back_pez.db.model.asignatura import Asignatura
 
 class ReseniaAsignatura(Base):
-    __tablename__ = "reseniaAsignatura"
+    __tablename__ = 'reseniaAsignatura'
 
     id: Mapped[int] = mapped_column(primary_key=True)
     aprendizaje: Mapped[bool]
@@ -25,7 +25,7 @@ class ReseniaAsignatura(Base):
     retroalimentacion: Mapped[bool]
     comentarios: Mapped[str]
     incidenciaProfesor: Mapped[str]
-   # asignatura: Mapped[Asignatura]
+    asignatura: Mapped[Asignatura]
 
 class ReseniaAsignaturaModelo(BaseModel):
 

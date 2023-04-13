@@ -3,7 +3,7 @@ from sqlalchemy.orm import mapped_column
 from .base import Base
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column
+from sqlalchemy import Column, ForeignKeyConstraint
 from sqlalchemy import Table
 from sqlalchemy import ForeignKey
 from sqlalchemy import Column, Integer
@@ -15,26 +15,30 @@ from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 subcomponentes_asignaturasObli = Table(
     "subcomponentes_asignaturasObli",
     Base.metadata,
-    Column("subComponentes_id", ForeignKey("subComponentes.id"), primary_key=True),
-    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("subComponentes_id", ForeignKey('subComponentes.id'), primary_key=True),
+    Column("asignatura_id", ForeignKey(Asignatura.id), primary_key=True),
+    ForeignKeyConstraint(['asignatura_id'], [Asignatura.id]),
+    ForeignKeyConstraint(['subComponentes_id'], ['subComponente.id'])
 )
 
 subcomponentes_asignaturasElec = Table(
     "subcomponentes_asignaturasElec",
     Base.metadata,
-    Column("subComponentes_id", ForeignKey("subComponentes.id"), primary_key=True),
-    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("subComponentes_id", ForeignKey('subComponentes.id'), primary_key=True),
+    Column("asignatura_id", ForeignKey(Asignatura.id), primary_key=True),
+    ForeignKeyConstraint(['asignatura_id'], [Asignatura.id]),
+    ForeignKeyConstraint(['subComponentes_id'], ['subComponente.id'])
 )
 
 class subComponente(Base):
-    __tablename__ = "subComponentes"
+    __tablename__ = 'subComponentes'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id = Column(Integer, primary_key=True)
     nombre: Mapped[str]
     cantCreditos: Mapped[int] = Column(Integer, nullable=True)
     cantAsignaturas: Mapped[int] = Column(Integer, nullable=True)
-    asignaturasObligatorias: Mapped[List[Asignatura]] = relationship(secondary = subcomponentes_asignaturasObli)
-    asignaturasElectivas: Mapped[List[Asignatura]] = relationship(secondary = subcomponentes_asignaturasElec)
+    asignaturasObligatorias = relationship(Asignatura, secondary=subcomponentes_asignaturasObli)
+    asignaturasObligatorias = relationship(Asignatura, secondary=subcomponentes_asignaturasObli)
 
 class subComponenteModelo(BaseModel):
 
