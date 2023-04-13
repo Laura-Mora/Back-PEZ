@@ -1,5 +1,7 @@
 from fastapi import APIRouter, HTTPException
+from sqlalchemy import insert, select
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.contenido import ContenidoModelo
 from db.model.contenido import Contenido
 from db.dbconfig import engine
 
@@ -11,10 +13,11 @@ Session = sessionmaker(bind=engine)
 
 @router.get("/")
 def contenidos():
-    session = Session()
+    print(select(Contenido.__table__))
+    """session = Session()
     contenidos = session.query(Contenido).all()
-    session.close()
-    return contenidos
+    session.close()"""
+    return "pez"
 
 @router.get("/{id}")  # Path
 def contenido(id: str):
@@ -26,13 +29,12 @@ def contenido(id: str):
     return contenido
 
 @router.post('/')
-def crear_contenido(id: int,nombre: str):
-    session = Session()
-    nuevo_contenido = Contenido(id=id,nombre=nombre)
-    session.add(nuevo_contenido)
-    session.commit()
-    session.close()
-    return nuevo_contenido
+def crear_contenido(request:ContenidoModelo):
+    stmt = (
+    insert(Contenido.__table__).
+    values(id=request.id, nombre=request.nombre))
+    print(stmt)
+    return request 
 
 @router.put('/{id}')
 def actualizar_contenido(id: int, contenido_update: dict):

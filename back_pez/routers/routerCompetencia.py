@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.competencia import CompetenciaModel
 from db.model.competencia import Competencia
 
 from db.dbconfig import engine
@@ -28,13 +29,13 @@ def competencia(id: str):
 
 
 @router.post('/')
-def crear_competencia(id: int,nombre: str):
+def crear_competencia(request:CompetenciaModel):
     session = Session()
-    nueva_competencia = Competencia(id=id,nombre=nombre)
+    nueva_competencia = Competencia(id=request.id,nombre=request.nombre)
     session.add(nueva_competencia)
     session.commit()
     session.close()
-    return nueva_competencia
+    return request
 
 @router.put('/{id}')
 def actualizar_competencia(id: int, competencia_update: dict):

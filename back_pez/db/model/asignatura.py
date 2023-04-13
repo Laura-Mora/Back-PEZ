@@ -15,7 +15,7 @@ from .base import Base
 from sqlalchemy.orm import Mapped
 
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column
+from sqlalchemy import Column, Integer, String
 from sqlalchemy import Table
 from sqlalchemy import ForeignKey
 
@@ -55,20 +55,23 @@ asignaturas_contenido = Table(
 )
 
 class Asignatura(Base):
-    __tablename__ = "asignaturas"
-    id: Mapped[int] = mapped_column(primary_key=True)
-    nombre: Mapped[str]
-    poblacionObjetivo: Mapped[str]
-    creditos: Mapped[int]
-    complejidad: Mapped[str]
-    modalidad: Mapped[ComponenteClase] = relationship()
-    profesores: Mapped[List[Profesor]] = relationship(secondary = asignaturas_profesores)
-    modoEnsenianza: Mapped[ModoEnsenianza] = relationship()
-    horarios: Mapped[List[Horario]] = relationship(secondary = asignaturas_horarios)
-    competencias: Mapped[List[Competencia]] = relationship(secondary = asignaturas_competencia)
-    actividades: Mapped[List[Actividad]] = relationship(secondary = asignaturas_actividades)
-    tematicas: Mapped[List[Contenido]] = relationship(secondary = asignaturas_contenido)
-    resenias: Mapped[List[ReseniaAsignatura]] = relationship()
+    __tablename__ = 'asignaturas'
+    __table_args__ = {'extend_existing': True}
+
+    id = Column(Integer, primary_key=True)
+    nombre = Column(String)
+    poblacionObjetivo = Column(String)
+    creditos = Column(Integer)
+    complejidad = Column(String)
+    modalidad = relationship(ComponenteClase)
+    profesores = relationship("Profesor", secondary=asignaturas_profesores)
+    modoEnsenianza = relationship(ModoEnsenianza)
+    horarios = relationship(Horario, secondary=asignaturas_horarios)
+    competencias = relationship(Competencia, secondary=asignaturas_competencia)
+    actividades = relationship(Actividad, secondary=asignaturas_actividades)
+    tematicas = relationship(Contenido, secondary=asignaturas_contenido)
+    resenias = relationship(ReseniaAsignatura)
+
 
 class AsignaturaModelo(BaseModel):
 

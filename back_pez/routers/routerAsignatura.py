@@ -1,9 +1,9 @@
-"""from typing import List
+from typing import List
 
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
 from back_pez.db.model.actividad import Actividad
-from back_pez.db.model.asignatura import Asignatura
+from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 from back_pez.db.model.competencia import Competencia
 from back_pez.db.model.componenteClase import ComponenteClase
 from back_pez.db.model.contenido import Contenido
@@ -21,7 +21,7 @@ router = APIRouter(prefix="/asignatura",
 Session = sessionmaker(bind=engine)
 
 @router.get("/")
- def getAsignaturas():
+def getAsignaturas():
     session = Session()
     asignaturas = session.query(Asignatura).all()
     session.close()
@@ -37,13 +37,11 @@ def getAsignatura(id: str):
     return asignatura
 
 @router.post('/')
-def crear_asignatura(id: int,nombre: str, poblacionObjetivo: str, creditos:int, complejidad: str,
-    modalidad: ComponenteClase, profesores: List[Profesor], modoEnsenianza: ModoEnsenianza,
-    horarios: List[Horario], competencias: List[Competencia], actividades: List[Actividad], tematicas: List[Contenido]):
+def crear_asignatura(request:AsignaturaModelo):
     session = Session()
-    nueva_asignatura = Asignatura(id=id,nombre=nombre, poblacionObjetivo=poblacionObjetivo, creditos=creditos, complejidad=complejidad,
-    modalidad=modalidad, profesores=profesores, modoEnsenianza=modoEnsenianza,horarios=horarios, 
-    competencias=competencias, actividades=actividades, tematicas=tematicas)
+    nueva_asignatura = Asignatura(id=request.id,nombre=request.nombre, poblacionObjetivo=request.poblacionObjetivo, creditos=request.creditos, complejidad=request.complejidad,
+    modalidad=request.modalidad, profesores=request.profesores, modoEnsenianza=request.modoEnsenianza,horarios=request.horarios, 
+    competencias=request.competencias, actividades=request.actividades, tematicas=request.tematicas)
     session.add(nueva_asignatura)
     session.commit()
     session.close()
@@ -60,4 +58,4 @@ def actualizar_asignatura(id: int, asignatura_update: dict):
     session.add(asignatura)
     session.commit()
     session.close()
-    return asignatura"""
+    return asignatura

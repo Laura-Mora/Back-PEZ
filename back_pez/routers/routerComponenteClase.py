@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.componenteClase import ComponenteClaseModelo
 from db.model.componenteClase import ComponenteClase
 from db.dbconfig import engine
+from sqlalchemy import insert
 
 router = APIRouter(prefix="/componenteClase",
                    tags=["componenteClase"],
@@ -27,13 +29,11 @@ def componenteClase(id: str):
 
 
 @router.post('/')
-def crear_modalidad(id: int,nombre: str):
-    session = Session()
-    nuevo_modalidad = ComponenteClase(id=id,nombre=nombre)
-    session.add(nuevo_modalidad)
-    session.commit()
-    session.close()
-    return nuevo_modalidad
+def crear_modalidad(request:ComponenteClaseModelo):
+    stmt = (
+    insert(ComponenteClase.__table__).
+    values(id=request.id, nombre=request.nombre))
+    return request
 
 @router.put('/{id}')
 def actualizar_modalidad(id: int, modalidad_update: dict):

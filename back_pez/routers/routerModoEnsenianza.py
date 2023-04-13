@@ -1,5 +1,7 @@
 from fastapi import APIRouter, HTTPException
+from sqlalchemy import insert
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.modoEnsenianza import ModoEnsenianzaModel
 from db.model.modoEnsenianza import ModoEnsenianza
 from db.dbconfig import engine
 
@@ -27,13 +29,11 @@ def modoEnsenianza(id: str):
 
 
 @router.post('/')
-def crear_modo(id: int,nombre: str):
-    session = Session()
-    nuevo_modo = ModoEnsenianza(id=id,nombre=nombre)
-    session.add(nuevo_modo)
-    session.commit()
-    session.close()
-    return nuevo_modo
+def crear_modo(request:ModoEnsenianzaModel):
+    stmt = (
+    insert(ModoEnsenianza.__table__).
+    values(id=request.id, nombre=request.nombre))
+    return request 
 
 @router.put('/{id}')
 def actualizar_modo(id: int, modo_update: dict):

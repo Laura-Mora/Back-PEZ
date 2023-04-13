@@ -1,8 +1,10 @@
 from typing import List
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.actividad import ActividadModelo
 from db.model.actividad import Actividad
 from db.dbconfig import engine
+from sqlalchemy import insert
 
 router = APIRouter(prefix="/actividad",
                    tags=["actividad"],
@@ -26,14 +28,12 @@ def actividad(id: int):
         raise HTTPException(status_code=404, detail='Actividad no encontrada')
     return actividad
 
-@router.post('/')
-def crear_actividad(id: int,nombre: str):
-    session = Session()
-    nueva_actividad = Actividad(id=id,nombre=nombre)
-    session.add(nueva_actividad)
-    session.commit()
-    session.close()
-    return nueva_actividad 
+@router.post("/")
+def crear_actividad(request: ActividadModelo):
+    stmt = (
+    insert(Actividad.__table__).
+    values(id=request.id, nombre=request.nombre))
+    return request 
 
 @router.put('/{id}')
 def actualizar_actividad(id: int, actividad_update: dict):

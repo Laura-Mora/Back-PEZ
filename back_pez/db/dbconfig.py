@@ -15,6 +15,7 @@ from back_pez.db.model.profesor import Profesor
 from back_pez.db.model.programa import Programa
 from back_pez.db.model.subComponente import subComponente
 from back_pez.db.model.usuario import Usuario
+from sqlalchemy.ext.declarative import declarative_base
 
 
 engine = create_engine("postgresql+psycopg2://PEZ:PEZPassword@localhost:5432/PEZDB")
@@ -35,8 +36,8 @@ table_exists(ComponenteClase)
 table_exists(Horario)
 table_exists(Actividad)
 table_exists(Asignatura)
-table_exists(Componente)
 table_exists(subComponente)
+table_exists(Componente)
 table_exists(PerfilEstudiante)
 table_exists(Programa)
 table_exists(Usuario)

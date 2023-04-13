@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.profesor import ProfesorModel
 from db.model.profesor import Profesor
 from db.dbconfig import engine
+from sqlalchemy import insert
 
 router = APIRouter(prefix="/profesor",
                    tags=["profesor"],
@@ -27,13 +29,11 @@ def profesor(id: str):
 
 
 @router.post('/')
-def crear_profesor(id: int,nombre: str):
-    session = Session()
-    nuevo_profesor = Profesor(id=id,nombre=nombre)
-    session.add(nuevo_profesor)
-    session.commit()
-    session.close()
-    return nuevo_profesor
+def crear_profesor(request:ProfesorModel):
+    stmt = (
+    insert(Profesor.__table__).
+    values(id=request.id, nombre=request.nombre))
+    return request
 
 @router.put('/{id}')
 def actualizar_perfil(id: int, profesor_update: dict):
