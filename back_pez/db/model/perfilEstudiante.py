@@ -13,84 +13,100 @@ from .base import Base
 from sqlalchemy.orm import Mapped
 
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column
+from sqlalchemy import Boolean, Column, ForeignKeyConstraint, Integer, String
 from sqlalchemy import Table
 from sqlalchemy import ForeignKey
 
 from pydantic import BaseModel
 
 perfiles_asignaturasCursadas = Table(
-    "perfiles_asignaturasCursadas",
+    'perfiles_asignaturasCursadas',
     Base.metadata,
-    Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("perfilesEstudiantes_id", ForeignKey('perfilesEstudiantes.id'), primary_key=True),
+    Column("asignatura_id", ForeignKey(Asignatura.id), primary_key=True),
+    ForeignKeyConstraint(['asignatura_id'], [Asignatura.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 perfiles_asignaturasGustadas = Table(
-    "perfiles_asignaturasGustadas",
+    'perfiles_asignaturasGustadas',
     Base.metadata,
-    Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
+    Column("perfilesEstudiantes_id", ForeignKey('perfilesEstudiantes.id'), primary_key=True),
+    Column("asignatura_id", ForeignKey(Asignatura.id), primary_key=True),
+    ForeignKeyConstraint(['asignatura_id'], [Asignatura.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 perfiles_modalidades = Table(
     "perfiles_modalidades",
     Base.metadata,
-    Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("componentesClases_id", ForeignKey("componentesClases.id"), primary_key=True),
+    Column("perfilesEstudiantes_id", ForeignKey('perfilesEstudiantes.id'), primary_key=True),
+    Column("componentesClases_id", ForeignKey(ComponenteClase.id), primary_key=True),
+    ForeignKeyConstraint(['componentesClases_id'], [ComponenteClase.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 perfiles_modosEnsenianza = Table(
     "perfiles_modosEnsenianza",
     Base.metadata,
     Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("modosEnsenianza_id", ForeignKey("modosEnsenianza.id"), primary_key=True),
+    Column("modosEnsenianza_id", ForeignKey(ModoEnsenianza.id), primary_key=True),
+    ForeignKeyConstraint(['modosEnsenianza_id'], [ModoEnsenianza.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 perfiles_horarios = Table(
     "perfiles_horarios",
     Base.metadata,
     Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("horarios_id", ForeignKey("horarios.id"), primary_key=True),
+    Column("horarios_id", ForeignKey(Horario.id), primary_key=True),
+    ForeignKeyConstraint(['horarios_id'], [Horario.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 perfiles_competencias = Table(
     "perfiles_competencias",
     Base.metadata,
     Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("competencias_id", ForeignKey("competencias.id"), primary_key=True),
+    Column("competencias_id", ForeignKey(Competencia.id), primary_key=True),
+    ForeignKeyConstraint(['competencias_id'], [Competencia.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 perfiles_actividades = Table(
     "perfiles_actividades",
     Base.metadata,
     Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("actividades_id", ForeignKey("actividades.id"), primary_key=True),
+    Column("actividades_id", ForeignKey(Actividad.id), primary_key=True),
+    ForeignKeyConstraint(['actividades_id'], [Actividad.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 perfiles_contenidos = Table(
     "perfiles_contenidos",
     Base.metadata,
     Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("contenidos_id", ForeignKey("contenidos.id"), primary_key=True),
+    Column("contenidos_id", ForeignKey(Contenido.id), primary_key=True),
+    ForeignKeyConstraint(['contenidos_id'], [Contenido.id]),
+    ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
 class PerfilEstudiante(Base):
-    __tablename__ = "perfilesEstudiantes"
+    __tablename__ = 'perfilesEstudiantes'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    profesion: Mapped[str]
-    javeriano: Mapped[bool]
-    semestre: Mapped[int]
-    areaDesempenio: Mapped[str]
-    asignaturasCursadas: Mapped[List[Asignatura]] = relationship(secondary = perfiles_asignaturasCursadas)
-    asignaturasGustadas: Mapped[List[Asignatura]] = relationship(secondary = perfiles_asignaturasGustadas)
-    modalidadPreferencia: Mapped[List[ComponenteClase]] = relationship(secondary = perfiles_modalidades)
-    modoEnsenianzaPreferencia: Mapped[List[ModoEnsenianza]] = relationship(secondary = perfiles_modosEnsenianza)
-    horariosPreferencias: Mapped[List[Horario]] = relationship(secondary = perfiles_horarios)
-    competenciasGusto: Mapped[List[Competencia]] = relationship(secondary = perfiles_competencias)
-    actividadesGusto: Mapped[List[Actividad]] = relationship(secondary = perfiles_actividades)
-    tematicasGusto: Mapped[List[Contenido]] = relationship(secondary = perfiles_contenidos)
+    id = Column(Integer, primary_key=True)
+    profesion = Column(String)
+    javeriano = Column(Boolean)
+    semestre = Column(Integer)
+    areaDesempenio = Column(String)
+    asignaturasCursadas = relationship(Asignatura, secondary = perfiles_asignaturasCursadas)
+    asignaturasGustadas = relationship(Asignatura, secondary = perfiles_asignaturasGustadas)
+    modalidadPreferencia = relationship(ComponenteClase,secondary = perfiles_modalidades)
+    modoEnsenianzaPreferencia = relationship(ModoEnsenianza,secondary = perfiles_modosEnsenianza)
+    horariosPreferencias = relationship(Horario,secondary = perfiles_horarios)
+    competenciasGusto = relationship(Competencia,secondary = perfiles_competencias)
+    actividadesGusto = relationship(Actividad, secondary = perfiles_actividades)
+    tematicasGusto = relationship(Contenido,secondary = perfiles_contenidos)
 
 class PerfilEstudianteModelo(BaseModel):
  
