@@ -30,10 +30,12 @@ def componenteClase(id: str):
 
 @router.post('/')
 def crear_modalidad(request:ComponenteClaseModelo):
-    stmt = (
-    insert(ComponenteClase.__table__).
-    values(id=request.id, nombre=request.nombre))
-    return request
+    session = Session()
+    componente = ComponenteClase(id=request.id, nombre=request.nombre)
+    session.add(componente)
+    session.commit()
+    session.close()
+    return componente
 
 @router.put('/{id}')
 def actualizar_modalidad(id: int, modalidad_update: dict):

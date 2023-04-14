@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.horario import HorarioModel
 from db.model.horario import Horario
 from db.dbconfig import engine
 
@@ -28,9 +29,9 @@ def horario(id: str):
     return horario
 
 @router.post('/')
-def crear_horario(id: int,dia: str, hora:datetime.time):
+def crear_horario(request:HorarioModel):
     session = Session()
-    nuevo_hoario = Horario(id=id, dia=dia, hora=hora)
+    nuevo_hoario = Horario(id=request.id, dia=request.dia, hora=request.hora)
     session.add(nuevo_hoario)
     session.commit()
     session.close()

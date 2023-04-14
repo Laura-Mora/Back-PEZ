@@ -14,10 +14,10 @@ Session = sessionmaker(bind=engine)
 @router.get("/")
 def contenidos():
     print(select(Contenido.__table__))
-    """session = Session()
+    session = Session()
     contenidos = session.query(Contenido).all()
-    session.close()"""
-    return "pez"
+    session.close()
+    return contenidos
 
 @router.get("/{id}")  # Path
 def contenido(id: str):
@@ -30,10 +30,11 @@ def contenido(id: str):
 
 @router.post('/')
 def crear_contenido(request:ContenidoModelo):
-    stmt = (
-    insert(Contenido.__table__).
-    values(id=request.id, nombre=request.nombre))
-    print(stmt)
+    session = Session()
+    contenido = Contenido(id=request.id, nombre=request.nombre)
+    session.add(contenido)
+    session.commit()
+    session.close()
     return request 
 
 @router.put('/{id}')

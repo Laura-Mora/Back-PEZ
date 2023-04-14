@@ -20,7 +20,8 @@ class Horario(Base):
 
 class HorarioModel(BaseModel):
     id: int
-    nombre: str
+    dia: str
+    hora: datetime.time
 
 
     

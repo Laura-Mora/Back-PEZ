@@ -30,9 +30,11 @@ def profesor(id: str):
 
 @router.post('/')
 def crear_profesor(request:ProfesorModel):
-    stmt = (
-    insert(Profesor.__table__).
-    values(id=request.id, nombre=request.nombre))
+    session = Session()
+    profesor = Profesor(id=request.id, nombre=request.nombre)
+    session.add(profesor)
+    session.commit()
+    session.close()
     return request
 
 @router.put('/{id}')

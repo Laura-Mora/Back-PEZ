@@ -30,10 +30,12 @@ def modoEnsenianza(id: str):
 
 @router.post('/')
 def crear_modo(request:ModoEnsenianzaModel):
-    stmt = (
-    insert(ModoEnsenianza.__table__).
-    values(id=request.id, nombre=request.nombre))
-    return request 
+    session = Session()
+    modo = ModoEnsenianza(id=request.id, nombre=request.nombre)
+    session.add(modo)
+    session.commit()
+    session.close()
+    return modo 
 
 @router.put('/{id}')
 def actualizar_modo(id: int, modo_update: dict):

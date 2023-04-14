@@ -44,5 +44,12 @@
             "id":3,
             "nombre":"hibrido"
         }
+    ],
+    "Horario":[
+        {
+            "id":1,
+            "dia":"viernes",
+            "hora":"12:14:36"
+        }
     ]
 }
