@@ -18,7 +18,7 @@ subcomponentes_asignaturasObli = Table(
     Column("subComponentes_id", ForeignKey('subComponentes.id'), primary_key=True),
     Column("asignatura_id", ForeignKey(Asignatura.id), primary_key=True),
     ForeignKeyConstraint(['asignatura_id'], [Asignatura.id]),
-    ForeignKeyConstraint(['subComponentes_id'], ['subComponente.id'])
+    ForeignKeyConstraint(['subComponentes_id'], ['subComponentes.id'])
 )
 
 subcomponentes_asignaturasElec = Table(
@@ -27,7 +27,7 @@ subcomponentes_asignaturasElec = Table(
     Column("subComponentes_id", ForeignKey('subComponentes.id'), primary_key=True),
     Column("asignatura_id", ForeignKey(Asignatura.id), primary_key=True),
     ForeignKeyConstraint(['asignatura_id'], [Asignatura.id]),
-    ForeignKeyConstraint(['subComponentes_id'], ['subComponente.id'])
+    ForeignKeyConstraint(['subComponentes_id'], ['subComponentes.id'])
 )
 
 class subComponente(Base):
