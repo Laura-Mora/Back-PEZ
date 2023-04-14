@@ -4,6 +4,7 @@ from sqlalchemy import insert
 from sqlalchemy import inspect
 from back_pez.db.model.actividad import Actividad
 from back_pez.db.model.asignatura import Asignatura
+from back_pez.db.model.base import Base
 from back_pez.db.model.componente import Componente
 from back_pez.db.model.componenteClase import ComponenteClase
 from back_pez.db.model.contenido import Contenido
@@ -19,6 +20,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 
 engine = create_engine("postgresql+psycopg2://PEZ:PEZPassword@localhost:5432/PEZDB")
+Base.metadata.create_all(engine)
+
 borrarTablas = False
 
 def table_exists(name):

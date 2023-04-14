@@ -23,6 +23,7 @@ def actividades():
 def actividad(id: int):
     session = Session()
     actividad = session.query(Actividad).filter(Actividad.id == id).first()
+    print(actividad)
     session.close()
     if not actividad:
         raise HTTPException(status_code=404, detail='Actividad no encontrada')
@@ -30,10 +31,12 @@ def actividad(id: int):
 
 @router.post("/")
 def crear_actividad(request: ActividadModelo):
-    stmt = (
-    insert(Actividad.__table__).
-    values(id=request.id, nombre=request.nombre))
-    return request 
+    session = Session()
+    actividad = Actividad(id=request.id, nombre=request.nombre)
+    session.add(actividad)
+    session.commit()
+    session.close()
+    return actividad 
 
 @router.put('/{id}')
 def actualizar_actividad(id: int, actividad_update: dict):

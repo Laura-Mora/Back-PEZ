@@ -12,7 +12,7 @@ from pydantic import BaseModel
 
 
 class Actividad(Base):
-    __tablename__ = "actividades"
+    __tablename__ = 'actividades'
 
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = Column(String, nullable=True)
