@@ -3,6 +3,7 @@ from typing import List
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
 from back_pez.db.model.asignatura import AsignaturaModelo
+from back_pez.db.model.subComponente import subComponenteModelo
 from db.model.asignatura import Asignatura
 from db.model.subComponente import subComponente
 
@@ -31,11 +32,10 @@ def subcomponente(id: str):
     return subcomponente
 
 @router.post('/')
-def crear_subcomponente(id: int,nombre: str, cantCreditos: int,cantAsignaturas: int,
-    asignaturasObligatorias: List[AsignaturaModelo], asignaturasElectivas: List[AsignaturaModelo] ):
+def crear_subcomponente(response: subComponenteModelo):
     session = Session()
-    nuevo_subcomponente = subComponente(id=id,nombre=nombre, cantCreditos=cantCreditos,cantAsignaturas=cantAsignaturas,
-    asignaturasObligatorias=asignaturasObligatorias, asignaturasElectivas=asignaturasElectivas)
+    nuevo_subcomponente = subComponente(id=response.id,nombre=response.nombre, cantCreditos=response.cantCreditos,cantAsignaturas=response.cantAsignaturas,
+    asignaturasObligatorias=response.asignaturasObligatorias, asignaturasElectivas=response.asignaturasElectivas)
     session.add(nuevo_subcomponente)
     session.commit()
     session.close()

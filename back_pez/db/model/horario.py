@@ -14,14 +14,16 @@ class Horario(Base):
     __tablename__ = "horarios"
     
     id: Mapped[int] = mapped_column(primary_key=True)
-    hora: Mapped[datetime.time]
+    horaInicio: Mapped[datetime.time]
+    horaFinal: Mapped[datetime.time]
     dia: Mapped[str]
     #asignaturas: Mapped[List[Asignatura]] = relationship(secondary = asignaturas_horarios)
 
 class HorarioModel(BaseModel):
     id: int
     dia: str
-    hora: datetime.time
+    horaInicio: datetime.time
+    horaFinal: datetime.time
 
 
     

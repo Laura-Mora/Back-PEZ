@@ -15,6 +15,38 @@
         {
             "id":4,
             "nombre":"proyecto"
+        },
+        {
+            "id":5,
+            "nombre":"articulo"
+        },
+        {
+            "id":6,
+            "nombre":"tareas"
+        },
+        {
+            "id":7,
+            "nombre":"autoevaluación"
+        },
+        {
+            "id":8,
+            "nombre":"laboratorio"
+        },
+        {
+            "id":9,
+            "nombre":"exposición"
+        },
+        {
+            "id":10,
+            "nombre":"investigación"
+        },
+        {
+            "id":11,
+            "nombre":"ensayo"
+        },
+        {
+            "id":12,
+            "nombre":"participación"
         }
     ],
     "ModoEnsenianza": [
@@ -49,7 +81,50 @@
         {
             "id":1,
             "dia":"viernes",
-            "hora":"12:14:36"
+            "horaInicio":"14:00:00",
+            "horaFinal":"17:00:00"
+        },
+        {
+            "id":2,
+            "dia":"viernes",
+            "horaInicio":"18:00:00",
+            "horaFinal":"21:00:00"
+        },
+        {
+            "id":3,
+            "dia":"viernes",
+            "horaInicio":"18:00:00",
+            "horaFinal":"22:00:00"
+        },
+        {
+            "id":4,
+            "dia":"lunes",
+            "horaInicio":"18:00:00",
+            "horaFinal":"21:00:00"
+        },
+        {
+            "id":5,
+            "dia":"martes",
+            "horaInicio":"18:00:00",
+            "horaFinal":"21:00:00"
+        },
+        {
+            "id":6,
+            "dia":"miercoles",
+            "horaInicio":"18:00:00",
+            "horaFinal":"21:00:00"
+        },
+        {
+            "id":7,
+            "dia":"jueves",
+            "horaInicio":"18:00:00",
+            "horaFinal":"21:00:00"
+        },
+        {
+            "id":8,
+            "dia":"jueves",
+            "horaInicio":"18:00:00",
+            "horaFinal":"22:00:00"
         }
     ]
 }
