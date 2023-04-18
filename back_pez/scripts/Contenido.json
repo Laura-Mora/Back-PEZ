@@ -1,0 +1,1460 @@
+{
+  "contenidos":[ 
+    {
+      "id" : 2,
+      "nombre" : "Gerencia de Proyectos."
+    }, 
+    {
+      "id" : 3,
+      "nombre" : "TIC y sociedad."
+    }, 
+    {
+      "id" : 4,
+      "nombre" : "Gestión del talento Humano."
+    }, 
+    {
+      "id" : 5,
+      "nombre" : "Metodología de Investigación"
+    }, 
+    {
+      "id" : 6,
+      "nombre" : "Procesos de Negocio y los principios de Arquitectura"
+    }, 
+    {
+      "id" : 7,
+      "nombre" : "Empresarial."
+    }, 
+    {
+      "id" : 8,
+      "nombre" : "Frameworks de infraestructura para SOA y BPM."
+    }, 
+    {
+      "id" : 9,
+      "nombre" : "Sistemas empresariales dirigidos por modelos."
+    }, 
+    {
+      "id" : 10,
+      "nombre" : "Fundamentos de la gestión del conocimiento."
+    }, 
+    {
+      "id" : 11,
+      "nombre" : "Sistemas de gestión del conocimiento e ingeniería del"
+    }, 
+    {
+      "id" : 12,
+      "nombre" : "conocimiento."
+    }, 
+    {
+      "id" : 13,
+      "nombre" : "La gestión del conocimiento y la estrategia organizacional"
+    }, 
+    {
+      "id" : 14,
+      "nombre" : "Herramientas y modelos de inteligencia de negocios."
+    }, 
+    {
+      "id" : 15,
+      "nombre" : "Extracción de datos."
+    }, 
+    {
+      "id" : 16,
+      "nombre" : "Integración de tecnología, estrategia de negocio y procesos"
+    }, 
+    {
+      "id" : 17,
+      "nombre" : "Fundamentos matemáticos de las técnicas básicas de minería de datos"
+    }, {
+      "id" : 18,
+      "nombre" : "Uso de dichas técnicas para la toma de decisiones basadas en información y bajo incertidumbre."
+    },
+    {
+      "id" : 19,
+      "nombre" : "Explicación de los mecanismos para reintegrar los análisis hechos al flujo de información hacia los cargos directivos para la toma de decisiones."
+    }, 
+    {
+      "id" : 20,
+      "nombre" : "Optimización y Simulación"
+    }, 
+    {
+      "id" : 21,
+      "nombre" : "Support Vector Machines (SVM)"
+    }, 
+    {
+      "id" : 22,
+      "nombre" : "Redes Neuronales"
+    }, 
+    {
+      "id" : 23,
+      "nombre" : "Ensambles de modelos de minería de datos, incluyendo Selvas de árboles aleatorios (Random Forest) y boosting."
+    }, 
+    {
+      "id" : 24,
+      "nombre" : "Enriquecimiento de Servicios."
+    }, 
+    {
+      "id" : 25,
+      "nombre" : "Modelado de Usuario, Dispositivo y contexto."
+    }, 
+    {
+      "id" : 26,
+      "nombre" : "Adaptación al contenido y al despliegue."
+    }, 
+    {
+      "id" : 27,
+      "nombre" : "Reglamentación y Ergonomía."
+    }, 
+    {
+      "id" : 28,
+      "nombre" : "Sistemas y procesos organizacionales."
+    }, 
+    {
+      "id" : 29,
+      "nombre" : "Computación Móvil, ubicua y pervasiva."
+    }, 
+    {
+      "id" : 30,
+      "nombre" : "Herramientas de adaptación de información."
+    }, 
+    {
+      "id" : 31,
+      "nombre" : "Programación segura, ciclo de desarrollo seguro"
+    }, 
+    {
+      "id" : 32,
+      "nombre" : "Pruebas de código, pruebas de desempeño, DEV-SEC-OPS, OSSTMM, ISSAF, OWASP. Pruebas y validación (casos de mal uso)"
+    }, 
+    {
+      "id" : 33,
+      "nombre" : " Seguridad por diseño, ROP"
+    }, 
+    {
+      "id" : 34,
+      "nombre" : "Seguridad Web."
+    }, 
+    {
+      "id" : 35,
+      "nombre" : "Sistemas Operativos, Sistemas de Archivos, Firmados de Software."
+    }, 
+    {
+      "id" : 36,
+      "nombre" : "Introducción al cómputo de alto rendimiento"
+    }, 
+    {
+      "id" : 37,
+      "nombre" : "Aplicaciones usadas en E-ciencia"
+    }, 
+    {
+      "id" : 38,
+      "nombre" : "Programación Concurrente"
+    }, 
+    {
+      "id" : 39,
+      "nombre" : "Fundamentos de Big Data"
+    }, 
+    {
+      "id" : 40,
+      "nombre" : "Procesamiento in-memory"
+    }, 
+    {
+      "id" : 41,
+      "nombre" : "Model-Driven Engineering (MDE)"
+    }, 
+    {
+      "id" : 42,
+      "nombre" : "Software Product Lines (SPL)"
+    }, 
+    {
+      "id" : 43,
+      "nombre" : "Introducción al curso"
+    }, 
+    {
+      "id" : 44,
+      "nombre" : "Reconocimiento de Entidades nombradas Definición y Problemas"
+    }, 
+    {
+      "id" : 45,
+      "nombre" : "Introducción a Machine Learning y Big Data Introducción a Python y Apache Spark"
+    }, 
+    {
+      "id" : 46,
+      "nombre" : "Introducciones prácticas a clasificadores, regresores y clustering en entorno Big Data con Apache Spark"
+    }, 
+    {
+      "id" : 47,
+      "nombre" : "Minería de texto"
+    }, 
+    {
+      "id" : 48,
+      "nombre" : "Análisis de Redes Sociales"
+    }, 
+    {
+      "id" : 49,
+      "nombre" : "Módulo avanzado de analítica"
+    }, 
+    {
+      "id" : 50,
+      "nombre" : "Visualización de datos"
+    }, 
+    {
+      "id" : 51,
+      "nombre" : "Arquitectura de Software"
+    }, 
+    {
+      "id" : 52,
+      "nombre" : "Introducción"
+    }, 
+    {
+      "id" : 53,
+      "nombre" : "Característicasy role del arquitecto de software"
+    }, 
+    {
+      "id" : 54,
+      "nombre" : "Atributos de calidad"
+    }, 
+    {
+      "id" : 55,
+      "nombre" : "Documentación de AS"
+    }, 
+    {
+      "id" : 56,
+      "nombre" : "Diseño de Arquitecturas de Software"
+    }, 
+    {
+      "id" : 57,
+      "nombre" : "Metamodelos de diseño"
+    }, 
+    {
+      "id" : 58,
+      "nombre" : "Métodos de diseño de AS"
+    }, 
+    {
+      "id" : 59,
+      "nombre" : "Estilos arquitectónicos"
+    }, 
+    {
+      "id" : 60,
+      "nombre" : "Evaluación de Arquitecturas de Software"
+    }, 
+    {
+      "id" : 61,
+      "nombre" : "Métodos de evaluación de AS"
+    }, 
+    {
+      "id" : 62,
+      "nombre" : "Introducción a la IA."
+    }, 
+    {
+      "id" : 63,
+      "nombre" : "Algoritmos Genéticos."
+    }, 
+    {
+      "id" : 64,
+      "nombre" : "Redes Neuronales."
+    }, 
+    {
+      "id" : 65,
+      "nombre" : "Lógica Difusa."
+    }, 
+    {
+      "id" : 66,
+      "nombre" : "Aprendizaje de Máquina."
+    }, 
+    {
+      "id" : 67,
+      "nombre" : "Agentes y Cooperación."
+    }, 
+    {
+      "id" : 68,
+      "nombre" : "Agentes Racionales."
+    }, 
+    {
+      "id" : 69,
+      "nombre" : "Programación Orientada a Agentes."
+    }, 
+    {
+      "id" : 70,
+      "nombre" : "Fundamentos Matemáticos"
+    }, {
+      "id" : 71,
+      "nombre" : "Robots Móviles con Ruedas"
+    }, {
+      "id" : 72,
+      "nombre" : "Robots Móviles Articulados"
+    }, {
+      "id" : 73,
+      "nombre" : "Localización y Navegación de Robots Móviles"
+    }, {
+      "id" : 74,
+      "nombre" : "Planeación de bajo nivel (trayectorias)"
+    }, {
+      "id" : 75,
+      "nombre" : "Arquitecturas de Control Inteligente."
+    }, {
+      "id" : 76,
+      "nombre" : "Introducción al reconocimiento de patrones"
+    }, {
+      "id" : 77,
+      "nombre" : "Teoría Bayesiana"
+    }, {
+      "id" : 78,
+      "nombre" : "Estimación"
+    }, {
+      "id" : 79,
+      "nombre" : "Técnicas no paramétricas"
+    }, {
+      "id" : 80,
+      "nombre" : "Funciones discriminantes"
+    }, {
+      "id" : 81,
+      "nombre" : "Redes neuronales"
+    }, {
+      "id" : 82,
+      "nombre" : "Métodos estocásticos y no-métricos"
+    }, {
+      "id" : 83,
+      "nombre" : "Aprendizaje no supervisado"
+    }, {
+      "id" : 84,
+      "nombre" : "Redes neuronales. "
+    }, {
+      "id" : 85,
+      "nombre" : "Python y tensorflow. "
+    }, {
+      "id" : 86,
+      "nombre" : "Redes neuronales convolucionales. "
+    }, {
+      "id" : 87,
+      "nombre" : "Redes neuronales currentes. "
+    }, {
+      "id" : 88,
+      "nombre" : "Aprendizaje secuencia-a-secuencia. "
+    }, {
+      "id" : 89,
+      "nombre" : "Aprendizaje reforzado profundo. "
+    }, {
+      "id" : 90,
+      "nombre" : "Modelos de redes neuronales no supervisadas."
+    }, {
+      "id" : 91,
+      "nombre" : "Introducción."
+    }, {
+      "id" : 92,
+      "nombre" : "Entrenamiento supervisado."
+    }, {
+      "id" : 93,
+      "nombre" : "Entrenamiento no-supervisado."
+    }, {
+      "id" : 94,
+      "nombre" : "Aprendizaje de máquina a gran escala."
+    }, {
+      "id" : 95,
+      "nombre" : "Definiciones y conceptos básicos"
+    }, {
+      "id" : 96,
+      "nombre" : "Representación de lenguaje natural"
+    }, {
+      "id" : 97,
+      "nombre" : "Aplicaciones en comprensión del lenguaje natural"
+    }, {
+      "id" : 98,
+      "nombre" : "Aplicaciones en producción de lenguaje natural"
+    }, {
+      "id" : 99,
+      "nombre" : "Aplicaciones en predicción a partir de lenguaje natural"
+    }, {
+      "id" : 100,
+      "nombre" : "Introducción y motivación"
+    }, {
+      "id" : 101,
+      "nombre" : "Algebra lineal"
+    }, {
+      "id" : 102,
+      "nombre" : "Geometría constructiva de sólidos"
+    }, {
+      "id" : 103,
+      "nombre" : "Escenas y modelo de cámara"
+    }, {
+      "id" : 104,
+      "nombre" : "Luces y materiales"
+    }, {
+      "id" : 105,
+      "nombre" : "Representaciones paramétricas"
+    }, {
+      "id" : 106,
+      "nombre" : "Representaciones no paramétricas"
+    }, {
+      "id" : 107,
+      "nombre" : "Estructuras de datos"
+    }, {
+      "id" : 108,
+      "nombre" : "Colisiones"
+    }, {
+      "id" : 109,
+      "nombre" : "Trazado de rayos"
+    }, {
+      "id" : 110,
+      "nombre" : "Aceleradores de vídeo"
+    }, {
+      "id" : 111,
+      "nombre" : "Motores de física"
+    }, {
+      "id" : 112,
+      "nombre" : "Investigación en CG"
+    }, {
+      "id" : 113,
+      "nombre" : "Algebra lineal"
+    }, {
+      "id" : 114,
+      "nombre" : "Estructuras de datos"
+    }, {
+      "id" : 115,
+      "nombre" : "Ogre"
+    }, {
+      "id" : 116,
+      "nombre" : "Joysticks"
+    }, {
+      "id" : 117,
+      "nombre" : "Datagloves"
+    }, {
+      "id" : 118,
+      "nombre" : "HMDs"
+    }, {
+      "id" : 119,
+      "nombre" : "Reconocimiento de gestos"
+    }, {
+      "id" : 120,
+      "nombre" : "Trackers"
+    }, {
+      "id" : 121,
+      "nombre" : "HCI y multimodalidad"
+    }, {
+      "id" : 122,
+      "nombre" : "Interacción 3D"
+    }, {
+      "id" : 123,
+      "nombre" : "Evaluación"
+    }, {
+      "id" : 124,
+      "nombre" : "Realidad aumentada y videojuegos"
+    }, {
+      "id" : 125,
+      "nombre" : "Datos."
+    }, {
+      "id" : 126,
+      "nombre" : "Flujo de datos."
+    }, {
+      "id" : 127,
+      "nombre" : "Escenarios."
+    }, {
+      "id" : 128,
+      "nombre" : "VTK y gnuplot."
+    }, {
+      "id" : 129,
+      "nombre" : "Color."
+    }, {
+      "id" : 130,
+      "nombre" : "Técnicas de visualización."
+    }, {
+      "id" : 131,
+      "nombre" : "Escalares y vectores."
+    }, {
+      "id" : 132,
+      "nombre" : "Superficies, imágenes y volúmenes."
+    }, {
+      "id" : 133,
+      "nombre" : "Introduccion y CGAL"
+    }, {
+      "id" : 134,
+      "nombre" : "Cascos Convexos"
+    }, {
+      "id" : 135,
+      "nombre" : "Intersecciones de objetos."
+    }, {
+      "id" : 136,
+      "nombre" : "Triangulacion de Poligonos"
+    }, {
+      "id" : 137,
+      "nombre" : "Triangulacion de Delaunay "
+    }, {
+      "id" : 138,
+      "nombre" : "Diagramas de Voronoi "
+    }, {
+      "id" : 139,
+      "nombre" : "Politopos "
+    }, {
+      "id" : 140,
+      "nombre" : "Arboles Kd"
+    }, {
+      "id" : 141,
+      "nombre" : "BSP"
+    }, {
+      "id" : 142,
+      "nombre" : "Grafos Visibilidad"
+    }, {
+      "id" : 143,
+      "nombre" : "Curvas "
+    }, {
+      "id" : 144,
+      "nombre" : "Superficies "
+    }, {
+      "id" : 145,
+      "nombre" : "Volúmenes"
+    }, {
+      "id" : 146,
+      "nombre" : "Representaciones paramétricas"
+    }, {
+      "id" : 147,
+      "nombre" : "Introducción al cómputo de alto rendimiento"
+    }, {
+      "id" : 148,
+      "nombre" : "Aplicaciones usadas en E-ciencia"
+    }, {
+      "id" : 149,
+      "nombre" : "Programación Concurrente"
+    }, {
+      "id" : 150,
+      "nombre" : "Fundamentos de Big Data"
+    }, {
+      "id" : 151,
+      "nombre" : "Procesamiento in-memory"
+    }, {
+      "id" : 152,
+      "nombre" : "Introducción a los Sistemas Distribuidos. "
+    }, {
+      "id" : 153,
+      "nombre" : "Paralelismo y Concurrencia. "
+    }, {
+      "id" : 154,
+      "nombre" : "Transacciones Distribuidas. "
+    }, {
+      "id" : 155,
+      "nombre" : "Alta Disponibilidad. "
+    }, {
+      "id" : 156,
+      "nombre" : "Sistemas Manejadores de Archivos Distribuidos."
+    }, {
+      "id" : 157,
+      "nombre" : "Virtualización como infraestructura para desarrollar sistemas distribuidos. "
+    }, {
+      "id" : 158,
+      "nombre" : "Desarrollo de aplicaciones empresariales distribuidas en la plataforma Java EE 5.  "
+    }, {
+      "id" : 159,
+      "nombre" : "Acople de frameworks para soportar tareas asincrónicas."
+    }, {
+      "id" : 160,
+      "nombre" : "Cluster de servidores de aplicaciones para lograr alta escalabilidad y disponibilidad."
+    }, {
+      "id" : 161,
+      "nombre" : "Introducción conceptos básicos de seguridad de la información"
+    }, {
+      "id" : 162,
+      "nombre" : "Administración del riesgo"
+    }, {
+      "id" : 163,
+      "nombre" : "Awareness y Control de acceso"
+    }, {
+      "id" : 164,
+      "nombre" : "Control de acceso, Biometría"
+    }, {
+      "id" : 165,
+      "nombre" : "Criptografía, blockchain"
+    }, {
+      "id" : 166,
+      "nombre" : "Ataques"
+    }, {
+      "id" : 167,
+      "nombre" : "Redes y telecomunicaciones"
+    }, {
+      "id" : 168,
+      "nombre" : "Introducción Forense"
+    }, {
+      "id" : 169,
+      "nombre" : "Forense, ética, leyes"
+    }, {
+      "id" : 170,
+      "nombre" : "Introducción"
+    }, {
+      "id" : 171,
+      "nombre" : "Metodologías de gestión de Servicio IT (ITSM)."
+    }, {
+      "id" : 172,
+      "nombre" : "Definición y Análisis de requerimientos"
+    }, {
+      "id" : 173,
+      "nombre" : "Diseño Físico/lógico"
+    }, {
+      "id" : 174,
+      "nombre" : "Validación del diseño Físico/lógico"
+    }, {
+      "id" : 175,
+      "nombre" : "Estándares para red de Gestión"
+    }, {
+      "id" : 176,
+      "nombre" : "Introducción a la Gestión de Seguridad"
+    }, {
+      "id" : 177,
+      "nombre" : "SISTEMAS OPERATIVOS"
+    }, {
+      "id" : 178,
+      "nombre" : "SISTEMAS EN TIEMPO REAL"
+    }, {
+      "id" : 179,
+      "nombre" : "SISTEMAS OPERATIVOS DE TIEMPO REAL"
+    }, {
+      "id" : 180,
+      "nombre" : "Introducción  a la consola de comandos GNU/Linux. "
+    }, {
+      "id" : 181,
+      "nombre" : "Sistemas de archivos linux y diferencia entre ellos. "
+    }, {
+      "id" : 182,
+      "nombre" : "Process ID, niceness prioridad de procesos y uso adecuado de los recursos de computo del sistema."
+    }, {
+      "id" : 183,
+      "nombre" : "Usuarios y grupos"
+    }, {
+      "id" : 184,
+      "nombre" : "Taller de usuarios y grupos y tarea."
+    }, {
+      "id" : 185,
+      "nombre" : "Manejo de tiempos por reloj uso de NTP"
+    }, {
+      "id" : 186,
+      "nombre" : "Uso de las crontables"
+    }, {
+      "id" : 187,
+      "nombre" : "Demonios del sistema"
+    }, {
+      "id" : 188,
+      "nombre" : "Acceso  a periféricos hardware en red repaso scp y ftp. "
+    }, {
+      "id" : 189,
+      "nombre" : "Sockets y comunicación entre dispositivos embebidos."
+    }, {
+      "id" : 190,
+      "nombre" : "Seguridad en sistemas embebidos, cifrado simétrico y asimétrico"
+    }, {
+      "id" : 191,
+      "nombre" : "Multihilo, paso de mensajes y memoria compartida"
+    }, {
+      "id" : 192,
+      "nombre" : "Multiproceso, sincronismo y generalidades del miltiproceso y su uso."
+    }, {
+      "id" : 193,
+      "nombre" : "Introducción conceptos básicos: Análisis de vulnerabilidades (Interno, externo), hacking ético (sombreros), KaliLinux, Metasploit, plataformas (HTB, hack.me, etc.), VM. Equipo rojo, equipo azul (perfiles)."
+    }, {
+      "id" : 194,
+      "nombre" : "Configuración de laboratorio virtual, Técnicas de Anonimato (Proxy, VPN)."
+    }, {
+      "id" : 195,
+      "nombre" : "Estándares Frameworks y metodologías (OSSTM, OWASP, PCI, NIST 800-115, PTES, OWISAM)."
+    }, {
+      "id" : 196,
+      "nombre" : "Clonación de sitios web, phishing, Ataques a sitios Phishing (Maliciosos), uso de herramientas y objetivo."
+    }, {
+      "id" : 197,
+      "nombre" : "Prácticas de Hacking ético; Ingeniería Social (Sistemas, web, redes, WiFi)."
+    }, {
+      "id" : 198,
+      "nombre" : "OSINT, enumeración, escaneo de vulnerabilidades."
+    }, {
+      "id" : 199,
+      "nombre" : "Scripting, MSF, meterpreter, Powershell, Python."
+    }, {
+      "id" : 200,
+      "nombre" : "Explotación de vulnerabilidades, elevación de privilegios, exploits."
+    }, {
+      "id" : 201,
+      "nombre" : "Hijacking, XSS, XSRF, SSRF."
+    }, {
+      "id" : 202,
+      "nombre" : "SQL Injection, OS command injection, XXE injection."
+    }, {
+      "id" : 203,
+      "nombre" : "Post explotación, Mantener Acceso Técnicas Anti-forenses"
+    }, {
+      "id" : 204,
+      "nombre" : "Port Forwarding, Pivoting, movimiento lateral."
+    }, {
+      "id" : 205,
+      "nombre" : "Reportes y fórmulas de cobro (análisis de vulnerabilidades, pentesting, ethical hacking, Red Teaming)."
+    }, {
+      "id" : 206,
+      "nombre" : "Conceptos introductorios de la informática forense "
+    }, {
+      "id" : 207,
+      "nombre" : "Estándares internacionales en informática forense."
+    }, {
+      "id" : 208,
+      "nombre" : "Aspectos Legales de la Evidencia Digital.  "
+    }, {
+      "id" : 209,
+      "nombre" : "Identificación de la Evidencia Digital."
+    }, {
+      "id" : 210,
+      "nombre" : "Adquisición de Evidencia Digital."
+    }, {
+      "id" : 211,
+      "nombre" : "Buenas prácticas para la recolección de Evidencia Digital. "
+    }, {
+      "id" : 212,
+      "nombre" : "Análisis de Evidencias Digitales."
+    }, {
+      "id" : 213,
+      "nombre" : "Sistemas de archivos."
+    }, {
+      "id" : 214,
+      "nombre" : "Documentación de las actuaciones del perito en informática forense."
+    }, {
+      "id" : 215,
+      "nombre" : "Introducción a la Seguridad de Redes."
+    }, {
+      "id" : 216,
+      "nombre" : "Criptografía."
+    }, {
+      "id" : 217,
+      "nombre" : "Mecanismos de seguridad en redes de datos."
+    }, {
+      "id" : 218,
+      "nombre" : "Ciberseguridad redes de datos."
+    }, {
+      "id" : 219,
+      "nombre" : "Introducción y Motivación "
+    }, {
+      "id" : 220,
+      "nombre" : "Diseño e interfaz de aplicaciones Moviles "
+    }, {
+      "id" : 221,
+      "nombre" : "Desarrollo de aplicaciones nativas"
+    }, {
+      "id" : 222,
+      "nombre" : "Acceso a Hardware, Mapas, Servicios de backend "
+    }, {
+      "id" : 223,
+      "nombre" : "Frameworks Hìbridos"
+    }, {
+      "id" : 224,
+      "nombre" : "Introducción a sistemas. microprocesador/microcontrolador."
+    }, {
+      "id" : 225,
+      "nombre" : "Herramientas de desarrollo Software/ Hardware."
+    }, {
+      "id" : 226,
+      "nombre" : "Consideraciones de Eficiencia."
+    }, {
+      "id" : 227,
+      "nombre" : "Pooling."
+    }, {
+      "id" : 228,
+      "nombre" : "Interrupciones."
+    }, {
+      "id" : 229,
+      "nombre" : "Co-rutinas/Multitarea."
+    }, {
+      "id" : 230,
+      "nombre" : "Privacidad de los datos – anonimización"
+    }, {
+      "id" : 231,
+      "nombre" : "Seguridad de los datos"
+    }, {
+      "id" : 232,
+      "nombre" : "Propiedad de los datos"
+    }, {
+      "id" : 233,
+      "nombre" : "Legislación vigente nacional/internacional"
+    }, {
+      "id" : 234,
+      "nombre" : "Artefactos técnicos. "
+    }, {
+      "id" : 235,
+      "nombre" : "Diseño técnico. "
+    }, {
+      "id" : 236,
+      "nombre" : "Ética y diseño. "
+    }, {
+      "id" : 237,
+      "nombre" : "Conocimiento tecnológico. "
+    }, {
+      "id" : 238,
+      "nombre" : "Acción humana y tecnología. "
+    }, {
+      "id" : 239,
+      "nombre" : "Factores sociales en el desarrollo tecnológico. "
+    }, {
+      "id" : 240,
+      "nombre" : "Implicaciones éticas de los desarrollos tecnológicos."
+    }, {
+      "id" : 241,
+      "nombre" : "Grafos, tipos de grafos y sus propiedades fundamentales."
+    }, {
+      "id" : 242,
+      "nombre" : "Distancia y homeomorfismos de grafos"
+    }, {
+      "id" : 243,
+      "nombre" : " rboles y modelos. Aplicaciones"
+    }, {
+      "id" : 244,
+      "nombre" : " rboles generadores, conteo de árboles y aplicaciones"
+    }, {
+      "id" : 245,
+      "nombre" : "Circuitos y conectividad en grafos"
+    }, {
+      "id" : 246,
+      "nombre" : "Grafos planares y problemas de coloreado de grafos"
+    }, {
+      "id" : 247,
+      "nombre" : "Matrices y su aplicación a grafos"
+    }, {
+      "id" : 248,
+      "nombre" : "Grafos dirigidos"
+    }, {
+      "id" : 249,
+      "nombre" : "Algoritmos combinatorios y aplicaciones"
+    }, {
+      "id" : 250,
+      "nombre" : "Matroides y sus aplicaciones"
+    }, {
+      "id" : 251,
+      "nombre" : "Transformación digital"
+    }, {
+      "id" : 252,
+      "nombre" : "Métodos Formales"
+    }, {
+      "id" : 253,
+      "nombre" : "Tendencias y patrones emergentes"
+    }, {
+      "id" : 254,
+      "nombre" : "Análisis básico de datos."
+    }, {
+      "id" : 255,
+      "nombre" : "Preparación de datos."
+    }, {
+      "id" : 256,
+      "nombre" : "Consolidación de información en datos estructurados."
+    }, {
+      "id" : 257,
+      "nombre" : "Consolidación de información en datos no estructurados."
+    }, {
+      "id" : 258,
+      "nombre" : "Manejo de grandes volúmenes de datos."
+    }, {
+      "id" : 259,
+      "nombre" : "Qué es el entorno económico."
+    }, {
+      "id" : 260,
+      "nombre" : "Factores Macroeconómicos."
+    }, {
+      "id" : 261,
+      "nombre" : "Factores Microeconómicos."
+    }, {
+      "id" : 262,
+      "nombre" : "Adecuandose al cambiante entorno."
+    }, {
+      "id" : 263,
+      "nombre" : "Presentación Fundamentos y alcance del Liderazgo."
+    }, {
+      "id" : 264,
+      "nombre" : "Modelo de Influencia. "
+    }, {
+      "id" : 265,
+      "nombre" : "Presentar el Modelo de Desarrollo de Otros en la Dirección de Equipos."
+    }, {
+      "id" : 266,
+      "nombre" : "Fundamentos del concepto y alcance del Liderazgo."
+    }, {
+      "id" : 267,
+      "nombre" : "Cultura y Cambio Organizacional."
+    }, {
+      "id" : 268,
+      "nombre" : "Alto desempeño. "
+    }, {
+      "id" : 269,
+      "nombre" : "Elementos constitutivos."
+    }, {
+      "id" : 270,
+      "nombre" : "Dimensiones. "
+    }, {
+      "id" : 271,
+      "nombre" : "Aplicabilidad  tanto en la productividad  como en la competitividad en los Equipos. "
+    }, {
+      "id" : 272,
+      "nombre" : "Desarrollo del Modelo habilidad Blanda."
+    }, {
+      "id" : 273,
+      "nombre" : "Liderazgo de Equipos  de  Alto Desempeño."
+    }, {
+      "id" : 274,
+      "nombre" : "Abordaje de la  Gestión de Cambio ."
+    }, {
+      "id" : 275,
+      "nombre" : "Retroalimentación Colectiva."
+    }, {
+      "id" : 276,
+      "nombre" : "Inteligencia Emocional y el Liderazgo de Equipos."
+    }, {
+      "id" : 277,
+      "nombre" : "Introducción a la Competitividad e Innovación."
+    }, {
+      "id" : 278,
+      "nombre" : "Prospectiva, la Ciencia de la Futurología."
+    }, {
+      "id" : 279,
+      "nombre" : "Análisis de tendencias empresariales."
+    }, {
+      "id" : 280,
+      "nombre" : "Ventajas competitivas."
+    }, {
+      "id" : 281,
+      "nombre" : "Mercado y sus Fuerzas Competitivas."
+    }, {
+      "id" : 282,
+      "nombre" : "Competencia, Retos y Oportunidades."
+    }, {
+      "id" : 283,
+      "nombre" : "Modelos de Negocios Competitivos."
+    }, {
+      "id" : 284,
+      "nombre" : "Innovación Organizacional."
+    }, {
+      "id" : 285,
+      "nombre" : "Priorización de Estrategias y de Proyectos de Innovación."
+    }, {
+      "id" : 286,
+      "nombre" : "Proyecto de Innovación."
+    }, {
+      "id" : 287,
+      "nombre" : "Visión de futuro.  Visión de futuro y planeación"
+    }, {
+      "id" : 288,
+      "nombre" : "Visión de futuro.  Nueva economía digital."
+    }, {
+      "id" : 289,
+      "nombre" : "Teorías de la competencia.Teorías de la organización industrial. "
+    }, {
+      "id" : 290,
+      "nombre" : "Modelos de negocio."
+    }, {
+      "id" : 291,
+      "nombre" : "Competencias para la innovación."
+    }, {
+      "id" : 292,
+      "nombre" : "Rompiendo paradigmas paralizantes y replanteando sus habilidades gerenciales modernas."
+    }, {
+      "id" : 293,
+      "nombre" : "Nuevos entornos. Nueva habilidades gerenciales."
+    }, {
+      "id" : 294,
+      "nombre" : "Comunicación asertiva para un nuevo gerente."
+    }, {
+      "id" : 295,
+      "nombre" : "Megatendencia."
+    }, {
+      "id" : 296,
+      "nombre" : "Comunicación total."
+    }, {
+      "id" : 297,
+      "nombre" : "Desarrollo humano."
+    }, {
+      "id" : 298,
+      "nombre" : "Accountability."
+    }, {
+      "id" : 299,
+      "nombre" : "Matriz de toma de decisiones."
+    }, {
+      "id" : 300,
+      "nombre" : "Seguridad de la información y seguridad Informática. "
+    }, {
+      "id" : 301,
+      "nombre" : "Amenazas principales sobre las organizaciones (cybercrimen, software malicioso, fraude, etc.). "
+    }, {
+      "id" : 302,
+      "nombre" : "Ciberdelitos, ciberterrorismo, ciberguerra, Ciberseguridad Económica, "
+    }, {
+      "id" : 303,
+      "nombre" : "Delitos Informáticos, clasificación de la información. "
+    }, {
+      "id" : 304,
+      "nombre" : "Modelos (OSI-TCP/IP), antenas, espectro electromagnético, etc."
+    }, {
+      "id" : 305,
+      "nombre" : "Criptografía, funciones de Hash, Clave Pública, Clave Simétrica, PKI, Firma Digital, Sobre Digital, Esteganografía"
+    }, {
+      "id" : 306,
+      "nombre" : "Activos de iformación."
+    }, {
+      "id" : 307,
+      "nombre" : "Atentados contra los activos de informacion e infraestructura critica."
+    }, {
+      "id" : 308,
+      "nombre" : "Identificacion de vulnerabilidades."
+    }, {
+      "id" : 309,
+      "nombre" : "Gestion de riesgos ciberneticos."
+    }, {
+      "id" : 310,
+      "nombre" : "Generalidades."
+    }, {
+      "id" : 311,
+      "nombre" : "Proceso de Planeación."
+    }, {
+      "id" : 312,
+      "nombre" : "Proceso de Ejecución."
+    }, {
+      "id" : 313,
+      "nombre" : "Proceso de Monitoreo y Control. "
+    }, {
+      "id" : 314,
+      "nombre" : "Proceso de Cierre."
+    }, {
+      "id" : 315,
+      "nombre" : "Introducción a la Transformación Digital e Industria 4.0."
+    }, {
+      "id" : 316,
+      "nombre" : "Blockchain."
+    }, {
+      "id" : 317,
+      "nombre" : "Inteligencia Artificial."
+    }, {
+      "id" : 318,
+      "nombre" : "Cloud Computig. "
+    }, {
+      "id" : 319,
+      "nombre" : "Internet de las Cosas (IoT)."
+    }, {
+      "id" : 320,
+      "nombre" : "Analítica de Datos."
+    }, {
+      "id" : 321,
+      "nombre" : "Robot Process Automation (RPA)."
+    }, {
+      "id" : 322,
+      "nombre" : "Introducción a la transformación digital."
+    }, {
+      "id" : 323,
+      "nombre" : "Tecnologías digitales emergentes y la transformación digital."
+    }, {
+      "id" : 324,
+      "nombre" : "Modelo de Negocio Digital."
+    }, {
+      "id" : 325,
+      "nombre" : "Capacidades Empresariales y la transformación digital."
+    }, {
+      "id" : 326,
+      "nombre" : "Diseño digital con lenguajes formales de diseño empresarial: Archimate."
+    }, {
+      "id" : 327,
+      "nombre" : "Análisis de casos de estudio."
+    }, {
+      "id" : 328,
+      "nombre" : "Data Driven Business Transformation."
+    }, {
+      "id" : 329,
+      "nombre" : "Introducción. "
+    }, {
+      "id" : 330,
+      "nombre" : " Gestión estratégica. "
+    }, {
+      "id" : 331,
+      "nombre" : "Marcos conceptuales de Gobierno ."
+    }, {
+      "id" : 332,
+      "nombre" : "Gobierno de servicios tecnológicos. "
+    }, {
+      "id" : 333,
+      "nombre" : "Conceptos básicos de seguridad."
+    }, {
+      "id" : 334,
+      "nombre" : "Cifrado Simétrico."
+    }, {
+      "id" : 335,
+      "nombre" : "Cifrado Asimétrico."
+    }, {
+      "id" : 336,
+      "nombre" : "Estándares de seguridad."
+    }, {
+      "id" : 337,
+      "nombre" : "Modelos de Seguridad."
+    }, {
+      "id" : 338,
+      "nombre" : "Seguridad en web services."
+    }, {
+      "id" : 339,
+      "nombre" : "Conceptos de ataques informáticos."
+    }, {
+      "id" : 340,
+      "nombre" : "Patrones de ataques."
+    }, {
+      "id" : 341,
+      "nombre" : "Conceptos de seguridad lógica arquitectural."
+    }, {
+      "id" : 342,
+      "nombre" : "Análisis de riesgo sobre la información del SI."
+    }, {
+      "id" : 343,
+      "nombre" : "Metodología de seguridad para el desarrollo seguro de aplicaciones."
+    }, {
+      "id" : 344,
+      "nombre" : "Conceptos básicos de interoperabilidad."
+    }, {
+      "id" : 345,
+      "nombre" : "Conceptos básicos de Integración."
+    }, {
+      "id" : 346,
+      "nombre" : "Middleware como solución al problema de interoperabilidad e Integración."
+    }, {
+      "id" : 347,
+      "nombre" : "Interoperabilidad semántica."
+    }, {
+      "id" : 348,
+      "nombre" : "Interoperabilidad en SOA."
+    }, {
+      "id" : 349,
+      "nombre" : "Interoperabilidad síncrona."
+    }, {
+      "id" : 350,
+      "nombre" : "Interoperabilidad Asíncrona."
+    }, {
+      "id" : 351,
+      "nombre" : "Conceptos generales sobre la gestión de la tecnologica."
+    }, {
+      "id" : 352,
+      "nombre" : "Ciclo de vida del servicio de TI según ITIL."
+    }, {
+      "id" : 353,
+      "nombre" : "Estrategia del Servicio."
+    }, {
+      "id" : 354,
+      "nombre" : "Diseño del servicio."
+    }, {
+      "id" : 355,
+      "nombre" : "Transición del servicio."
+    }, {
+      "id" : 356,
+      "nombre" : "Operación del Servicio."
+    }, {
+      "id" : 357,
+      "nombre" : "Mejora continua del servicio."
+    }, {
+      "id" : 358,
+      "nombre" : "Modelo de madurez de ITIL."
+    }, {
+      "id" : 359,
+      "nombre" : "Otros referentes de la Gestión del Servicio."
+    }, {
+      "id" : 360,
+      "nombre" : "Marco Normativo Aplicable."
+    }, {
+      "id" : 361,
+      "nombre" : "Publicidad Engañosa."
+    }, {
+      "id" : 362,
+      "nombre" : "Cláusulas y Prácticas abusivas."
+    }, {
+      "id" : 363,
+      "nombre" : "Defensor del Consumidor Financiero."
+    }, {
+      "id" : 364,
+      "nombre" : "Aproximación Global al Tratamiento de Datos Personales."
+    }, {
+      "id" : 365,
+      "nombre" : "Régimen Colombiano de Datos Personales."
+    }, {
+      "id" : 366,
+      "nombre" : "Principio de responsabilidad demostrada."
+    }, {
+      "id" : 367,
+      "nombre" : "Manejo de incidentes de seguridad."
+    }, {
+      "id" : 368,
+      "nombre" : "Servicios de computación."
+    }, {
+      "id" : 369,
+      "nombre" : "Tratamiento de datos relacionados con la salud."
+    }, {
+      "id" : 370,
+      "nombre" : "Diseños por privacidad."
+    }, {
+      "id" : 371,
+      "nombre" : "Big Data."
+    }, {
+      "id" : 372,
+      "nombre" : "Derecho al olvido."
+    }, {
+      "id" : 373,
+      "nombre" : "Puerto Seguro."
+    }, {
+      "id" : 374,
+      "nombre" : "Ética normativa clásica."
+    }, {
+      "id" : 375,
+      "nombre" : "La noción de moralidad en cuestión."
+    }, {
+      "id" : 376,
+      "nombre" : "Algunas propuestas recientes."
+    }, {
+      "id" : 377,
+      "nombre" : "Algunos problemas recientes."
+    }, {
+      "id" : 378,
+      "nombre" : "Problemas de bioética: animales y eutanasia."
+    }, {
+      "id" : 379,
+      "nombre" : "Predicción de contenidos."
+    }, {
+      "id" : 380,
+      "nombre" : "Inferencia de vocabulario de acuerdo con el contexto."
+    }, {
+      "id" : 381,
+      "nombre" : "Cohesión y coherencia en el texto."
+    }, {
+      "id" : 382,
+      "nombre" : "Estructura global del texto."
+    }, {
+      "id" : 383,
+      "nombre" : "Desarrollo de organizadores gráficos para visualizar la información en un texto."
+    }, {
+      "id" : 384,
+      "nombre" : "Información contextual del texto (temática, idea principal, propósito del autor, entre otras)."
+    }, {
+      "id" : 385,
+      "nombre" : "Estructura de párrafo propio de textos investigativos."
+    }, {
+      "id" : 386,
+      "nombre" : "Estructura de los resúmenes (abstracts)."
+    }, {
+      "id" : 387,
+      "nombre" : "Estructura de algunos tipos de artículos académicos y científicos."
+    }, {
+      "id" : 388,
+      "nombre" : "Paráfrasis."
+    }, {
+      "id" : 389,
+      "nombre" : "Explicación de procesos investigativos."
+    }, {
+      "id" : 390,
+      "nombre" : "Uso efectivo del lenguaje."
+    }, {
+      "id" : 391,
+      "nombre" : "Dispositivos retóricos del lenguaje oral (cómo ganarse a la audiencia, coherencia y cohesión del discurso, organización)."
+    }, {
+      "id" : 392,
+      "nombre" : "Registro (formal e informal)."
+    }, {
+      "id" : 393,
+      "nombre" : "Interacción con la audiencia)."
+    }, {
+      "id" : 394,
+      "nombre" : "Tipos de presentaciones."
+    }, {
+      "id" : 395,
+      "nombre" : "Estructuración de la presentación según género (taller, afiche, ponencia)."
+    }, {
+      "id" : 396,
+      "nombre" : "Planeación de la presentación (tabla de contenidos, afinación del tema, propósito, audiencia, tiempo)."
+    }, {
+      "id" : 397,
+      "nombre" : "Estrategias orales."
+    }, {
+      "id" : 398,
+      "nombre" : "Uso de ayudas visuales y dispositivos tecnológicos."
+    }, {
+      "id" : 399,
+      "nombre" : "Lenguaje no verbal."
+    }, {
+      "id" : 400,
+      "nombre" : "Comprensión de las diferencias culturales al interactuar."
+    }, {
+      "id" : 401,
+      "nombre" : "Confianza y precisión."
+    }, {
+      "id" : 402,
+      "nombre" : "Principio de Accountability: cómo utilizar las herramientas y las buenas prácticas internacionales para lograr el cumplimiento."
+    }, {
+      "id" : 403,
+      "nombre" : "Confidencialidad y anonimización."
+    }, {
+      "id" : 404,
+      "nombre" : "Normativas locales e internacionales."
+    }, {
+      "id" : 405,
+      "nombre" : "Clasificación de la información y derechos de acceso."
+    }, {
+      "id" : 406,
+      "nombre" : "Regulaciones, leyes normas a los que está sujeto un Oficial de Seguridad."
+    }, {
+      "id" : 407,
+      "nombre" : "SLA."
+    }, {
+      "id" : 408,
+      "nombre" : "Análisis de casos (Globales y locales)."
+    }, {
+      "id" : 409,
+      "nombre" : "Transferencia y transmisión nacional e internacional de datos."
+    }, {
+      "id" : 410,
+      "nombre" : "Conceptos generales de derecho comercial."
+    }, {
+      "id" : 411,
+      "nombre" : "Aproximaciones al estatuto del consumidor (Ley 1480 de 2011)."
+    }, {
+      "id" : 412,
+      "nombre" : "Derechos y deberes del consumidor."
+    }, {
+      "id" : 413,
+      "nombre" : "Conceptos principales de la protección de datos personales: que es un dato personal, un titular de información, el tratamiento de los datos y las autorizaciones."
+    }, {
+      "id" : 414,
+      "nombre" : "Evolución normativa en Colombia (Ley 1266 de 2008, Ley 1581 de 2012, Decreto 1377 de 2013 y Decreto 1074 de 2015)."
+    }, {
+      "id" : 415,
+      "nombre" : "Análisis comparado con reglamentación en América Latina, evaluación noma de Perú, México, Panamá y proyecto de ley de Ecuador."
+    }, {
+      "id" : 416,
+      "nombre" : "Análisis del registro de las bases de datos: alcance y necesidad de controlar la información."
+    }, {
+      "id" : 417,
+      "nombre" : "Análisis del Reglamento de Protección de Datos de la Unión Europea."
+    }, {
+      "id" : 418,
+      "nombre" : "Implicaciones de la protección de datos personales en las empresas: modelo de sistemas de gestión en protección de datos."
+    }, {
+      "id" : 419,
+      "nombre" : " Fundamentos de Automatización Industrial e IoT."
+    }, {
+      "id" : 420,
+      "nombre" : " Fundamentos de la ciberseguridad industrial."
+    }, {
+      "id" : 421,
+      "nombre" : " Infraestructura crítica y ciberseguridad."
+    }, {
+      "id" : 422,
+      "nombre" : "Medidas de protección a nivel de red."
+    }, {
+      "id" : 423,
+      "nombre" : "Otras medidas de protección."
+    }, {
+      "id" : 424,
+      "nombre" : " Redes sociales."
+    }, {
+      "id" : 425,
+      "nombre" : "BYOD."
+    }, {
+      "id" : 426,
+      "nombre" : "Big data analysis, anonimización."
+    }, {
+      "id" : 427,
+      "nombre" : "Inteligencia Artificial."
+    }, {
+      "id" : 428,
+      "nombre" : "Wearables."
+    }, {
+      "id" : 429,
+      "nombre" : "Migración de plataforma: como los nuevos modelos de negocio afectan la economía digital."
+    }, {
+      "id" : 430,
+      "nombre" : "Invasividad tecnológica."
+    }, {
+      "id" : 431,
+      "nombre" : "Computación cuántica."
+    }, {
+      "id" : 432,
+      "nombre" : "Introducción a la ciberseguridad y la ciberdefensa."
+    }, {
+      "id" : 433,
+      "nombre" : "Sistemas de Gestión de la Seguridad y la defensa en la red."
+    }, {
+      "id" : 434,
+      "nombre" : "Herramientas tecnológicas para prevenir ataques informáticos."
+    }, {
+      "id" : 435,
+      "nombre" : "Sistemas avanzados de defensa de activos estratégicos de una nación (SCADA/DCS)."
+    }, {
+      "id" : 436,
+      "nombre" : "La criptografía en la era de la inteligencia artificial y la computación cuántica."
+    }, {
+      "id" : 437,
+      "nombre" : "Bases conceptueles de la gestión de riesgo."
+    }, {
+      "id" : 438,
+      "nombre" : "Principios para la gestión de riesgo."
+    }, {
+      "id" : 439,
+      "nombre" : "Marco para la gestión de riesgo."
+    }, {
+      "id" : 440,
+      "nombre" : "Proceso para la gestión de riesgo."
+    }, {
+      "id" : 441,
+      "nombre" : "Riesgos Financieros."
+    }, {
+      "id" : 442,
+      "nombre" : "Riesgos de mercado."
+    }, {
+      "id" : 443,
+      "nombre" : "Riesgos de liquidez."
+    }, {
+      "id" : 444,
+      "nombre" : "Riesgos de credito."
+    }, {
+      "id" : 445,
+      "nombre" : "Desarrollando el plan de auditoría de TI."
+    },
+    {
+      "id" : 446,
+      "nombre" : "Identificacion de riesgos."
+    }, 
+    {
+      "id" : 447,
+      "nombre" : "Evaluación de controles de TI."
+    }, 
+    {
+      "id" : 448,
+      "nombre" : "Análisis de riesgos de TI."
+    }, 
+    {
+      "id" : 449,
+      "nombre" : "Plan de auditoría. "
+    }, 
+    {
+      "id" : 450,
+      "nombre" : "Aseguramiento de TI - ejecución /pruebas."
+    }, 
+    {
+      "id" : 451,
+      "nombre" : "Análisis de datos. "
+    }, 
+    {
+      "id" : 452,
+      "nombre" : "Herramientas para el tratamiento masivo de datos (ACL/IDEA)."
+    }, 
+    {
+      "id" : 453,
+      "nombre" : "Modelo COBIT ."
+    }, 
+    {
+      "id" : 454,
+      "nombre" : "Seguridad de la información. "
+    }, 
+    {
+      "id" : 455,
+      "nombre" : "Evolución de los fundamentos de seguridad de la información. "
+    }, 
+    {
+      "id" : 456,
+      "nombre" : "Revisión de los modelos formales en seguridad y control. "
+    }, 
+    {
+      "id" : 457,
+      "nombre" : "Estándares y buenas prácticas de seguridad de la información: Serie 27000, NIST, ENISA, 31000, Secure Control Framework, Common Sense Security Framework. "
+    }, 
+    {
+      "id" : 458,
+      "nombre" : "Tecnologías emergentes: confianza digital y marcos modernos de gestión de riesgos digitales. "
+    }, 
+    {
+      "id" : 459,
+      "nombre" : "Introducción a los ciberconflictos: guerra asimétrica."
+    } 
+  ]
+}
