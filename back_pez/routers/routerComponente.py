@@ -32,10 +32,9 @@ def componentes(id: str):
         raise HTTPException(status_code=404, detail='Componente no encontrado')
     return componente
 
-@router.post("/",response_model=ComponenteModelo)
-def crear_componente(id: int,nombre: str, asignaturasObligatorias:List[AsignaturaModelo],
-    asignaturasElectivas: List[AsignaturaModelo], subcomponentes:List[subComponenteModelo])->ComponenteModelo:
-    return negocioComponente.crear_componente(id,nombre,asignaturasObligatorias,asignaturasElectivas,subcomponentes)
+@router.post("/")
+def crear_componente(response:ComponenteModelo)->ComponenteModelo:
+    return negocioComponente.crear_componente(response.id,response.nombre,response.asignaturasObligatorias,response.asignaturasElectivas,response.subcomponentes)
     
 
 @router.put("/{id}")

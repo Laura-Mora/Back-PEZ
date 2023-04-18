@@ -31,7 +31,7 @@ def horario(id: str):
 @router.post('/')
 def crear_horario(request:HorarioModel):
     session = Session()
-    nuevo_hoario = Horario(id=request.id, dia=request.dia, horaInicial=request.horaInicio,horaFinall=request.horaFinal)
+    nuevo_hoario = Horario(id=request.id, dia=request.dia, hora=request.hora)
     session.add(nuevo_hoario)
     session.commit()
     session.close()

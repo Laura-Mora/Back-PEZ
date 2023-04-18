@@ -39,13 +39,26 @@ def getAsignatura(id: str):
 @router.post('/')
 def crear_asignatura(request:AsignaturaModelo):
     session = Session()
+    componente_clase = session.query(ComponenteClase).filter(ComponenteClase.id == request.modalidad.id).first()
+    modo_ensenianza = session.query(ModoEnsenianza).filter(ModoEnsenianza.id==request.modoEnsenianza.id).first()
+    horario_ids = [horario.id for horario in request.horarios]
+    horarios = session.query(Horario).filter(Horario.id.in_(horario_ids)).all()
+    competencias_ids = [comp.id for comp in request.competencias]
+    competencias = session.query(Competencia).filter(Competencia.id.in_(competencias_ids)).all()
+    actividad_ids = [actividad.id for actividad in request.actividades]
+    actividades = session.query(Actividad).filter(Actividad.id.in_(actividad_ids)).all()
+    tematicas_ids =[tematica.id for tematica in request.tematicas]
+    tematicas = session.query(Contenido).filter(Contenido.id.in_(tematicas_ids)).all()
+    profesores_id = [profesor.id for profesor in request.profesores]
+    profesores = session.query(Profesor).filter(Profesor.id.in_(profesores_id)).all()
     nueva_asignatura = Asignatura(id=request.id,nombre=request.nombre, poblacionObjetivo=request.poblacionObjetivo, creditos=request.creditos, complejidad=request.complejidad,
-    modalidad=request.modalidad, profesores=request.profesores, modoEnsenianza=request.modoEnsenianza,horarios=request.horarios, 
-    competencias=request.competencias, actividades=request.actividades, tematicas=request.tematicas)
+    modalidad=componente_clase, profesores=profesores, modoEnsenianza=modo_ensenianza,horarios=horarios, 
+    competencias=competencias, actividades=actividades, tematicas=tematicas)
     session.add(nueva_asignatura)
     session.commit()
     session.close()
     return nueva_asignatura
+    
 
 @router.put('/{id}')
 def actualizar_asignatura(id: int, asignatura_update: dict):

@@ -34,8 +34,12 @@ def subcomponente(id: str):
 @router.post('/')
 def crear_subcomponente(response: subComponenteModelo):
     session = Session()
+    asiganturasOb_ids = [actividad.id for actividad in response.asignaturasObligatorias]
+    asiganturasOb = session.query(Asignatura).filter(Asignatura.id.in_(asiganturasOb_ids)).all()
+    asiganturasEl_ids = [actividad.id for actividad in response.asignaturasObligatorias]
+    asiganturasEl = session.query(Asignatura).filter(Asignatura.id.in_(asiganturasEl_ids)).all()
     nuevo_subcomponente = subComponente(id=response.id,nombre=response.nombre, cantCreditos=response.cantCreditos,cantAsignaturas=response.cantAsignaturas,
-    asignaturasObligatorias=response.asignaturasObligatorias, asignaturasElectivas=response.asignaturasElectivas)
+    asignaturasObligatorias=asiganturasOb, asignaturasElectivas=asiganturasEl)
     session.add(nuevo_subcomponente)
     session.commit()
     session.close()
