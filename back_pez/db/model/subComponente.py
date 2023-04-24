@@ -38,7 +38,7 @@ class subComponente(Base):
     cantCreditos: Mapped[int] = Column(Integer, nullable=True)
     cantAsignaturas: Mapped[int] = Column(Integer, nullable=True)
     asignaturasObligatorias = relationship(Asignatura, secondary=subcomponentes_asignaturasObli)
-    asignaturasObligatorias = relationship(Asignatura, secondary=subcomponentes_asignaturasObli)
+    asignaturasElectivas = relationship(Asignatura, secondary=subcomponentes_asignaturasElec)
 
 class subComponenteModelo(BaseModel):
 
