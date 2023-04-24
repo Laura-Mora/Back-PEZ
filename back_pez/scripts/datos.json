@@ -123,6 +123,11 @@
             "id":6,
             "dia":"jueves",
             "hora":"18:00:00"
+        },
+        {
+            "id":7,
+            "dia":"NA",
+            "hora":"00:00:00"
         }
     ],
     "Asignaturas":[
