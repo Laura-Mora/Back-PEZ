@@ -1,0 +1,509 @@
+{
+    "componentes":[
+        {
+            "id":3,
+            "nombre":"Especializadas SISINFO Profundización",
+            "cantCreditos":20,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 2,
+                    "nombre" : "Arquitectura Empresarial ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }
+            ],
+            "asignaturasElectivas":[
+                {
+                    "id" : 3,
+                    "nombre" : "Gestión de Conocimiento ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 4,
+                    "nombre" : "Inteligencia de Negocios ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 5,
+                    "nombre" : "Métodos y Aplicaciones en Analítica I ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 6,
+                    "nombre" : "Métodos y Aplicaciones en Analítica II ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 7,
+                    "nombre" : "Adaptación de Información ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 8,
+                    "nombre" : "Seguridad en Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 9,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 10,
+                    "nombre" : "Tópicos Avanzados en Ing. De Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  },
+                  {
+                    "id" : 11,
+                    "nombre" : "Diseño de Software basado en Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 12,
+                    "nombre" : "Tópicos Avanzados en Bases de Datos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 13,
+                    "nombre" : "Tópicos Avanzados en Analítica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }
+            ]
+        },
+        {
+            "id":4,
+            "nombre":"Cientifica información",
+            "cantCreditos":8,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 1,
+                    "nombre" : "Gestión de proyectos informáticos. ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }
+            ],
+            "asignaturasElectivas":[
+                {
+                    "id" : 14,
+                    "nombre" : "Diseño y Evaluación de Arquitecturas de Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 15,
+                    "nombre" : "Ingeniería de Requerimientos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 16,
+                    "nombre" : "Sistemas Inteligentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 17,
+                    "nombre" : "Sistemas MultiAgentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 18,
+                    "nombre" : "Robótica Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 19,
+                    "nombre" : "Reconocimiento de Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 20,
+                    "nombre" : "Procesamiento de Imágenes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 21,
+                    "nombre" : "Aprendizaje Profundo ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 22,
+                    "nombre" : "Aprendizaje de Maquina ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 24,
+                    "nombre" : "Procesamiento de Lenguaje Natural ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 25,
+                    "nombre" : "Computación Gráfica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 26,
+                    "nombre" : "Realidad Virtual ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 27,
+                    "nombre" : "Visualización Científica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 28,
+                    "nombre" : "Geometría Computacional ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 29,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 30,
+                    "nombre" : "Sistemas Distribuidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 31,
+                    "nombre" : "Seguridad Informática ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 32,
+                    "nombre" : "Gestión y Diseño de Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 33,
+                    "nombre" : "Sistemas Operativos Tiempo Real ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 34,
+                    "nombre" : "Sistemas Embebidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 35,
+                    "nombre" : "Seguridad Ofensiva ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 36,
+                    "nombre" : "Informática Forense ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 37,
+                    "nombre" : "Seguridad en Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 38,
+                    "nombre" : "Computación Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 39,
+                    "nombre" : "Software para Procesadores ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }
+            ]
+        },
+        {
+            "id":5,
+            "nombre":"Humanistica",
+            "cantCreditos":2,
+            "asignaturasElectivas":[
+                {
+                    "id" : 40,
+                    "nombre" : "Manejo responsable de la Información",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  }, {
+                    "id" : 41,
+                    "nombre" : "Filosofía de la Tecnología ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  }
+            ]
+        },
+        {
+            "id":6,
+            "nombre":"Complementarias",
+            "cantCreditos":2,
+            "asignaturasElectivas":[
+                {
+                    "id" : 44,
+                    "nombre" : "Gestión de datos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  }, {
+                    "id" : 45,
+                    "nombre" : "Entorno económico y político de los Negocios",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                  }, {
+                    "id" : 46,
+                    "nombre" : "Liderazgo y Dirección de equipos e individuos",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                  }, {
+                    "id" : 47,
+                    "nombre" : " Innovación y Creatividad",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  }, {
+                    "id" : 48,
+                    "nombre" : "Estrategia Competitiva e Innovación",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                  }, {
+                    "id" : 49,
+                    "nombre" : "Taller de Desarrollo de Habilidades Gerenciales I",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                  }, {
+                    "id" : 50,
+                    "nombre" : "Taller de Desarrollo de Habilidades Gerenciales II",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                  },
+                  {
+                    "id" : 53,
+                    "nombre" : "Gerencia de proyectos TIC",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  }
+
+            ]
+        },
+        {
+            "id":7,
+            "nombre":"Trabajo de Grado profundización MINSC",
+            "cantCreditos":4,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 72,
+                    "nombre" : "Trabajo de Grado Proyecto de Apliación 1",
+                    "poblacionObjetivo" : "Estudiantes MINSC",
+                    "creditos" : 4
+                }
+            ]
+        },
+        {
+            "id":8,
+            "nombre":"Electivas MINSC",
+            "cantCreditos":4,
+            "asignaturasElectivas":[
+                {
+                    "id" : 3,
+                    "nombre" : "Gestión de Conocimiento ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 4,
+                    "nombre" : "Inteligencia de Negocios ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 5,
+                    "nombre" : "Métodos y Aplicaciones en Analítica I ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 6,
+                    "nombre" : "Métodos y Aplicaciones en Analítica II ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 7,
+                    "nombre" : "Adaptación de Información ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 8,
+                    "nombre" : "Seguridad en Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 9,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 10,
+                    "nombre" : "Tópicos Avanzados en Ing. De Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 11,
+                    "nombre" : "Diseño de Software basado en Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 12,
+                    "nombre" : "Tópicos Avanzados en Bases de Datos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 13,
+                    "nombre" : "Tópicos Avanzados en Analítica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 14,
+                    "nombre" : "Diseño y Evaluación de Arquitecturas de Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 15,
+                    "nombre" : "Ingeniería de Requerimientos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 16,
+                    "nombre" : "Sistemas Inteligentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 17,
+                    "nombre" : "Sistemas MultiAgentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 18,
+                    "nombre" : "Robótica Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 19,
+                    "nombre" : "Reconocimiento de Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 20,
+                    "nombre" : "Procesamiento de Imágenes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 21,
+                    "nombre" : "Aprendizaje Profundo ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 22,
+                    "nombre" : "Aprendizaje de Maquina ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 24,
+                    "nombre" : "Procesamiento de Lenguaje Natural ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 25,
+                    "nombre" : "Computación Gráfica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 26,
+                    "nombre" : "Realidad Virtual ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 27,
+                    "nombre" : "Visualización Científica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 28,
+                    "nombre" : "Geometría Computacional ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 29,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 30,
+                    "nombre" : "Sistemas Distribuidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 31,
+                    "nombre" : "Seguridad Informática ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 32,
+                    "nombre" : "Gestión y Diseño de Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 33,
+                    "nombre" : "Sistemas Operativos Tiempo Real ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 34,
+                    "nombre" : "Sistemas Embebidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 35,
+                    "nombre" : "Seguridad Ofensiva ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 36,
+                    "nombre" : "Informática Forense ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 37,
+                    "nombre" : "Seguridad en Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 38,
+                    "nombre" : "Computación Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 39,
+                    "nombre" : "Software para Procesadores ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }
+            ]
+        }
+    ],
+    "programa":{
+        "id": 2,
+        "nombre":"Maestría en Ingeniería de Sistemas y Computación profundización SISINFO",
+        "cantCreditos": 40,
+        "componentes":[
+            {
+                "id":3,
+                "nombre":"Especializadas SISINFO Profundización",
+                "cantCreditos":20
+            },
+            {
+                "id":4,
+                "nombre":"Cientifica información",
+                "cantCreditos":8
+            },
+            {
+                "id":5,
+                "nombre":"Humanistica",
+                "cantCreditos":2
+            },
+            {
+                "id":6,
+                "nombre":"Complementarias",
+                "cantCreditos":2
+            }
+        ]
+    }
+}

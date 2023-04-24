@@ -5636,6 +5636,34 @@
           "hora":"00:00:00"
         }
       ]
+    },
+    {
+      "id" : 72,
+      "nombre" : "Trabajo de Grado Proyecto de Apliación 1",
+      "poblacionObjetivo" : "Estudiantes MINSC",
+      "creditos" : 4,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":1,
+        "nombre":"presencial"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":1,
+        "nombre":"teorico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ]
     }
   ]
 }
