@@ -1,0 +1,237 @@
+{
+    "subComponentes":[
+        {
+            "id":7,
+            "nombre":"Marco legal y nuevas tecnologías",
+            "cantAsignaturas":1,
+            "asignaturasElectivas":[
+                {
+                    "id" : 63,
+                    "nombre" : "Programa de gobierno corporativo y datos",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, {
+                    "id" : 64,
+                    "nombre" : "Protección del consumidor digital",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, {
+                    "id" : 65,
+                    "nombre" : "Ciberseguridad industrial y física",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, {
+                    "id" : 66,
+                    "nombre" : "Seguridad en nuevas tecnologías para la transformación digital ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }, {
+                    "id" : 67,
+                    "nombre" : "Ciberseguridad y ciberdefensa",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }
+            ]
+        },
+        {
+            "id":8,
+            "nombre":"Seguridad organizacional",
+            "cantAsignaturas":1,
+            "asignaturasElectivas":[
+                {
+                    "id" : 68,
+                    "nombre" : "Administración de riesgos de negocios",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 5
+                }, {
+                    "id" : 69,
+                    "nombre" : "Auditoría de TI",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }, {
+                    "id" : 70,
+                    "nombre" : "Estándares y normativas de seguridad",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }, {
+                    "id" : 71,
+                    "nombre" : "Detección e investigación de fraude",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }
+            ]
+        },
+        {
+            "id":8,
+            "nombre":"Seguridad de sistemas",
+            "cantAsignaturas":1,
+            "asignaturasElectivas":[
+                {
+                    "id" : 35,
+                    "nombre" : "Seguridad Ofensiva ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 36,
+                    "nombre" : "Informática Forense ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 37,
+                    "nombre" : "Seguridad en Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }
+            ]
+        }
+        
+    ],
+    "componentes":[
+        {
+            "id":7,
+            "nombre":" FORMACIÓN FUNDAMENTAL",
+            "cantCreditos":6,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 51,
+                    "nombre" : "Seguridad de la información y aplicaciones",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                },
+                {
+                    "id" : 52,
+                    "nombre" : "Introducción al riesgo cibernético",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }
+            ]
+        },
+        {
+            "id":8,
+            "nombre":" Profundización Seguridad Digital",
+            "cantCreditos":20,
+            "subcomponentes":[
+                {
+                    "id":7,
+                    "nombre":"Marco legal y nuevas tecnologías",
+                    "cantAsignaturas":1
+                },
+                {
+                    "id":8,
+                    "nombre":"Seguridad organizacional",
+                    "cantAsignaturas":1
+                },
+                {
+                    "id":8,
+                    "nombre":"Seguridad de sistemas",
+                    "cantAsignaturas":1
+                }
+            ]
+        },
+        {
+            "id":9,
+            "nombre":"Complementarias Seguridad",
+            "cantCreditos":4,
+            "asignaturasElectivas":[
+                {
+                    "id" : 40,
+                    "nombre" : "Manejo responsable de la Información",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                },
+                {
+                    "id" : 53,
+                    "nombre" : "Gerencia de proyectos TIC",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                },
+                {
+                    "id" : 54,
+                    "nombre" : "Tecnologías disruptivas para la transformación digital",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }, {
+                    "id" : 55,
+                    "nombre" : "Transformación digital",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }, {
+                    "id" : 56,
+                    "nombre" : "Gobierno y Servicios de TI",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }, {
+                    "id" : 57,
+                    "nombre" : "Interoperabilidad y Seguridad Aplicativa",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }, {
+                    "id" : 58,
+                    "nombre" : "Gestión de la Plataforma Tecnológica",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                }, {
+                    "id" : 59,
+                    "nombre" : "Derecho del consumidor y protección de datos",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                }, {
+                    "id" : 60,
+                    "nombre" : "Ética",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }, {
+                    "id" : 61,
+                    "nombre" : "Inglés para posgrados 1",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }, {
+                    "id" : 62,
+                    "nombre" : "Inglés para posgrados 2",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }
+            ]
+        },
+        {
+            "id":10,
+            "nombre":"Trabajo de grado Seguridad",
+            "cantCreditos":4,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 73,
+                    "nombre" : "Trabajo de grado Maestría en Seguridad Digital",
+                    "poblacionObjetivo" : "Estudiantes Maestría Seguridad Digital",
+                    "creditos" : 4
+                }
+            ]
+        }
+    ],
+    "programa":{
+        "id": 3,
+        "nombre":"Maestría en Seguridad Digital",
+        "cantCreditos": 40,
+        "componentes":[
+            {
+                "id":7,
+                "nombre":" FORMACIÓN FUNDAMENTAL",
+                "cantCreditos":6
+            },
+            {
+                "id":8,
+                "nombre":" Profundización Seguridad Digital",
+                "cantCreditos":20
+            },
+            {
+                "id":9,
+                "nombre":"Complementarias Seguridad",
+                "cantCreditos":4
+            },
+            {
+                "id":10,
+                "nombre":"Trabajo de grado Seguridad",
+                "cantCreditos":4
+            }
+        ]
+    }
+}
