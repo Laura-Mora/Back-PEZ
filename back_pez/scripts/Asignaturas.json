@@ -5608,6 +5608,34 @@
           "nombre" : "Introducción a los ciberconflictos: guerra asimétrica."
         } 
       ]
+    },
+    {
+      "id" : 71,
+      "nombre" : "Trabajo de Grado Aplicado Práctico",
+      "poblacionObjetivo" : "Estudiantes MAINN",
+      "creditos" : 4,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":1,
+        "nombre":"presencial"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":2,
+        "nombre":"practico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ]
     }
   ]
 }
