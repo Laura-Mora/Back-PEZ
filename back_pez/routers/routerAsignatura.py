@@ -6,7 +6,7 @@ from back_pez.db.model.actividad import Actividad
 from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 from back_pez.db.model.competencia import Competencia
 from back_pez.db.model.componenteClase import ComponenteClase
-from back_pez.db.model.contenido import Contenido
+from back_pez.db.model.tematica import Tematica
 from back_pez.db.model.horario import Horario
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza
 from back_pez.db.model.profesor import Profesor
@@ -48,7 +48,7 @@ def crear_asignatura(request:AsignaturaModelo):
     actividad_ids = [actividad.id for actividad in request.actividades]
     actividades = session.query(Actividad).filter(Actividad.id.in_(actividad_ids)).all()
     tematicas_ids =[tematica.id for tematica in request.tematicas]
-    tematicas = session.query(Contenido).filter(Contenido.id.in_(tematicas_ids)).all()
+    tematicas = session.query(Tematica).filter(Tematica.id.in_(tematicas_ids)).all()
     profesores_id = [profesor.id for profesor in request.profesores]
     profesores = session.query(Profesor).filter(Profesor.id.in_(profesores_id)).all()
     nueva_asignatura = Asignatura(id=request.id,nombre=request.nombre, poblacionObjetivo=request.poblacionObjetivo, creditos=request.creditos, complejidad=request.complejidad,

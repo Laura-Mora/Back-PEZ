@@ -4,7 +4,7 @@ from back_pez.db.model.actividad import Actividad, ActividadModelo
 from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 from back_pez.db.model.competencia import Competencia, CompetenciaModel
 from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseModelo
-from back_pez.db.model.contenido import Contenido, ContenidoModelo
+from back_pez.db.model.tematica import Tematica, TematicaModelo
 from back_pez.db.model.horario import Horario, HorarioModel
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
 
@@ -82,12 +82,12 @@ perfiles_actividades = Table(
     ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
-perfiles_contenidos = Table(
-    "perfiles_contenidos",
+perfiles_tematicas = Table(
+    "perfiles_tematica",
     Base.metadata,
     Column("perfilesEstudiantes_id", ForeignKey("perfilesEstudiantes.id"), primary_key=True),
-    Column("contenidos_id", ForeignKey(Contenido.id), primary_key=True),
-    ForeignKeyConstraint(['contenidos_id'], [Contenido.id]),
+    Column("tematica_id", ForeignKey(Tematica.id), primary_key=True),
+    ForeignKeyConstraint(['tematica_id'], [Tematica.id]),
     ForeignKeyConstraint(['perfilesEstudiantes_id'], ['perfilesEstudiantes.id'])
 )
 
@@ -99,6 +99,7 @@ class PerfilEstudiante(Base):
     javeriano = Column(Boolean)
     semestre = Column(Integer)
     areaDesempenio = Column(String)
+    motivacion = Column(String)
     asignaturasCursadas = relationship(Asignatura, secondary = perfiles_asignaturasCursadas)
     asignaturasGustadas = relationship(Asignatura, secondary = perfiles_asignaturasGustadas)
     modalidadPreferencia = relationship(ComponenteClase,secondary = perfiles_modalidades)
@@ -106,7 +107,7 @@ class PerfilEstudiante(Base):
     horariosPreferencias = relationship(Horario,secondary = perfiles_horarios)
     competenciasGusto = relationship(Competencia,secondary = perfiles_competencias)
     actividadesGusto = relationship(Actividad, secondary = perfiles_actividades)
-    tematicasGusto = relationship(Contenido,secondary = perfiles_contenidos)
+    tematicasGusto = relationship(Tematica,secondary = perfiles_tematicas)
 
 class PerfilEstudianteModelo(BaseModel):
  
@@ -115,6 +116,7 @@ class PerfilEstudianteModelo(BaseModel):
     javeriano: bool
     semestre: int
     areaDesempenio: str
+    motivacion: str
     asignaturasCursadas: List[AsignaturaModelo]
     asignaturasGustadas: List[AsignaturaModelo]
     modalidadPreferencia: List[ComponenteClaseModelo]
@@ -122,4 +124,4 @@ class PerfilEstudianteModelo(BaseModel):
     horariosPreferencias: List[HorarioModel]
     competenciasGusto: List[CompetenciaModel]
     actividadesGusto: List[ActividadModelo]
-    tematicasGusto: List[ContenidoModelo]
+    tematicasGusto: List[TematicaModelo]

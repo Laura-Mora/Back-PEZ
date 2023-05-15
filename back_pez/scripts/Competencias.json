@@ -729,6 +729,9 @@
     }, {
       "id" : 243,
       "nombre" : "Seleccionar las buenas prácticas y estándares de seguridad digital ajustados a las exigencias del negocio."
+    }, {
+      "id" : 244,
+      "nombre" : "NA"
     } 
   ]
 }

@@ -10,7 +10,7 @@ from sqlalchemy import Column, Integer
 
 from pydantic import BaseModel
 
-from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
+from db.model.asignatura import Asignatura, AsignaturaModelo
 
 subcomponentes_asignaturasObli = Table(
     "subcomponentes_asignaturasObli",
@@ -32,6 +32,7 @@ subcomponentes_asignaturasElec = Table(
 
 class subComponente(Base):
     __tablename__ = 'subComponentes'
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True)
     nombre: Mapped[str]
@@ -44,8 +45,8 @@ class subComponenteModelo(BaseModel):
 
     id: int
     nombre: str
-    cantCreditos: int
-    cantAsignaturas: int
-    asignaturasObligatorias: List[AsignaturaModelo]
-    asignaturasElectivas:List[AsignaturaModelo]
+    cantCreditos: int = None
+    cantAsignaturas: int = None
+    asignaturasObligatorias: List[AsignaturaModelo] = None
+    asignaturasElectivas:List[AsignaturaModelo] = None
     

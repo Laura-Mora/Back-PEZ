@@ -2,7 +2,7 @@ from typing import List
 from back_pez.db.model.actividad import Actividad, ActividadModelo
 from back_pez.db.model.competencia import Competencia, CompetenciaModel
 from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseModelo
-from back_pez.db.model.contenido import Contenido, ContenidoModelo
+from back_pez.db.model.tematica import Tematica, TematicaModelo
 from back_pez.db.model.horario import Horario, HorarioModel
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
 from back_pez.db.model.profesor import Profesor, ProfesorModel
@@ -55,12 +55,12 @@ asignaturas_actividades = Table(
 )
 
 
-asignaturas_contenido = Table(
-    "asignaturas_contenido",
+asignaturas_tematica = Table(
+    "asignaturas_tematica",
     Base.metadata,
     Column("asignaturas_id", ForeignKey("asignaturas.id"), primary_key=True),
-    Column("contenidos_id", ForeignKey(Contenido.id), primary_key=True),
-    ForeignKeyConstraint(['contenidos_id'], [Contenido.id]),
+    Column("tematica_id", ForeignKey(Tematica.id), primary_key=True),
+    ForeignKeyConstraint(['tematica_id'], [Tematica.id]),
     ForeignKeyConstraint(['asignaturas_id'], ['asignaturas.id'])
 )
 
@@ -81,21 +81,21 @@ class Asignatura(Base):
     horarios = relationship(Horario, secondary=asignaturas_horarios)
     competencias = relationship(Competencia, secondary=asignaturas_competencia)
     actividades = relationship(Actividad, secondary=asignaturas_actividades)
-    tematicas = relationship(Contenido, secondary=asignaturas_contenido)
+    tematicas = relationship(Tematica, secondary=asignaturas_tematica)
 
 
 class AsignaturaModelo(BaseModel):
 
     id: int
     nombre: str
-    poblacionObjetivo: str
-    creditos: int
-    complejidad: str
-    modalidad: ComponenteClaseModelo 
-    profesores: list[ProfesorModel]
-    modoEnsenianza: ModoEnsenianzaModel
-    horarios: list[HorarioModel]
-    competencias: list[CompetenciaModel]
-    actividades: list[ActividadModelo]
-    tematicas: list[ContenidoModelo]
+    poblacionObjetivo: str = None
+    creditos: int = None
+    complejidad: str = None
+    modalidad: ComponenteClaseModelo = None
+    profesores: list[ProfesorModel] = None
+    modoEnsenianza: ModoEnsenianzaModel = None
+    horarios: list[HorarioModel] = None
+    competencias: list[CompetenciaModel] = None
+    actividades: list[ActividadModelo] = None
+    tematicas: list[TematicaModelo] = None
 

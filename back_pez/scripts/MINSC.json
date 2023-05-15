@@ -13,7 +13,7 @@
                 }
             ],
             "asignaturasElectivas":[
-                {
+                  {
                     "id" : 3,
                     "nombre" : "Gestión de Conocimiento ",
                     "poblacionObjetivo" : "Estudiantes posgrados",
@@ -213,7 +213,7 @@
         },
         {
             "id":5,
-            "nombre":"Humanistica",
+            "nombre":"Humanistica MINSC",
             "cantCreditos":2,
             "asignaturasElectivas":[
                 {
@@ -231,7 +231,7 @@
         },
         {
             "id":6,
-            "nombre":"Complementarias",
+            "nombre":"Complementarias MINSC",
             "cantCreditos":2,
             "asignaturasElectivas":[
                 {
@@ -280,7 +280,7 @@
             ]
         },
         {
-            "id":7,
+            "id":10,
             "nombre":"Trabajo de Grado profundización MINSC",
             "cantCreditos":4,
             "asignaturasObligatorias":[
@@ -293,7 +293,7 @@
             ]
         },
         {
-            "id":8,
+            "id":11,
             "nombre":"Electivas MINSC",
             "cantCreditos":4,
             "asignaturasElectivas":[
@@ -479,7 +479,7 @@
             ]
         }
     ],
-    "programa":{
+    "programa":[{
         "id": 2,
         "nombre":"Maestría en Ingeniería de Sistemas y Computación profundización SISINFO",
         "cantCreditos": 40,
@@ -496,14 +496,24 @@
             },
             {
                 "id":5,
-                "nombre":"Humanistica",
+                "nombre":"Humanistica MINSC",
                 "cantCreditos":2
             },
             {
                 "id":6,
-                "nombre":"Complementarias",
+                "nombre":"Complementarias MINSC",
                 "cantCreditos":2
+            },
+            {
+              "id":10,
+              "nombre":"Trabajo de Grado profundización MINSC",
+              "cantCreditos":4
+            },
+            {
+              "id":11,
+              "nombre":"Electivas MINSC",
+              "cantCreditos":4
             }
         ]
-    }
+    }]
 }

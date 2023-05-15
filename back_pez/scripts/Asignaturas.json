@@ -5635,6 +5635,24 @@
           "dia":"NA",
           "hora":"00:00:00"
         }
+      ],
+      "competencias" : [
+        {
+          "id" : 244,
+          "nombre" : "NA"
+        } 
+      ],
+      "actividades" : [
+        {
+          "id":4,
+          "nombre":"proyecto"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 460,
+          "nombre" : "NA"
+        }
       ]
     },
     {
@@ -5663,6 +5681,24 @@
           "dia":"NA",
           "hora":"00:00:00"
         }
+      ],
+      "competencias" : [
+        {
+          "id" : 244,
+          "nombre" : "NA"
+        } 
+      ],
+      "actividades" : [
+        {
+          "id":4,
+          "nombre":"proyecto"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 460,
+          "nombre" : "NA"
+        }
       ]
     },
     {
@@ -5690,6 +5726,24 @@
           "id":7,
           "dia":"NA",
           "hora":"00:00:00"
+        }
+      ],
+      "competencias" : [
+        {
+          "id" : 244,
+          "nombre" : "NA"
+        } 
+      ],
+      "actividades" : [
+        {
+          "id":4,
+          "nombre":"proyecto"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 460,
+          "nombre" : "NA"
         }
       ]
     }

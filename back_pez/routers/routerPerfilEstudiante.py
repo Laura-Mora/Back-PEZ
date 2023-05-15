@@ -7,7 +7,7 @@ from back_pez.db.model.actividad import Actividad, ActividadModelo
 from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 from back_pez.db.model.competencia import Competencia, CompetenciaModel
 from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseModelo
-from back_pez.db.model.contenido import Contenido, ContenidoModelo
+from back_pez.db.model.tematica import Tematica, TematicaModelo
 from back_pez.db.model.horario import Horario, HorarioModel
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
 
@@ -41,7 +41,7 @@ def crear_perfil(id: int, profesion: str, javeriano: bool, semestre: int, areaDe
     asignaturasCursadas: List[AsignaturaModelo], asignaturasGustadas: List[AsignaturaModelo],
     modalidadPreferencia:List[ComponenteClaseModelo],modoEnsenianzaPreferencia: List[ModoEnsenianzaModel],
     horariosPreferencias: List[HorarioModel], competenciasGusto: List[CompetenciaModel],actividadesGusto: List[ActividadModelo],
-    tematicasGusto: List[ContenidoModelo]):
+    tematicasGusto: List[TematicaModelo]):
     session = Session()
     nuevo_perfil = PerfilEstudiante(id=id,profesion=profesion, javeriano=javeriano, semestre=semestre, areaDesempenio=areaDesempenio,
     asignaturasCursadas=asignaturasCursadas, asignaturasGustadas=asignaturasGustadas,

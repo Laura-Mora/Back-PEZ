@@ -11,14 +11,14 @@ from sqlalchemy.orm import relationship
 from pydantic import BaseModel
 
 
-class Contenido(Base):
-    __tablename__ = "contenidos"
+class Tematica(Base):
+    __tablename__ = "tematicas"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str]
     #asignaturas: Mapped[List[Asignatura]] = relationship(secondary = asignaturas_contenido)
 
     
-class ContenidoModelo(BaseModel):
+class TematicaModelo(BaseModel):
     id: int
     nombre: str

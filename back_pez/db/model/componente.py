@@ -5,8 +5,8 @@ from sqlalchemy.orm import Mapped
 
 from pydantic import BaseModel
 
-from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
-from back_pez.db.model.subComponente import subComponente, subComponenteModelo
+from db.model.asignatura import Asignatura, AsignaturaModelo
+from db.model.subComponente import subComponente, subComponenteModelo
 
 
 from sqlalchemy.orm import relationship
@@ -36,6 +36,15 @@ componentes_asignaturasElec = Table(
     ForeignKeyConstraint(['componente_id'], ['componentes_electivas.componente_id'])
 )
 
+componente_subComponentes = Table(
+    "componente_subComponentes",
+    Base.metadata,
+    Column("componente_id", ForeignKey('ComponentesSubComponente.componente_id'), primary_key=True),
+    Column("subComponente_id", ForeignKey(subComponente.id), primary_key = True),
+    ForeignKeyConstraint(['subComponente_id'],[subComponente.id]),
+    ForeignKeyConstraint(['componente_id'], ['ComponentesSubComponente.componente_id'])
+)
+
 class Componente(Base):
     __tablename__ = 'Componentes'
     __table_args__ = {'extend_existing': True}
@@ -46,12 +55,15 @@ class Componente(Base):
 
 class ComponenteObligactoria(Base):
     __tablename__ = 'componentes_obligatorios'
+    __table_args__ = {'extend_existing': True}
+
     componente_id = Column(Integer, ForeignKey('Componentes.id'), primary_key=True)
     componente = relationship(Componente)
     asignaturasObligatorias = relationship(Asignatura, secondary=componentes_asignaturasObli)
 
 class ComponenteElectiva(Base):
     __tablename__ = 'componentes_electivas'
+    __table_args__ = {'extend_existing': True}
 
     componente_id = Column(Integer, ForeignKey('Componentes.id'), primary_key=True)
     componente = relationship(Componente)
@@ -59,14 +71,16 @@ class ComponenteElectiva(Base):
 
 class ComponenteSubComponente(Base):
     __tablename__ = "ComponentesSubComponente"
+    __table_args__ = {'extend_existing': True}
 
-    subcomponentes: Mapped[int] = mapped_column(ForeignKey("subComponentes.id"))
-    componente_id: Mapped[int] = mapped_column(ForeignKey("Componentes.id"),primary_key=True)
+    subcomponentes = relationship(subComponente, secondary=componente_subComponentes)
+    componente_id: Mapped[int] = mapped_column(ForeignKey('Componentes.id'),primary_key=True)
+    componente = relationship(Componente)
 
 class ComponenteModelo(BaseModel):
     id: int
     nombre: str
-    cantCreditos: int
-    asignaturasObligatorias: List[AsignaturaModelo]
-    asignaturasElectivas: List[AsignaturaModelo]
-    subcomponentes: List[subComponenteModelo]
+    cantCreditos: int = None
+    asignaturasObligatorias: List[AsignaturaModelo] = None
+    asignaturasElectivas: List[AsignaturaModelo] = None
+    subcomponentes: List[subComponenteModelo] = None

@@ -1,7 +1,7 @@
 from typing import List
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
-from back_pez.db.model.componente import ComponenteModelo
+from db.model.componente import ComponenteModelo
 from db.model.componente import Componente
 from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 from back_pez.db.model.subComponente import subComponente, subComponenteModelo
@@ -33,8 +33,8 @@ def componentes(id: str):
     return componente
 
 @router.post("/")
-def crear_componente(response:ComponenteModelo)->ComponenteModelo:
-    return negocioComponente.crear_componente(response.id,response.nombre,response.asignaturasObligatorias,response.asignaturasElectivas,response.subcomponentes)
+def crear_componente(response:ComponenteModelo):
+    return negocioComponente.crear_componente(response)
     
 
 @router.put("/{id}")

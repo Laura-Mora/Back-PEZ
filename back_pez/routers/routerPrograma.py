@@ -2,9 +2,9 @@ from typing import List
 
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import sessionmaker
-from back_pez.db.model.programa import ProgramaModel
+from db.model.programa import ProgramaModel
 from db.model.programa import Programa
-from back_pez.db.model.componente import Componente, ComponenteModelo
+from db.model.componente import Componente, ComponenteModelo
 from back_pez.db.model.usuario import Usuario
 
 from db.dbconfig import engine
@@ -35,6 +35,7 @@ def programa(id: str):
 def crear_programa(response: ProgramaModel):
     session = Session()
     componentes_ids = [actividad.id for actividad in response.componentes]
+    print("HOLA")
     componentes = session.query(Componente).filter(Componente.id.in_(componentes_ids)).all()
     nuevo_programa = Programa(id=response.id,nombre=response.nombre,cantCreditos=response.cantCreditos,componentes=componentes)
     session.add(nuevo_programa)

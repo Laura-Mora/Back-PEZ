@@ -62,7 +62,7 @@
             ]
         },
         {
-            "id":8,
+            "id":9,
             "nombre":"Seguridad de sistemas",
             "cantAsignaturas":1,
             "asignaturasElectivas":[
@@ -194,7 +194,7 @@
             ]
         },
         {
-            "id":10,
+            "id":12,
             "nombre":"Trabajo de grado Seguridad",
             "cantCreditos":4,
             "asignaturasObligatorias":[
@@ -207,7 +207,7 @@
             ]
         }
     ],
-    "programa":{
+    "programa":[{
         "id": 3,
         "nombre":"Maestría en Seguridad Digital",
         "cantCreditos": 40,
@@ -228,10 +228,10 @@
                 "cantCreditos":4
             },
             {
-                "id":10,
+                "id":12,
                 "nombre":"Trabajo de grado Seguridad",
                 "cantCreditos":4
             }
         ]
-    }
+    }]
 }

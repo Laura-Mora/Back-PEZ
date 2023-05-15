@@ -13,6 +13,7 @@ sqlalchemy = "^2.0.8"
 psycopg2-binary = "^2.9.5"
 fastapi = "^0.95.0"
 uvicorn = "^0.21.1"
+requests = "^2.29.0"
 
 
 [build-system]
@@ -21,3 +22,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 start = "back_pez.wrapper:start"
+config = "back_pez.scripts.cargarDatos:main"

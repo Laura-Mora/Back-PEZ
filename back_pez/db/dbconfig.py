@@ -7,7 +7,7 @@ from back_pez.db.model.asignatura import Asignatura
 from back_pez.db.model.base import Base
 from back_pez.db.model.componente import Componente
 from back_pez.db.model.componenteClase import ComponenteClase
-from back_pez.db.model.contenido import Contenido
+from back_pez.db.model.tematica import Tematica
 from back_pez.db.model.horario import Horario
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza
 from back_pez.db.model.competencia import Competencia
@@ -33,7 +33,7 @@ def table_exists(name):
 
 table_exists(Profesor)
 table_exists(Competencia)
-table_exists(Contenido)
+table_exists(Tematica)
 table_exists(ModoEnsenianza)
 table_exists(ComponenteClase)
 table_exists(Horario)

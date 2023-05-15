@@ -1,4 +1,4 @@
-from back_pez.db.model.componente import Componente, ComponenteModelo
+from db.model.componente import Componente, ComponenteModelo
 from sqlalchemy.orm import mapped_column
 
 
