@@ -4,12 +4,23 @@ from sqlalchemy.orm import sessionmaker
 from back_pez.db.model.tematica import TematicaModelo
 from db.model.tematica import Tematica
 from db.dbconfig import engine
+from starlette.responses import Response
 
 router = APIRouter(prefix="/tematica",
                    tags=["tematica"],
                    responses={404: {"message": "No encontrado"}})
 
 Session = sessionmaker(bind=engine)
+
+@router.options("/")
+def optionsTematica():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
 
 @router.get("/")
 def contenidos():

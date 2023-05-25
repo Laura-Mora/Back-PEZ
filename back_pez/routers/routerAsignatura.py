@@ -13,12 +13,33 @@ from back_pez.db.model.profesor import Profesor
 
 from db.dbconfig import engine
 
+from starlette.responses import Response
 
 router = APIRouter(prefix="/asignatura",
                    tags=["asignatura"],
                    responses={404: {"message": "No encontrado"}})
 
 Session = sessionmaker(bind=engine)
+
+@router.options("/")
+def optionsAsignaturas():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/{id}")
+def optionsAsignaturas():
+    allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
 
 @router.get("/")
 def getAsignaturas():
