@@ -85,17 +85,17 @@ class Asignatura(Base):
 
 
 class AsignaturaModelo(BaseModel):
-
     id: int
     nombre: str
     poblacionObjetivo: str = None
     creditos: int = None
     complejidad: str = None
+    componenteClase_id: int = None
     modalidad: ComponenteClaseModelo = None
     profesores: list[ProfesorModel] = None
+    modoEnsenianza_id: int = None
     modoEnsenianza: ModoEnsenianzaModel = None
     horarios: list[HorarioModel] = None
     competencias: list[CompetenciaModel] = None
     actividades: list[ActividadModelo] = None
     tematicas: list[TematicaModelo] = None
-

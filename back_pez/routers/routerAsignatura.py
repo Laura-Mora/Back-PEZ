@@ -12,6 +12,7 @@ from back_pez.db.model.modoEnsenianza import ModoEnsenianza
 from back_pez.db.model.profesor import Profesor
 
 from db.dbconfig import engine
+from sqlalchemy.orm import selectinload
 
 from starlette.responses import Response
 
@@ -33,7 +34,7 @@ def optionsAsignaturas():
 
 @router.options("/{id}")
 def optionsAsignaturas():
-    allowed_methods = ["GET", "OPTIONS"]
+    allowed_methods = ["GET", "OPTIONS","POST"]
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": ", ".join(allowed_methods),
@@ -44,14 +45,30 @@ def optionsAsignaturas():
 @router.get("/")
 def getAsignaturas():
     session = Session()
-    asignaturas = session.query(Asignatura).all()
+    asignaturas = session.query(Asignatura).options(
+    selectinload(Asignatura.modalidad),
+    selectinload(Asignatura.modoEnsenianza),
+    selectinload(Asignatura.profesores),
+    selectinload(Asignatura.horarios),
+    selectinload(Asignatura.competencias),
+    selectinload(Asignatura.actividades),
+    selectinload(Asignatura.tematicas)
+    ).all()
     session.close()
     return asignaturas
 
 @router.get("/{id}")  # Path
 def getAsignatura(id: str):
     session = Session()
-    asignatura = session.query(Asignatura).filter(Asignatura.id == id).first()
+    asignatura = session.query(Asignatura).options(
+        selectinload(Asignatura.modalidad),
+        selectinload(Asignatura.modoEnsenianza),
+        selectinload(Asignatura.profesores),
+        selectinload(Asignatura.horarios),
+        selectinload(Asignatura.competencias),
+        selectinload(Asignatura.actividades),
+        selectinload(Asignatura.tematicas)
+    ).filter(Asignatura.id == id).first()
     session.close()
     if not asignatura:
         raise HTTPException(status_code=404, detail='Asignatura no encontrada')
