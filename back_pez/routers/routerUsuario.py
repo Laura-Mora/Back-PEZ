@@ -14,6 +14,7 @@ import jwt
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
+
 router = APIRouter(prefix="/usuario",
                    tags=["usuario"],
                    responses={404: {"message": "No encontrado"}})
@@ -30,6 +31,16 @@ def optionsUsuarios():
 
 @router.options("/signup")
 def optionsUsuario():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/login")
+def optionsUsuarioLogin():
     allowed_methods = ["GET", "OPTIONS","POST"]
     headers = {
         "Access-Control-Allow-Origin": "*",
@@ -101,7 +112,7 @@ def generar_token_acceso(data: dict, expires_delta: timedelta):
 
 def autenticar_usuario(usuario, contrasena):
     session = Session()
-    usuario_db = session.query(Usuario).filter(Usuario.nombre == usuario).first()
+    usuario_db = session.query(Usuario).filter(Usuario.correo == usuario).first()
     session.close()
 
     if not usuario_db or not verificar_password(contrasena, usuario_db.contrasenia):
@@ -160,4 +171,11 @@ def signup(data: dict = Body(...)):
         print(f"Error: {e}")
         raise
 
+@router.post("/logout")
+def logout():
+    try:
+        
 
+        return {"message": "Logout exitoso"}
+    except:
+        raise HTTPException(status_code=400, detail="Error al realizar el logout")
