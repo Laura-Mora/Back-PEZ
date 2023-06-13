@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Response
 from sqlalchemy.orm import sessionmaker
 from db.model.programa import ProgramaModel
 from db.model.programa import Programa
@@ -14,6 +14,16 @@ router = APIRouter(prefix="/programa",
                    responses={404: {"message": "No encontrado"}})
 
 Session = sessionmaker(bind=engine)
+
+@router.options("/")
+def optionsPrograma():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
 
 @router.get("/")
 def programas():

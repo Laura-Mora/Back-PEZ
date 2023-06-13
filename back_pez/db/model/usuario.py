@@ -34,7 +34,7 @@ class Usuario(Base):
     contrasenia = Column(String)
     programa = relationship(Programa,secondary = usuarios_programas)
     tipo = Column(String)
-    perfilEstudiante_id = mapped_column(Integer,ForeignKey(PerfilEstudiante.id))
+    perfilEstudiante_id = mapped_column(Integer,ForeignKey(PerfilEstudiante.id),nullable=True)
     perfilEstudiante = relationship(PerfilEstudiante)
 
 class UsuarioModelo(BaseModel):
@@ -45,5 +45,5 @@ class UsuarioModelo(BaseModel):
     contrasenia: str
     programa: List[ProgramaModel]
     tipo: str
-    perfilEstudiante_id: int
-    perfilEstudiante: PerfilEstudianteModelo
+    perfilEstudiante_id: int = None
+    perfilEstudiante: PerfilEstudianteModelo = None
