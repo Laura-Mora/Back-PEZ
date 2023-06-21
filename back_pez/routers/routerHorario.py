@@ -4,6 +4,8 @@ from back_pez.db.model.horario import HorarioModel
 from db.model.horario import Horario
 from db.dbconfig import engine
 
+from starlette.responses import Response
+
 import datetime
 
 router = APIRouter(prefix="/horario",
@@ -11,6 +13,16 @@ router = APIRouter(prefix="/horario",
                    responses={404: {"message": "No encontrado"}})
 
 Session = sessionmaker(bind=engine)
+
+@router.options("/")
+def optionsHorarios():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
 
 @router.get("/")
 def horarios():

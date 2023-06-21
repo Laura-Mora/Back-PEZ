@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from routers import routerActividad, routerAsignatura, routerCompetencia, routerComponente, routerComponenteClase, routerContenido, routerHorario, routerModoEnsenianza, routerPerfilEstudiante, routerProfesor, routerPrograma, routerSubComponente, routerUsuario
+from routers import routerActividad, routerAsignatura, routerCompetencia, routerComponente, routerComponenteClase, routerContenido, routerHorario, routerModoEnsenianza, routerPerfilEstudiante, routerProfesor, routerPrograma, routerSubComponente, routerUsuario, routerResenia
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -24,6 +24,7 @@ app.include_router(routerProfesor.router)
 app.include_router(routerPrograma.router)
 app.include_router(routerSubComponente.router)
 app.include_router(routerUsuario.router)
+app.include_router(routerResenia.router)
 
 app.add_middleware(
     CORSMiddleware,

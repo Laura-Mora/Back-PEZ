@@ -1,6 +1,7 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Body, HTTPException, Response
+from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
 from db.model.perfilEstudiante import PerfilEstudiante
 from back_pez.db.model.actividad import Actividad, ActividadModelo
@@ -18,6 +19,26 @@ router = APIRouter(prefix="/perfilEstudiante",
                    responses={404: {"message": "No encontrado"}})
 
 Session = sessionmaker(bind=engine)
+
+@router.options("/")
+def optionsUsuarios():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/{id}")
+def optionsUsuarios():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
 
 @router.get("/")
 def perfilesEstudiante():
@@ -37,21 +58,58 @@ def perfilEstudiante(id: str):
 
 
 @router.post('/')
-def crear_perfil(id: int, profesion: str, javeriano: bool, semestre: int, areaDesempenio: str,
-    asignaturasCursadas: List[AsignaturaModelo], asignaturasGustadas: List[AsignaturaModelo],
-    modalidadPreferencia:List[ComponenteClaseModelo],modoEnsenianzaPreferencia: List[ModoEnsenianzaModel],
-    horariosPreferencias: List[HorarioModel], competenciasGusto: List[CompetenciaModel],actividadesGusto: List[ActividadModelo],
-    tematicasGusto: List[TematicaModelo]):
-    session = Session()
-    nuevo_perfil = PerfilEstudiante(id=id,profesion=profesion, javeriano=javeriano, semestre=semestre, areaDesempenio=areaDesempenio,
-    asignaturasCursadas=asignaturasCursadas, asignaturasGustadas=asignaturasGustadas,
-    modalidadPreferencia=modalidadPreferencia,modoEnsenianzaPreferencia=modoEnsenianzaPreferencia,
-    horariosPreferencias=horariosPreferencias, competenciasGusto=competenciasGusto,actividadesGusto=actividadesGusto,
-    tematicasGusto=tematicasGusto)
-    session.add(nuevo_perfil)
-    session.commit()
-    session.close()
-    return nuevo_perfil
+def crear_perfil(data: dict = Body(...)):
+    try:
+        profesion = data.get("profesion")
+        areaDesempenio = data.get("areaDesempenio")
+        motivo = data.get("motivo")
+        javeriano = data.get("javeriano")
+        semestre = data.get("semestre")
+        id_asignaturas = data.get("asignaturasCursadas")
+        id_tematicas = data.get("tematicasUsuario")
+        id_competencias = data.get("competenciasUsuario")
+        id_actividades = data.get("actividadesUsuario")
+        id_horarios = data.get("horariosUsuario")
+        id_modalidad = data.get("modalidadUsuario")
+        id_modos = data.get("modosUsuario")
+        session = Session()
+
+        cantidad_perfiles = session.query(func.count(PerfilEstudiante.id)).scalar()
+        nuevo_id = cantidad_perfiles + 1
+
+        asignaturas  = session.query(Asignatura).filter(Asignatura.id.in_(id_asignaturas)).all()
+        tematicas  = session.query(Tematica).filter(Tematica.id.in_(id_tematicas)).all()
+        competencias  = session.query(Competencia).filter(Competencia.id.in_(id_competencias)).all()
+        actividades  = session.query(Actividad).filter(Actividad.id.in_(id_actividades)).all()
+        hoarios  = session.query(Horario).filter(Horario.id.in_(id_horarios)).all()
+        modalidades  = session.query(ComponenteClase).filter(ComponenteClase.id.in_(id_modalidad)).all()
+        modos  = session.query(ModoEnsenianza).filter(ModoEnsenianza.id.in_(id_modos)).all()
+
+        nuevo_perfil = PerfilEstudiante(
+            id = nuevo_id,
+            profesion = profesion,
+            javeriano = javeriano,
+            semestre = semestre,
+            areaDesempenio = areaDesempenio,
+            motivacion = motivo,
+            asignaturasCursadas = asignaturas,
+            modalidadPreferencia = modalidades,
+            modoEnsenianzaPreferencia = modos,
+            horariosPreferencias = hoarios,
+            competenciasGusto = competencias,
+            actividadesGusto = actividades,
+            tematicasGusto = tematicas
+        )
+
+        session.add(nuevo_perfil)
+        session.commit()
+        session.close()
+        return nuevo_id
+
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
+    
 
 @router.put('/{id}')
 def actualizar_perfil(id: int, perfil_update: dict):

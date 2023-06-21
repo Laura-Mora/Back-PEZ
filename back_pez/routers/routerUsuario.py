@@ -179,3 +179,23 @@ def logout():
         return {"message": "Logout exitoso"}
     except:
         raise HTTPException(status_code=400, detail="Error al realizar el logout")
+    
+@router.post("/perso")    
+def perso(data: dict = Body(...)):
+    try:
+        idUsuario = data.get("idUsuario")
+        profesion = data.get("profesion")
+        areaDesempenio = data.get("areaDesempenio")
+        motivo = data.get("motivo")
+        id_asignaturas = data.get("asignaturasCursadas")
+        id_tematicas = data.get("tematicasUsuario")
+        id_competencias = data.get("competenciasUsuario")
+        id_actividades = data.get("actividadesUsuario")
+        id_horarios = data.get("horariosUsuario")
+        id_modalidad = data.get("modalidadUsuario")
+        id_modos = data.get("modosUsuario")
+        return None
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
+

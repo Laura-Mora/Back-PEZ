@@ -7,6 +7,7 @@ from back_pez.db.model.asignatura import Asignatura
 from back_pez.db.model.base import Base
 from back_pez.db.model.componente import Componente
 from back_pez.db.model.componenteClase import ComponenteClase
+from back_pez.db.model.reseniaAsignatura import ReseniaAsignatura
 from back_pez.db.model.tematica import Tematica
 from back_pez.db.model.horario import Horario
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza
@@ -44,3 +45,4 @@ table_exists(Componente)
 table_exists(PerfilEstudiante)
 table_exists(Programa)
 table_exists(Usuario)
+table_exists(ReseniaAsignatura)

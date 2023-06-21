@@ -6,11 +6,23 @@ from db.model.actividad import Actividad
 from db.dbconfig import engine
 from sqlalchemy import insert
 
+from starlette.responses import Response
+
 router = APIRouter(prefix="/actividad",
                    tags=["actividad"],
                    responses={404: {"message": "No encontrado"}})
 
 Session = sessionmaker(bind=engine)
+
+@router.options("/")
+def optionsActividades():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
 
 @router.get("/")
 def actividades():

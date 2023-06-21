@@ -1,4 +1,5 @@
 from typing import List
+from sqlalchemy import Column, ForeignKey, Integer
 from sqlalchemy.orm import mapped_column
 from .base import Base
 from sqlalchemy.orm import Mapped
@@ -25,7 +26,8 @@ class ReseniaAsignatura(Base):
     retroalimentacion: Mapped[bool]
     comentarios: Mapped[str]
     incidenciaProfesor: Mapped[str]
-    asignatura: Mapped[Asignatura]
+    asignatura_id = Column(Integer, ForeignKey(Asignatura.id))
+    asignatura = relationship(Asignatura)
 
 class ReseniaAsignaturaModelo(BaseModel):
 
