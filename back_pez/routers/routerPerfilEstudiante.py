@@ -3,7 +3,8 @@ from typing import List
 from fastapi import APIRouter, Body, HTTPException, Response
 from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
-from db.model.perfilEstudiante import PerfilEstudiante
+from back_pez.db.model.usuario import Usuario
+from back_pez.db.model.perfilEstudiante import PerfilEstudiante
 from back_pez.db.model.actividad import Actividad, ActividadModelo
 from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 from back_pez.db.model.competencia import Competencia, CompetenciaModel
@@ -40,6 +41,16 @@ def optionsUsuarios():
     }
     return Response(headers=headers)
 
+@router.options("/crear_perfil")
+def optionsUsuarios():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 @router.get("/")
 def perfilesEstudiante():
     session = Session()
@@ -57,9 +68,10 @@ def perfilEstudiante(id: str):
     return perfil
 
 
-@router.post('/')
+@router.post('/crear_perfil')
 def crear_perfil(data: dict = Body(...)):
     try:
+        idUsuario = data.get("idUsuario")
         profesion = data.get("profesion")
         areaDesempenio = data.get("areaDesempenio")
         motivo = data.get("motivo")
@@ -102,13 +114,30 @@ def crear_perfil(data: dict = Body(...)):
         )
 
         session.add(nuevo_perfil)
+
         session.commit()
         session.close()
-        return nuevo_id
+
+        session2 = Session()
+
+        usuario_db = session2.query(Usuario).filter(Usuario.id == idUsuario).first()
+
+        cantidad_perfiles2 = session2.query(func.count(PerfilEstudiante.id)).scalar()
+        perfil = session2.query(PerfilEstudiante).filter(PerfilEstudiante.id == cantidad_perfiles2).first()
+        
+        usuario_db.perfilEstudiante = perfil
+        usuario_db.perfilEstudiante_id = nuevo_id
+        session2.add(usuario_db)
+
+        session2.commit()
+        session2.close()
+
+        return usuario_db
 
     except Exception as e:
         print(f"Error: {e}")
         raise
+
     
 
 @router.put('/{id}')

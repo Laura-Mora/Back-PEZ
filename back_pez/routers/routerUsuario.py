@@ -1,9 +1,18 @@
+from distutils.util import strtobool
 from typing import List
 
 from fastapi import APIRouter, HTTPException, Depends, Response
 from fastapi import Body
 from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.actividad import Actividad
+from back_pez.db.model.asignatura import Asignatura
+from back_pez.db.model.competencia import Competencia
+from back_pez.db.model.componenteClase import ComponenteClase
+from back_pez.db.model.horario import Horario
+from back_pez.db.model.modoEnsenianza import ModoEnsenianza
+from back_pez.db.model.perfilEstudiante import PerfilEstudiante
+from back_pez.db.model.tematica import Tematica
 from back_pez.db.model.usuario import UsuarioModelo
 from db.model.usuario import Usuario
 from back_pez.db.model.programa import Programa, ProgramaModel
@@ -14,12 +23,24 @@ import jwt
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
+from sqlalchemy.orm import selectinload
+
 
 router = APIRouter(prefix="/usuario",
                    tags=["usuario"],
                    responses={404: {"message": "No encontrado"}})
 
 @router.options("/")
+def optionsUsuarios():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/{id}")
 def optionsUsuarios():
     allowed_methods = ["GET", "OPTIONS","POST"]
     headers = {
@@ -49,6 +70,16 @@ def optionsUsuarioLogin():
     }
     return Response(headers=headers)
 
+@router.options("/perso")
+def optionsUsuarioLogin():
+    allowed_methods = ["GET", "OPTIONS","PUT"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 SECRET_KEY = "tu_secret_key_aqui"
@@ -70,7 +101,7 @@ def usuarios():
 @router.get("/{id}")  # Path
 def usuario(id: str):
     session = Session()
-    usuario = session.query(Usuario).filter(Usuario.id == id).first()
+    usuario = session.query(Usuario).options(selectinload(Usuario.perfilEstudiante)).filter(Usuario.id == id).first()
     session.close()
     if not usuario:
         raise HTTPException(status_code=404, detail='Usuario no encontrado')
@@ -112,7 +143,7 @@ def generar_token_acceso(data: dict, expires_delta: timedelta):
 
 def autenticar_usuario(usuario, contrasena):
     session = Session()
-    usuario_db = session.query(Usuario).filter(Usuario.correo == usuario).first()
+    usuario_db = session.query(Usuario).options(selectinload(Usuario.perfilEstudiante)).filter(Usuario.correo == usuario).first()
     session.close()
 
     if not usuario_db or not verificar_password(contrasena, usuario_db.contrasenia):
@@ -122,7 +153,7 @@ def autenticar_usuario(usuario, contrasena):
     access_token = generar_token_acceso(
         data={"sub": usuario_db.nombre}, expires_delta=access_token_expires
     )
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer","usuario": usuario_db}
 
 @router.post("/login", response_model=dict)
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
@@ -180,22 +211,28 @@ def logout():
     except:
         raise HTTPException(status_code=400, detail="Error al realizar el logout")
     
-@router.post("/perso")    
+@router.put("/perso")    
 def perso(data: dict = Body(...)):
+    print("HOLA")
     try:
         idUsuario = data.get("idUsuario")
-        profesion = data.get("profesion")
-        areaDesempenio = data.get("areaDesempenio")
-        motivo = data.get("motivo")
-        id_asignaturas = data.get("asignaturasCursadas")
-        id_tematicas = data.get("tematicasUsuario")
-        id_competencias = data.get("competenciasUsuario")
-        id_actividades = data.get("actividadesUsuario")
-        id_horarios = data.get("horariosUsuario")
-        id_modalidad = data.get("modalidadUsuario")
-        id_modos = data.get("modosUsuario")
+        idPerfil = data.get("idPerfil")
+        
+        session = Session()
+
+        usuario_db = session.query(Usuario).filter(Usuario.id == idUsuario).first()
+
+        nuevo_perfil = session.query(PerfilEstudiante).filter(PerfilEstudiante.id == idPerfil).first()
+        
+
+        usuario_db.perfilEstudiante = nuevo_perfil
+        usuario_db.perfilEstudiante_id = idPerfil
+
+        session.commit()
+        session.close()
         return None
     except Exception as e:
         print(f"Error: {e}")
         raise
+
 
