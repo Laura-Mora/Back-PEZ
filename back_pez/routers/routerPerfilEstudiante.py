@@ -14,6 +14,7 @@ from back_pez.db.model.horario import Horario, HorarioModel
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
 
 from db.dbconfig import engine
+from sqlalchemy.orm import selectinload
 
 router = APIRouter(prefix="/perfilEstudiante",
                    tags=["perfilEstudiante"],
@@ -61,7 +62,13 @@ def perfilesEstudiante():
 @router.get("/{id}")  # Path
 def perfilEstudiante(id: str):
     session = Session()
-    perfil = session.query(PerfilEstudiante).filter(PerfilEstudiante.id == id).first()
+    perfil = session.query(PerfilEstudiante).options(
+        selectinload(PerfilEstudiante.asignaturasCursadas),
+        selectinload(PerfilEstudiante.competenciasGusto),
+        selectinload(PerfilEstudiante.horariosPreferencias),
+        selectinload(PerfilEstudiante.modalidadPreferencia),
+        selectinload(PerfilEstudiante.modoEnsenianzaPreferencia)
+        ).filter(PerfilEstudiante.id == id).first()
     session.close()
     if not perfil:
         raise HTTPException(status_code=404, detail='PerfilEstudiante no encontrado')

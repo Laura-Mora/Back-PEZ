@@ -8,6 +8,7 @@ from db.model.componente import Componente, ComponenteModelo
 from back_pez.db.model.usuario import Usuario
 
 from db.dbconfig import engine
+from sqlalchemy.orm import selectinload
 
 router = APIRouter(prefix="/programa",
                    tags=["programa"],
@@ -16,6 +17,16 @@ router = APIRouter(prefix="/programa",
 Session = sessionmaker(bind=engine)
 
 @router.options("/")
+def optionsPrograma():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/{id}")
 def optionsPrograma():
     allowed_methods = ["GET", "OPTIONS","POST"]
     headers = {
@@ -35,7 +46,8 @@ def programas():
 @router.get("/{id}")  # Path
 def programa(id: str):
     session = Session()
-    programa = session.query(Programa).filter(Programa.id == id).first()
+    programa = session.query(Programa).options(
+        selectinload(Programa.componentes)).filter(Programa.id == id).first()
     session.close()
     if not programa:
         raise HTTPException(status_code=404, detail='Programa no encontrado')

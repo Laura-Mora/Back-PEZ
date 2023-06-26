@@ -94,14 +94,19 @@ Session = sessionmaker(bind=engine)
 @router.get("/")
 def usuarios():
     session = Session()
-    usuaruios = session.query(Usuario).all()
+    usuaruios = session.query(Usuario).options(
+        selectinload(Usuario.programa)
+        ).all()
     session.close()
     return usuaruios
 
 @router.get("/{id}")  # Path
 def usuario(id: str):
     session = Session()
-    usuario = session.query(Usuario).options(selectinload(Usuario.perfilEstudiante)).filter(Usuario.id == id).first()
+    usuario = session.query(Usuario).options(
+        selectinload(Usuario.perfilEstudiante),
+        selectinload(Usuario.programa)
+        ).filter(Usuario.id == id).first()
     session.close()
     if not usuario:
         raise HTTPException(status_code=404, detail='Usuario no encontrado')
@@ -143,7 +148,8 @@ def generar_token_acceso(data: dict, expires_delta: timedelta):
 
 def autenticar_usuario(usuario, contrasena):
     session = Session()
-    usuario_db = session.query(Usuario).options(selectinload(Usuario.perfilEstudiante)).filter(Usuario.correo == usuario).first()
+    usuario_db = session.query(Usuario).options(selectinload(Usuario.perfilEstudiante),
+        selectinload(Usuario.programa)).filter(Usuario.correo == usuario).first()
     session.close()
 
     if not usuario_db or not verificar_password(contrasena, usuario_db.contrasenia):

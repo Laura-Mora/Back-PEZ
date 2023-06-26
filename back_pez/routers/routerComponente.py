@@ -1,6 +1,8 @@
 from typing import List
-from fastapi import APIRouter, HTTPException
+from urllib import response
+from fastapi import APIRouter, HTTPException, Response
 from sqlalchemy.orm import sessionmaker
+from back_pez.db.model.componente import ComponenteElectiva, ComponenteObligactoria, ComponenteSubComponente
 from db.model.componente import ComponenteModelo
 from db.model.componente import Componente
 from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
@@ -16,6 +18,26 @@ router = APIRouter(prefix="/componente",
 
 Session = sessionmaker(bind=engine)
 
+@router.options("/")
+def optionsComponentes():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/{id}")
+def optionsComponente():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 @router.get("/")
 def componentes():
     session = Session()
@@ -27,10 +49,47 @@ def componentes():
 def componentes(id: str):
     session = Session()
     componente = session.query(Componente).filter(Componente.id == id).first()
-    session.close()
+    
     if not componente:
         raise HTTPException(status_code=404, detail='Componente no encontrado')
-    return componente
+    
+    asiganturasOb = (
+        session.query(Asignatura)
+        .select_from(ComponenteObligactoria)
+        .join(Componente, Componente.id == ComponenteObligactoria.componente_id)
+        .filter(Componente.id == componente.id)
+        .all()
+    )
+
+
+    asignaturas_electivas = (
+        session.query(Asignatura)
+        .select_from(ComponenteElectiva)
+        .join(Componente, Componente.id == ComponenteElectiva.componente_id)
+        .filter(Componente.id == componente.id)
+        .all()
+    )
+
+    subcomponentes = (
+        session.query(Componente)
+        .select_from(ComponenteSubComponente)
+        .join(Componente, Componente.id == ComponenteSubComponente.componente_id)
+        .filter(Componente.id == componente.id)
+        .all()
+    )
+    
+    session.close()
+    
+    componente_data = {
+        "id": componente.id,
+        "nombre": componente.nombre,
+        "cantCreditos": componente.cantCreditos,
+        "asignaturasObligatorias": asiganturasOb,
+        "asignaturasElectivas": asignaturas_electivas,
+        "subcomponentes": subcomponentes,
+    }
+
+    return componente_data
 
 @router.post("/")
 def crear_componente(response:ComponenteModelo):

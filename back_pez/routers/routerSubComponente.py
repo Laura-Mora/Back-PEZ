@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Response
 from sqlalchemy.orm import sessionmaker
 from db.model.asignatura import AsignaturaModelo
 from db.model.subComponente import subComponenteModelo
@@ -9,6 +9,8 @@ from db.model.subComponente import subComponente
 
 from db.dbconfig import engine
 
+from sqlalchemy.orm import selectinload
+
 from pprint import pprint
 
 router = APIRouter(prefix="/subcomponente",
@@ -16,6 +18,27 @@ router = APIRouter(prefix="/subcomponente",
                    responses={404: {"message": "No encontrado"}})
 
 Session = sessionmaker(bind=engine)
+
+@router.options("/")
+def optionsSubComponentes():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/{id}")
+def optionsSubComponente():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 
 @router.get("/")
 def subComponentes():
@@ -27,7 +50,10 @@ def subComponentes():
 @router.get("/{id}")  # Path
 def subcomponente(id: str):
     session = Session()
-    subcomponente = session.query(subComponente).filter(subComponente.id == id).first()
+    subcomponente = session.query(subComponente).options(
+        selectinload(subComponente.asignaturasElectivas),
+        selectinload(subComponente.asignaturasObligatorias)
+        ).filter(subComponente.id == id).first()
     session.close()
     if not subcomponente:
         raise HTTPException(status_code=404, detail='Subcomponente no encontrada')
