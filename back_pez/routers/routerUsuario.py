@@ -23,6 +23,8 @@ import jwt
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
+from negocio import negocioAvancePrograma
+
 from sqlalchemy.orm import selectinload
 
 
@@ -73,6 +75,16 @@ def optionsUsuarioLogin():
 @router.options("/perso")
 def optionsUsuarioLogin():
     allowed_methods = ["GET", "OPTIONS","PUT"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/avance/{id}")
+def optionsUsuarioAvance():
+    allowed_methods = ["GET", "OPTIONS"]
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": ", ".join(allowed_methods),
@@ -241,4 +253,7 @@ def perso(data: dict = Body(...)):
         print(f"Error: {e}")
         raise
 
+@router.get("/avance/{id}")
+def avance(id:int):
+    return negocioAvancePrograma.generar_avance_estudiante(id)
 
