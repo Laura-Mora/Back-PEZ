@@ -12,6 +12,7 @@ from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseMo
 from back_pez.db.model.tematica import Tematica, TematicaModelo
 from back_pez.db.model.horario import Horario, HorarioModel
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
+from negocio import negocioSugerenciaAsignatura
 
 from db.dbconfig import engine
 from sqlalchemy.orm import selectinload
@@ -52,6 +53,26 @@ def optionsUsuarios():
     }
     return Response(headers=headers)
 
+@router.options("/sugerenciaAsignatura/{id}")
+def optionsSuges():
+    allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/sugerenciaAsignaturaPreferencias/{id}")
+def optionsSuges():
+    allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 @router.get("/")
 def perfilesEstudiante():
     session = Session()
@@ -67,7 +88,8 @@ def perfilEstudiante(id: str):
         selectinload(PerfilEstudiante.competenciasGusto),
         selectinload(PerfilEstudiante.horariosPreferencias),
         selectinload(PerfilEstudiante.modalidadPreferencia),
-        selectinload(PerfilEstudiante.modoEnsenianzaPreferencia)
+        selectinload(PerfilEstudiante.modoEnsenianzaPreferencia),
+        selectinload(PerfilEstudiante.tematicasGusto)
         ).filter(PerfilEstudiante.id == id).first()
     session.close()
     if not perfil:
@@ -159,3 +181,11 @@ def actualizar_perfil(id: int, perfil_update: dict):
     session.commit()
     session.close()
     return perfil
+
+@router.get("/sugerenciaAsignatura/{id}")
+def sugerirAsignatura(id:int):
+    return negocioSugerenciaAsignatura.recomendar_asignaturas(id)
+
+@router.get("/sugerenciaAsignaturaPreferencias/{id}")
+def sugerirAsignaturaPreferencias(id:int):
+    return negocioSugerenciaAsignatura.sugerir_asignaturas_por_preferencias(id)
