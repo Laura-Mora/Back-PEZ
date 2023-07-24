@@ -34,6 +34,16 @@ def optionsReseniaCrear():
     }
     return Response(headers=headers)
 
+@router.options("/asignatura/{id}")
+def optionsReseniaAsignatura():
+    allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 @router.get("/")
 def resenias():
     session = Session()
@@ -110,4 +120,13 @@ def actualizar_resenia(id: int, resenia_update: dict):
     session.add(resenia)
     session.commit()
     session.close()
+    return resenia
+
+@router.get("/asignatura/{id}")  
+def getReseniaAsignatura(id: str):
+    session = Session()
+    resenia = session.query(ReseniaAsignatura).filter(ReseniaAsignatura.asignatura_id == id).all()
+    session.close()
+    if not resenia:
+        raise HTTPException(status_code=404, detail='Reseña no encontrado')
     return resenia
