@@ -12,7 +12,7 @@ from back_pez.db.model.componenteClase import ComponenteClase, ComponenteClaseMo
 from back_pez.db.model.tematica import Tematica, TematicaModelo
 from back_pez.db.model.horario import Horario, HorarioModel
 from back_pez.db.model.modoEnsenianza import ModoEnsenianza, ModoEnsenianzaModel
-from negocio import negocioSugerenciaAsignatura
+from negocio import negocioSugerenciaAsignatura, negocioSugerenciaPrograma
 
 from db.dbconfig import engine
 from sqlalchemy.orm import selectinload
@@ -65,6 +65,16 @@ def optionsSuges():
 
 @router.options("/sugerenciaAsignaturaPreferencias/{id}")
 def optionsSuges():
+    allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/sugerenciaProgramaAsignaturas/{id}")
+def optionsSugesPro():
     allowed_methods = ["GET", "OPTIONS"]
     headers = {
         "Access-Control-Allow-Origin": "*",
@@ -189,3 +199,7 @@ def sugerirAsignatura(id:int):
 @router.get("/sugerenciaAsignaturaPreferencias/{id}")
 def sugerirAsignaturaPreferencias(id:int):
     return negocioSugerenciaAsignatura.sugerir_asignaturas_por_preferencias(id)
+
+@router.get("/sugerenciaProgramaAsignaturas/{id}")
+def sugerenciaProgramaAsignaturas(id: int):
+    return negocioSugerenciaPrograma.recomendar_programas(id)
