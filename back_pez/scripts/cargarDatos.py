@@ -88,6 +88,20 @@ def cargueMINSC():
         response = requests.post('http://localhost:8000/programa', json=programa)
         print(response.json())
 
+def cargueMINSCDistri():
+    file_path = os.path.join(os.path.dirname(__file__), 'MINSCDistri.json')
+
+    with open(file_path,'r') as f:
+         datos = json.load(f)
+
+    for componente in datos['componentes']:
+        response = requests.post('http://localhost:8000/componente', json=componente)
+        print(response.json())
+
+    for programa in datos['programa']:
+        response = requests.post('http://localhost:8000/programa', json=programa)
+        print(response.json())
+
 def cargueSeguridad():
     file_path = os.path.join(os.path.dirname(__file__), 'seguridad.json')
     with open(file_path,'r') as f:
@@ -125,6 +139,9 @@ def main():
     print("--------------------")
     print("Cargar MINSC")
     cargueMINSC()
+    print("--------------------")
+    print("Cargar MINSC seguridad")
+    cargueMINSCDistri()
     print("--------------------")
     print("Cargar Seguridad Digital")
     cargueSeguridad()

@@ -7,6 +7,7 @@ from db.model.componente import ComponenteModelo
 from db.model.componente import Componente
 from back_pez.db.model.asignatura import Asignatura, AsignaturaModelo
 from back_pez.db.model.subComponente import subComponente, subComponenteModelo
+from sqlalchemy.orm import selectinload
 
 from negocio import negocioComponente
 
@@ -54,28 +55,25 @@ def componentes(id: str):
         raise HTTPException(status_code=404, detail='Componente no encontrado')
     
     asiganturasOb = (
-        session.query(Asignatura)
-        .select_from(ComponenteObligactoria)
-        .join(Componente, Componente.id == ComponenteObligactoria.componente_id)
-        .filter(Componente.id == componente.id)
-        .all()
+        session.query(ComponenteObligactoria).options(
+        selectinload(ComponenteObligactoria.asignaturasObligatorias))
+        .filter(ComponenteObligactoria.componente_id == componente.id)
+        .first()
     )
 
 
     asignaturas_electivas = (
-        session.query(Asignatura)
-        .select_from(ComponenteElectiva)
-        .join(Componente, Componente.id == ComponenteElectiva.componente_id)
-        .filter(Componente.id == componente.id)
-        .all()
+        session.query(ComponenteElectiva).options(
+        selectinload(ComponenteElectiva.asignaturasElectivas)
+        ).filter(ComponenteElectiva.componente_id == id)
+        .first()
     )
 
     subcomponentes = (
-        session.query(Componente)
-        .select_from(ComponenteSubComponente)
-        .join(Componente, Componente.id == ComponenteSubComponente.componente_id)
-        .filter(Componente.id == componente.id)
-        .all()
+        session.query(ComponenteSubComponente).options(
+        selectinload(ComponenteSubComponente.subcomponentes)
+        ).filter(ComponenteSubComponente.componente_id == id)
+        .first()
     )
     
     session.close()
