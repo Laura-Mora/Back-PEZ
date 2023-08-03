@@ -1,0 +1,102 @@
+{
+    "componentes":[
+        {
+            "id":13,
+            "nombre":"Especializadas Sistemas distribuidos Profundización",
+            "cantCreditos":20,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 30,
+                    "nombre" : "Sistemas Distribuidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }
+            ],
+            "asignaturasElectivas":[
+                {
+                    "id" : 31,
+                    "nombre" : "Seguridad Informática ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 32,
+                    "nombre" : "Gestión y Diseño de Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 33,
+                    "nombre" : "Sistemas Operativos Tiempo Real ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 34,
+                    "nombre" : "Sistemas Embebidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 35,
+                    "nombre" : "Seguridad Ofensiva ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 36,
+                    "nombre" : "Informática Forense ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 37,
+                    "nombre" : "Seguridad en Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 38,
+                    "nombre" : "Computación Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 39,
+                    "nombre" : "Software para Procesadores ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }
+            ]
+        }
+    ],
+    "programa":[{
+        "id": 4,
+        "nombre":"Maestría en Ingeniería de Sistemas y Computación profundización Sistemas Distribuidos",
+        "cantCreditos": 40,
+        "componentes":[
+            {
+                "id":13,
+                "nombre":"Especializadas Sistemas distribuidos Profundización",
+                "cantCreditos":20
+            },
+            {
+                "id":4,
+                "nombre":"Cientifica información",
+                "cantCreditos":8
+            },
+            {
+                "id":5,
+                "nombre":"Humanistica MINSC",
+                "cantCreditos":2
+            },
+            {
+                "id":6,
+                "nombre":"Complementarias MINSC",
+                "cantCreditos":2
+            },
+            {
+              "id":10,
+              "nombre":"Trabajo de Grado profundización MINSC",
+              "cantCreditos":4
+            },
+            {
+              "id":11,
+              "nombre":"Electivas MINSC",
+              "cantCreditos":4
+            }
+        ]
+    }]
+}
