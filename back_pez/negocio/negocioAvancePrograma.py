@@ -26,7 +26,7 @@ def generar_avance_estudiante(estudiante_id):
         programa_id = programa.id
         avance['componentes'] = []
         
-        # Obtener los componentes del programa
+       # Obtener los componentes del programa
         componentes = obtener_componentes_programa(programa_id)
         asignaturas_vistas = set()
         
@@ -99,7 +99,8 @@ def generar_avance_estudiante(estudiante_id):
                 if asignaturas_contadas >= asignaturas_minimas:
                     asignaturas_contadasCom += 1
             
-            for asignatura in obtener_asignaturasOB_componente(componente_id):
+            asiganturasCompoOB = obtener_asignaturasOB_componente(componente_id)
+            for asignatura in asiganturasCompoOB:
                 if asignatura.id not in asignaturas_vistas:
                     # Verificar si el estudiante ha cursado la asignatura
                     if ha_cursado_asignatura(estudiante_id, asignatura.id):
@@ -111,8 +112,9 @@ def generar_avance_estudiante(estudiante_id):
                         
                     if creditos_vistosCom >= creditos_requeridosCom:
                         break
-
-            for asignatura in obtener_asignaturasEle_componente(componente_id):
+            
+            asignaturasCompoEle = obtener_asignaturasEle_componente(componente_id)
+            for asignatura in asignaturasCompoEle:
                 if asignatura.id not in asignaturas_vistas:
                     # Verificar si el estudiante ha cursado la asignatura
                     if ha_cursado_asignatura(estudiante_id, asignatura.id):
@@ -181,6 +183,7 @@ def  obtener_asignaturasOB_subcomponente(subcomponente_id):
     subcomponete = session.query(subComponente).options(
         selectinload(subComponente.asignaturasObligatorias)
         ).filter(subComponente.id == subcomponente_id).first()
+        
     asignaturasObligatorias = subcomponete.asignaturasObligatorias
 
     session.close()
@@ -198,27 +201,35 @@ def  obtener_asignaturasEle_subcomponente(subcomponente_id):
 
 def  obtener_asignaturasOB_componente(componente_id):
     session = Session()
+    
     asiganturasOb = (
-        session.query(Asignatura)
-        .select_from(ComponenteObligactoria)
-        .join(Componente, Componente.id == ComponenteObligactoria.componente_id)
-        .filter(Componente.id == componente_id)
-        .all()
+        session.query(ComponenteObligactoria).options(
+        selectinload(ComponenteObligactoria.asignaturasObligatorias))
+        .filter(ComponenteObligactoria.componente_id == componente_id)
+        .first()
     )
 
+    if asiganturasOb:
+        asignaturas = asiganturasOb.asignaturasObligatorias
+    else:
+        asignaturas = []
     session.close()
-    return asiganturasOb
+    return asignaturas
 
 def  obtener_asignaturasEle_componente(componente_id):
     session = Session()
     
-    asignaturas_electivas = (
-        session.query(Asignatura)
-        .select_from(ComponenteElectiva)
-        .join(Componente, Componente.id == ComponenteElectiva.componente_id)
-        .filter(Componente.id == componente_id)
-        .all()
+    compoElectiva = (
+        session.query(ComponenteElectiva).options(
+        selectinload(ComponenteElectiva.asignaturasElectivas)
+        ).filter(ComponenteElectiva.componente_id == componente_id)
+        .first()
     )
+
+    if compoElectiva:
+        asignaturas_electivas = compoElectiva.asignaturasElectivas
+    else:
+        asignaturas_electivas = []
 
     session.close()
     return asignaturas_electivas
