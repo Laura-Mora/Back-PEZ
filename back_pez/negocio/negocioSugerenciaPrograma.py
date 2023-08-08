@@ -34,6 +34,10 @@ def recomendar_programas(estudiante_id):
 
         programas_disponibles = [programa for programa in programas if programa not in usuario.programa]
 
+        programaUsuIds = [programa.id for programa in usuario.programa]
+        minscsisinfo = 2 in programaUsuIds
+        minscdistri = 4 in programaUsuIds
+
         for programa in programas_disponibles:
             print("-----------------")
             print(programa.nombre)
@@ -51,11 +55,16 @@ def recomendar_programas(estudiante_id):
 
 
             if len(asignaturas_aprobadas_programa) > 0 :
-                programa_recomendado = {
-                    'nombre_programa': programa.nombre,
-                    'asignaturas_aprobadas': list(asignaturas_aprobadas_programa),
-                }
-                programas_recomendados.append(programa)
+                if programa.id == 2 and minscdistri:
+                    pass
+                elif programa.id == 4 and minscsisinfo:
+                    pass
+                else:
+                    programa_recomendado = {
+                        'nombre_programa': programa.nombre,
+                        'asignaturas_aprobadas': list(asignaturas_aprobadas_programa),
+                    }
+                    programas_recomendados.append(programa)
 
         return programas_recomendados
 
@@ -131,27 +140,35 @@ def  obtener_asignaturasEle_subcomponente(subcomponente_id):
 
 def  obtener_asignaturasOB_componente(componente_id):
     session = Session()
+    
     asiganturasOb = (
-        session.query(Asignatura)
-        .select_from(ComponenteObligactoria)
-        .join(Componente, Componente.id == ComponenteObligactoria.componente_id)
-        .filter(Componente.id == componente_id)
-        .all()
+        session.query(ComponenteObligactoria).options(
+        selectinload(ComponenteObligactoria.asignaturasObligatorias))
+        .filter(ComponenteObligactoria.componente_id == componente_id)
+        .first()
     )
 
+    if asiganturasOb:
+        asignaturas = asiganturasOb.asignaturasObligatorias
+    else:
+        asignaturas = []
     session.close()
-    return asiganturasOb
+    return asignaturas
 
 def  obtener_asignaturasEle_componente(componente_id):
     session = Session()
     
-    asignaturas_electivas = (
-        session.query(Asignatura)
-        .select_from(ComponenteElectiva)
-        .join(Componente, Componente.id == ComponenteElectiva.componente_id)
-        .filter(Componente.id == componente_id)
-        .all()
+    compoElectiva = (
+        session.query(ComponenteElectiva).options(
+        selectinload(ComponenteElectiva.asignaturasElectivas)
+        ).filter(ComponenteElectiva.componente_id == componente_id)
+        .first()
     )
+
+    if compoElectiva:
+        asignaturas_electivas = compoElectiva.asignaturasElectivas
+    else:
+        asignaturas_electivas = []
 
     session.close()
     return asignaturas_electivas
