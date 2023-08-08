@@ -92,6 +92,17 @@ def optionsUsuarioAvance():
     }
     return Response(headers=headers)
 
+
+@router.options("/faltaPrograma/{id}")
+def optionsUsuarioFaltaPrograma():
+    allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 SECRET_KEY = "tu_secret_key_aqui"
@@ -256,4 +267,8 @@ def perso(data: dict = Body(...)):
 @router.get("/avance/{id}")
 def avance(id:int):
     return negocioAvancePrograma.generar_avance_estudiante(id)
+
+@router.get("/faltaPrograma/{id}")
+def faltaPrograma(id:int):
+    return negocioAvancePrograma.faltaParacompletarProgramas(id)
 
