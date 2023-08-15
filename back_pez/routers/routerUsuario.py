@@ -23,7 +23,7 @@ import jwt
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
-from negocio import negocioAvancePrograma
+from negocio import negocioAvancePrograma, negocioReportes
 
 from sqlalchemy.orm import selectinload
 
@@ -95,6 +95,16 @@ def optionsUsuarioAvance():
 
 @router.options("/faltaPrograma/{id}")
 def optionsUsuarioFaltaPrograma():
+    allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/reportePrograma/{id}")
+def optionreportePrograma():
     allowed_methods = ["GET", "OPTIONS"]
     headers = {
         "Access-Control-Allow-Origin": "*",
@@ -271,4 +281,8 @@ def avance(id:int):
 @router.get("/faltaPrograma/{id}")
 def faltaPrograma(id:int):
     return negocioAvancePrograma.faltaParacompletarProgramas(id)
+
+@router.get("/reportePrograma/{id}")
+def reportePrograma(id:int):
+    return negocioReportes.reportePrograma(id)
 
