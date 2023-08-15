@@ -9,6 +9,16 @@ from sqlalchemy import exists
 
 from sqlalchemy.orm import selectinload
 
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Spacer, PageBreak
+from reportlab.lib.pagesizes import letter, landscape
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import Paragraph
+
+from openpyxl import Workbook
+from openpyxl.styles import Alignment
+
+
 Session = sessionmaker(bind=engine)
 
 import json
@@ -36,17 +46,17 @@ def reportePrograma(id_programa):
                 porcentaje_cargaAsigantura = sum(1 for rese in resenia if rese.cargaAsigantura) / total_reseñas * 100
                 porcentaje_entregaNotas = sum(1 for rese in resenia if rese.entregaNotas) / total_reseñas * 100
                 porcentaje_retroalimentacion = sum(1 for rese in resenia if rese.retroalimentacion) / total_reseñas * 100
-                porcentaje_complejidad_alta = sum(1 for rese in resenia if rese.complejidad == 'alta') / total_reseñas * 100
-                porcentaje_complejidad_media = sum(1 for rese in resenia if rese.complejidad == 'media') / total_reseñas * 100
-                porcentaje_complejidad_baja = sum(1 for rese in resenia if rese.complejidad == 'baja') / total_reseñas * 100
+                porcentaje_complejidad_alta = sum(1 for rese in resenia if rese.complejidad == 'alto') / total_reseñas * 100
+                porcentaje_complejidad_media = sum(1 for rese in resenia if rese.complejidad == 'medio') / total_reseñas * 100
+                porcentaje_complejidad_baja = sum(1 for rese in resenia if rese.complejidad == 'bajo') / total_reseñas * 100
                 porcentaje_vida = sum(1 for rese in resenia if rese.vidaOTrabajo == 'vida') / total_reseñas * 100
                 porcentaje_trabajo = sum(1 for rese in resenia if rese.vidaOTrabajo == 'trabajo') / total_reseñas * 100
-                porcentaje_nivelExigencia_alta = sum(1 for rese in resenia if rese.nivelExigencia == 'alta') / total_reseñas * 100
-                porcentaje_nivelExigencia_media = sum(1 for rese in resenia if rese.nivelExigencia == 'media') / total_reseñas * 100
-                porcentaje_nivelExigencia_baja = sum(1 for rese in resenia if rese.nivelExigencia == 'baja') / total_reseñas * 100
-                porcentaje_incidencia_alta = sum(1 for rese in resenia if rese.incidenciaProfesor == 'alta') / total_reseñas * 100
-                porcentaje_incidencia_media = sum(1 for rese in resenia if rese.incidenciaProfesor == 'media') / total_reseñas * 100
-                porcentaje_incidencia_baja = sum(1 for rese in resenia if rese.incidenciaProfesor == 'baja') / total_reseñas * 100
+                porcentaje_nivelExigencia_alta = sum(1 for rese in resenia if rese.nivelExigencia == 'alto') / total_reseñas * 100
+                porcentaje_nivelExigencia_media = sum(1 for rese in resenia if rese.nivelExigencia == 'medio') / total_reseñas * 100
+                porcentaje_nivelExigencia_baja = sum(1 for rese in resenia if rese.nivelExigencia == 'bajo') / total_reseñas * 100
+                porcentaje_incidencia_alta = sum(1 for rese in resenia if rese.incidenciaProfesor == 'alto') / total_reseñas * 100
+                porcentaje_incidencia_media = sum(1 for rese in resenia if rese.incidenciaProfesor == 'medio') / total_reseñas * 100
+                porcentaje_incidencia_baja = sum(1 for rese in resenia if rese.incidenciaProfesor == 'nada') / total_reseñas * 100
                 comentarios = [rese.comentarios for rese in resenia]
 
                 asignatura_info = {
@@ -110,4 +120,176 @@ def reportePrograma(id_programa):
         return None
 
 
+def generar_pdf_reporte(id_programa):
+    reporte = reportePrograma(id_programa)
+    doc = SimpleDocTemplate("reporte.pdf", pagesize=landscape(letter))
+    story = []
+
+    # Crear una tabla con los datos del reporte
+    data = []  # Los datos de la tabla
+
+    # Definir los nombres de las columnas en el encabezado
+    column_names = [
+        "Nombre Asignatura", 
+        "ID Asignatura", 
+        "Porcentaje Aprendizaje", 
+        "Tematicas con lo que requeria",
+        "Estrategias pedagogicas",
+        "Actividades asignatura",
+        "Agrado profesor",
+        "Carga de trabajo adecuada",
+        "Entrga notas a tiempo",
+        "Retroalimentación adecuada",
+        "Complejidad alta",
+        "Complejidad media",
+        "Complejidad baja",
+        "Util para la vida",
+        "Util para el trabajo",
+        "Nivel exigencia alto",
+        "Nivel exigencia medio",
+        "Nivel exigencia bajo",
+        "Incidencia profesor alta",
+        "Incidencia profesor media",
+        "Incidencia profesor baja",
+        "Comentarios"
+    ]
+
+    # Agregar una fila para el encabezado a los datos
+    data.insert(0, column_names)
+
+    for asignatura_info in reporte:
+        style = getSampleStyleSheet()['Normal']  # Puedes ajustar esto según tus necesidades
+
+        # ... Código para crear la tabla y agregarla al story ...
+
+        comentarios = [Paragraph(comentario, style) for comentario in asignatura_info['comentarios']]
+
+        fila = [
+            asignatura_info['nombre_asignatura'],
+            asignatura_info['id_asignatura'],
+            asignatura_info['porcentaje_aprendizaje'],
+            asignatura_info['porcentaje_tematicaRequeridas'],
+            asignatura_info['porcentaje_estrategiasPedagogicasProfesor'],
+            asignatura_info['porcentaje_actividadesAsignatura'],
+            asignatura_info['porcentaje_agradoProfesor'],
+            asignatura_info['porcentaje_cargaAsigantura'],
+            asignatura_info['porcentaje_entregaNotas'],
+            asignatura_info['porcentaje_retroalimentacion'],
+            asignatura_info['porcentaje_complejidad_alta'],
+            asignatura_info['porcentaje_complejidad_media'],
+            asignatura_info['porcentaje_complejidad_baja'],
+            asignatura_info['porcentaje_vida'],
+            asignatura_info['porcentaje_trabajo'],
+            asignatura_info['porcentaje_nivelExigencia_alta'],
+            asignatura_info['porcentaje_nivelExigencia_media'],
+            asignatura_info['porcentaje_nivelExigencia_baja'],
+            asignatura_info['porcentaje_incidencia_alta'],
+            asignatura_info['porcentaje_incidencia_media'],
+            asignatura_info['porcentaje_incidencia_baja'],
+            comentarios
+        ]
+        data.append(fila)
+
+    # Configurar estilo de tabla
+    style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                        ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                        ('ROTATE', (0, 0), (-1, 0), 90)])
+
+    # Calcular el ancho aproximado de cada columna
+    num_columns = len(column_names)
+    page_width, page_height = landscape(letter)
+    column_width = page_width / num_columns
+
+    # Ajustar los anchos de las columnas si es necesario
+    column_widths = [column_width] * num_columns
+
+    # Crear la tabla con los anchos de columna calculados
+    t = Table(data, colWidths=column_widths)
+    t.setStyle(style)
+    story.append(t)
+
+    # Agregar espacio en blanco
+    story.append(Spacer(1, 12))
+
+    # Crear el documento PDF
+    doc.build(story)
+
+    print("PDF generado exitosamente!")
+
+def generar_excel_reporte(id_programa):
+    reporte = reportePrograma(id_programa)
+    
+    wb = Workbook()
+    ws = wb.active
+    
+    # Agregar encabezados
+    encabezados = [
+        "Nombre Asignatura", 
+        "ID Asignatura", 
+        "Porcentaje Aprendizaje", 
+        "Tematicas con lo que requeria",
+        "Estrategias pedagogicas",
+        "Actividades asignatura",
+        "Agrado profesor",
+        "Carga de trabajo adecuada",
+        "Entrga notas a tiempo",
+        "Retroalimentación adecuada",
+        "Complejidad alta",
+        "Complejidad media",
+        "Complejidad baja",
+        "Util para la vida",
+        "Util para el trabajo",
+        "Nivel exigencia alto",
+        "Nivel exigencia medio",
+        "Nivel exigencia bajo",
+        "Incidencia profesor alta",
+        "Incidencia profesor media",
+        "Incidencia profesor baja",
+        "Comentarios"
+    ]
+    ws.append(encabezados)
+
+    # Agregar los datos
+    for asignatura_info in reporte:
+        fila = [
+            asignatura_info['nombre_asignatura'],
+            asignatura_info['id_asignatura'],
+            asignatura_info['porcentaje_aprendizaje'],
+            asignatura_info['porcentaje_tematicaRequeridas'],
+            asignatura_info['porcentaje_estrategiasPedagogicasProfesor'],
+            asignatura_info['porcentaje_actividadesAsignatura'],
+            asignatura_info['porcentaje_agradoProfesor'],
+            asignatura_info['porcentaje_cargaAsigantura'],
+            asignatura_info['porcentaje_entregaNotas'],
+            asignatura_info['porcentaje_retroalimentacion'],
+            asignatura_info['porcentaje_complejidad_alta'],
+            asignatura_info['porcentaje_complejidad_media'],
+            asignatura_info['porcentaje_complejidad_baja'],
+            asignatura_info['porcentaje_vida'],
+            asignatura_info['porcentaje_trabajo'],
+            asignatura_info['porcentaje_nivelExigencia_alta'],
+            asignatura_info['porcentaje_nivelExigencia_media'],
+            asignatura_info['porcentaje_nivelExigencia_baja'],
+            asignatura_info['porcentaje_incidencia_alta'],
+            asignatura_info['porcentaje_incidencia_media'],
+            asignatura_info['porcentaje_incidencia_baja'],
+            ", ".join(asignatura_info['comentarios'])  # Convertir la lista de comentarios a una cadena
+        ]
+        ws.append(fila)
+
+
+    # Alinear el texto al centro en todas las celdas
+    for row in ws.iter_rows(min_row=1, max_row=1):  # Alinea solo la primera fila (encabezados)
+        for cell in row:
+            cell.alignment = Alignment(horizontal='center', vertical='center')
+    
+    # Guardar el archivo
+    wb.save("reporte.xlsx")
+    
+    print("Archivo de Excel generado exitosamente!")
 

@@ -286,3 +286,10 @@ def faltaPrograma(id:int):
 def reportePrograma(id:int):
     return negocioReportes.reportePrograma(id)
 
+@router.get("/reporteProgramapdf/{id}")
+def generar_pdf_reporte(id:int):
+    return negocioReportes.generar_pdf_reporte(id)
+
+@router.get("/reporteProgramaExcel/{id}")
+def generar_pdf_reporte(id:int):
+    return negocioReportes.generar_excel_reporte(id)
