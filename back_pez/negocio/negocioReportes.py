@@ -18,6 +18,11 @@ from reportlab.platypus import Paragraph
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+
 
 Session = sessionmaker(bind=engine)
 
@@ -221,7 +226,7 @@ def generar_pdf_reporte(id_programa):
 
     print("PDF generado exitosamente!")
 
-def generar_excel_reporte(id_programa):
+def generar_excel_reporte(id_programa, correo):
     reporte = reportePrograma(id_programa)
     
     wb = Workbook()
@@ -292,4 +297,44 @@ def generar_excel_reporte(id_programa):
     wb.save("reporte.xlsx")
     
     print("Archivo de Excel generado exitosamente!")
+    enviar_correo_reporte("reporte.xlsx",correo)
+
+
+def enviar_correo_reporte(archivo_adjunto, correo):
+    # Datos de configuración del correo
+    remitente = 'lalis.mora98@gmail.com'
+    contraseña = 'wtksfmxjegqagtpx'
+    servidor_smtp = 'smtp.gmail.com'
+    puerto = 587
+
+    #destinatario = correo
+    destinatario ='lalis.mora98@gmail.com'
+    asunto = 'Reporte programa'
+    mensaje = 'Buenos días, adjunto el reporte del programa.'
+
+    # Crear objeto MIME para el correo
+    msg = MIMEMultipart()
+    msg['From'] = remitente
+    msg['To'] = destinatario
+    msg['Subject'] = asunto
+
+    # Agregar cuerpo del mensaje
+    msg.attach(MIMEText(mensaje, 'plain'))
+
+    # Agregar archivo adjunto
+    with open(archivo_adjunto, "rb") as adjunto:
+        part = MIMEApplication(adjunto.read(), Name=archivo_adjunto)
+        part['Content-Disposition'] = f'attachment; filename="{archivo_adjunto}"'
+        msg.attach(part)
+
+    # Establecer conexión con el servidor SMTP
+    server = smtplib.SMTP(host=servidor_smtp, port=puerto)
+    server.starttls()
+    server.login(remitente, contraseña)
+
+    # Enviar correo
+    server.sendmail(remitente, destinatario, msg.as_string())
+    server.quit()
+
+
 

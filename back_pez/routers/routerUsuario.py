@@ -290,6 +290,13 @@ def reportePrograma(id:int):
 def generar_pdf_reporte(id:int):
     return negocioReportes.generar_pdf_reporte(id)
 
-@router.get("/reporteProgramaExcel/{id}")
-def generar_pdf_reporte(id:int):
-    return negocioReportes.generar_excel_reporte(id)
+@router.get("/reporteProgramaExcel")
+def generar_pdf_reporte(data: dict = Body(...)):
+    try:
+        id = data.get("id")
+        correo = data.get("correo")
+        return negocioReportes.generar_excel_reporte(id,correo)
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
+
