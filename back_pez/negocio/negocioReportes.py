@@ -307,8 +307,8 @@ def enviar_correo_reporte(archivo_adjunto, correo):
     servidor_smtp = 'smtp.gmail.com'
     puerto = 587
 
-    #destinatario = correo
-    destinatario ='lalis.mora98@gmail.com'
+    destinatario = correo
+    #destinatario ='lalis.mora98@gmail.com'
     asunto = 'Reporte programa'
     mensaje = 'Buenos días, adjunto el reporte del programa.'
 

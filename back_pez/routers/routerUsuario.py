@@ -23,7 +23,7 @@ import jwt
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
-from negocio import negocioAvancePrograma, negocioReportes
+from negocio import negocioAvancePrograma, negocioReportes, negocioSugerenciaPrograma
 
 from sqlalchemy.orm import selectinload
 
@@ -106,6 +106,36 @@ def optionsUsuarioFaltaPrograma():
 @router.options("/reportePrograma/{id}")
 def optionreportePrograma():
     allowed_methods = ["GET", "OPTIONS"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/reporteProgramaExcel")
+def optionreporteProgramaExcel():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/faltaProgramaSuge")
+def optionfaltaProgramaSuge():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
+@router.options("/asignaturasSugeProgramaComun")
+def optionasignaturasSugeProgramaComun():
+    allowed_methods = ["GET", "OPTIONS","POST"]
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": ", ".join(allowed_methods),
@@ -290,7 +320,7 @@ def reportePrograma(id:int):
 def generar_pdf_reporte(id:int):
     return negocioReportes.generar_pdf_reporte(id)
 
-@router.get("/reporteProgramaExcel")
+@router.post("/reporteProgramaExcel")
 def generar_pdf_reporte(data: dict = Body(...)):
     try:
         id = data.get("id")
@@ -300,3 +330,22 @@ def generar_pdf_reporte(data: dict = Body(...)):
         print(f"Error: {e}")
         raise
 
+@router.post("/faltaProgramaSuge")
+def faltaPrograma(data: dict = Body(...)):
+    try:
+        programa = data.get("idPrograma")
+        estudiante = data.get("idEstudiante")
+        return negocioAvancePrograma.avance_programa_recomendado(programa,estudiante)
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
+
+@router.post("/asignaturasSugeProgramaComun")
+def asignaturasSugeProgramaComun(data: dict = Body(...)):
+    try:
+        programa = data.get("idPrograma")
+        estudiante = data.get("idEstudiante")
+        return negocioSugerenciaPrograma.asignaturas_comun_programas(estudiante,programa)
+    except Exception as e:
+        print(f"Error: {e}")
+        raise

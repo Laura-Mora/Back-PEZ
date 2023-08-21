@@ -5,6 +5,7 @@ from back_pez.db.model.perfilEstudiante import PerfilEstudiante
 from back_pez.db.model.programa import Programa
 from back_pez.db.model.subComponente import subComponente
 from back_pez.db.model.usuario import Usuario
+from negocio import negocioAvancePrograma
 from db.dbconfig import engine
 from sqlalchemy import exists
 
@@ -172,3 +173,30 @@ def  obtener_asignaturasEle_componente(componente_id):
 
     session.close()
     return asignaturas_electivas
+
+def asignaturas_comun_programas(estudiante_id,id_programa):
+    session = Session()
+    estudiante = session.query(Usuario).options(
+        selectinload(Usuario.programa)
+        ).filter(Usuario.id == estudiante_id).first()
+    
+    programaComparar = session.query(Programa).filter(Programa.id == id_programa).first()
+    session.close()
+    
+    asignaturasEstudiante = []
+    asignaturaProgramaRecomendado = []
+
+    for programa in estudiante.programa:
+        asignaturasEstudiante.extend(obtener_asignaturas_requeridas_programa(programa.id))
+
+    asignaturaProgramaRecomendado.extend(obtener_asignaturas_requeridas_programa(programaComparar.id))
+
+    asignaturas_comunes = []
+    
+    for asignatura_estudiante in asignaturasEstudiante:
+        for asignatura_recomendado in asignaturaProgramaRecomendado:
+            if asignatura_estudiante.nombre == asignatura_recomendado.nombre and not(negocioAvancePrograma.ha_cursado_asignatura(estudiante.id,asignatura_recomendado.id)):
+                asignaturas_comunes.append(asignatura_estudiante)
+                print(asignatura_estudiante.nombre)
+
+    return asignaturas_comunes
