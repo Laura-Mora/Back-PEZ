@@ -37,6 +37,8 @@ def generar_avance_estudiante(estudiante_id):
             avance_componente['nombre'] = componente.nombre
             avance_componente['asignaturas'] = []
             avance_componente['subcomponentes'] = []
+            avance_componente['cantCreditos'] = 0
+            avance_componente['creditosVistos'] = 0
             
             creditos_requeridosCom = componente.cantCreditos  # Cantidad de créditos requeridos para el componente
             creditos_vistosCom = 0 
@@ -51,6 +53,9 @@ def generar_avance_estudiante(estudiante_id):
                 avance_subcomponente = {}
                 avance_subcomponente['nombre'] = subcomponente.nombre
                 avance_subcomponente['asignaturas'] = []
+                avance_subcomponente['cantCreditos'] = 0
+                avance_subcomponente['creditosVistos'] = 0
+                avance_subcomponente['asignaturas_minimas'] = 0
                 
                 print(subcomponente.nombre)
                 creditos_vistos = 0  # Variable para almacenar los créditos vistos por el estudiante
@@ -58,7 +63,7 @@ def generar_avance_estudiante(estudiante_id):
 
                 if subcomponente.cantCreditos is not None:
                     creditos_requeridos = subcomponente.cantCreditos
-                    # Resto del código para procesar el subcomponente con cantCreditos
+                    avance_subcomponente['cantCreditos'] = creditos_requeridos
                 else:
                     creditos_requeridos = -1
 
@@ -93,6 +98,9 @@ def generar_avance_estudiante(estudiante_id):
                         if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
                             break
                 
+                avance_subcomponente['creditosVistos'] = creditos_vistos
+                avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas
+                
                 avance_componente['subcomponentes'].append(avance_subcomponente)
                 
                 # Verificar si se ha alcanzado la cantidad mínima de asignaturas por subcomponente
@@ -126,7 +134,9 @@ def generar_avance_estudiante(estudiante_id):
                         
                     if creditos_vistosCom >= creditos_requeridosCom:
                         break
-
+            
+            avance_componente['cantCreditos'] = creditos_requeridosCom
+            avance_componente['creditosVistos'] = creditos_vistosCom
 
             avance['componentes'].append(avance_componente)
 
@@ -277,6 +287,8 @@ def faltaParacompletarProgramas(estudiante_id):
             avance_componente['nombre'] = componente.nombre
             avance_componente['asignaturas'] = []
             avance_componente['subcomponentes'] = []
+            avance_componente['cantCreditos'] = 0
+            avance_componente['creditosVistos'] = 0
             
             creditos_requeridosCom = componente.cantCreditos  # Cantidad de créditos requeridos para el componente
             creditos_vistosCom = 0 
@@ -291,6 +303,8 @@ def faltaParacompletarProgramas(estudiante_id):
                 avance_subcomponente = {}
                 avance_subcomponente['nombre'] = subcomponente.nombre
                 avance_subcomponente['asignaturas'] = []
+                avance_subcomponente['creditosVistos'] = 0
+                avance_subcomponente['asignaturas_minimas'] = 0
                 
                 print(subcomponente.nombre)
                 creditos_vistos = 0  # Variable para almacenar los créditos vistos por el estudiante
@@ -298,7 +312,7 @@ def faltaParacompletarProgramas(estudiante_id):
 
                 if subcomponente.cantCreditos is not None:
                     creditos_requeridos = subcomponente.cantCreditos
-                    # Resto del código para procesar el subcomponente con cantCreditos
+                    avance_subcomponente['cantCreditos'] = creditos_requeridos
                 else:
                     creditos_requeridos = -1
 
@@ -344,7 +358,9 @@ def faltaParacompletarProgramas(estudiante_id):
                                 asignaturas_vistas.add(asignatura.id)
                                 # Agregar la asignatura al avance del estudiante
                                 avance_subcomponente["asignaturas"].append(asignatura.nombre)
-                                
+
+                avance_subcomponente['creditosVistos'] = creditos_vistos
+                avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas                
                 
                 avance_componente['subcomponentes'].append(avance_subcomponente)
                 
@@ -396,6 +412,8 @@ def faltaParacompletarProgramas(estudiante_id):
                         if creditos_vistosCom >= creditos_requeridosCom:
                             break
 
+            avance_componente['cantCreditos'] = creditos_requeridosCom
+            avance_componente['creditosVistos'] = creditos_vistosCom
 
             avance['componentes'].append(avance_componente)
 
@@ -429,6 +447,8 @@ def avance_programa_recomendado(id_programa,estudiante_id):
         avance_componente['nombre'] = componente.nombre
         avance_componente['asignaturas'] = []
         avance_componente['subcomponentes'] = []
+        avance_componente['cantCreditos'] = 0
+        avance_componente['creditosVistos'] = 0
             
         creditos_requeridosCom = componente.cantCreditos  # Cantidad de créditos requeridos para el componente
         creditos_vistosCom = 0 
@@ -443,6 +463,8 @@ def avance_programa_recomendado(id_programa,estudiante_id):
             avance_subcomponente = {}
             avance_subcomponente['nombre'] = subcomponente.nombre
             avance_subcomponente['asignaturas'] = []
+            avance_subcomponente['creditosVistos'] = 0
+            avance_subcomponente['asignaturas_minimas'] = 0
                 
             print(subcomponente.nombre)
             creditos_vistos = 0  # Variable para almacenar los créditos vistos por el estudiante
@@ -450,7 +472,7 @@ def avance_programa_recomendado(id_programa,estudiante_id):
 
             if subcomponente.cantCreditos is not None:
                 creditos_requeridos = subcomponente.cantCreditos
-                    # Resto del código para procesar el subcomponente con cantCreditos
+                avance_subcomponente['cantCreditos'] = creditos_requeridos
             else:
                 creditos_requeridos = -1
 
@@ -484,7 +506,10 @@ def avance_programa_recomendado(id_programa,estudiante_id):
                         
                     if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
                         break
-                
+
+            avance_subcomponente['creditosVistos'] = creditos_vistos
+            avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas  
+              
             avance_componente['subcomponentes'].append(avance_subcomponente)
                 
                 # Verificar si se ha alcanzado la cantidad mínima de asignaturas por subcomponente
@@ -519,6 +544,8 @@ def avance_programa_recomendado(id_programa,estudiante_id):
                 if creditos_vistosCom >= creditos_requeridosCom:
                     break
 
+        avance_componente['cantCreditos'] = creditos_requeridosCom
+        avance_componente['creditosVistos'] = creditos_vistosCom
 
         avance['componentes'].append(avance_componente)
 
