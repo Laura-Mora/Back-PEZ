@@ -250,7 +250,7 @@ def signup(data: dict = Body(...)):
         # Verificar si el usuario ya existe
         usuario_existente = session.query(Usuario).filter(Usuario.correo == correo).first()
         if usuario_existente:
-            raise HTTPException(status_code=400, detail="El nombre de usuario ya está en uso")
+            raise HTTPException(status_code=400, detail="El cooreo que ingreso ya está en uso")
         
         cantidad_usuarios = session.query(func.count(Usuario.id)).scalar()
         nuevo_id = cantidad_usuarios + 1
