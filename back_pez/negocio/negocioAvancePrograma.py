@@ -10,6 +10,12 @@ from sqlalchemy import exists
 
 from sqlalchemy.orm import selectinload
 
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.pdfgen import canvas
+from io import BytesIO
+
 Session = sessionmaker(bind=engine)
 
 import json
@@ -555,3 +561,77 @@ def avance_programa_recomendado(id_programa,estudiante_id):
     avance_json = json.dumps(avance, indent=4, ensure_ascii=False)
     
     return avance_json
+
+
+def generar_pdf_avance_programa(estudiante_id):
+
+    avance_json = generar_avance_estudiante(estudiante_id)
+    avance_programa = json.loads(avance_json)
+    reporteFalta_json = faltaParacompletarProgramas(estudiante_id)
+    reporteFalta = json.loads(reporteFalta_json)
+
+    doc = SimpleDocTemplate("avance_programa.pdf", pagesize=letter)
+    story = []
+
+    # Estilo de párrafo para las viñetas
+    styles = getSampleStyleSheet()
+    estilo_bullet = styles["Bullet"]
+    
+    for programa in avance_programa:
+        texto_programa = f"Para el programa {programa['programa']}, este es tu avance hasta ahora"
+        pp = Paragraph(texto_programa)
+        story.append(pp)
+        story.append(Spacer(1, 12))
+        for componente in programa['componentes']:
+            texto_componente = f"Para el componente {componente['nombre']}, haz cursado {componente['creditosVistos']} créditos de {componente['cantCreditos']} créditos."
+            cp = Paragraph(texto_componente)
+            story.append(cp)
+            story.append(Spacer(1, 12))
+            for asignatura_info in componente['asignaturas']:
+                texto_asignatura = f"• {asignatura_info}"
+                p = Paragraph(texto_asignatura, estilo_bullet)
+                story.append(p)
+                story.append(Spacer(1, 12))
+            for subcomponente in componente['subcomponentes']:
+                texto_subcomponente = f"Para el subcomponente {subcomponente['nombre']}, haz cursado {subcomponente['creditosVistos']} créditos de {subcomponente['cantCreditos']} créditos."
+                sp = Paragraph(texto_subcomponente)
+                story.append(sp)
+                story.append(Spacer(1, 12))
+                for asignatura_info in subcomponente['asignaturas']:
+                    texto_asignatura = f"• {asignatura_info}"
+                    p = Paragraph(texto_asignatura, estilo_bullet)
+                    story.append(p)
+                    story.append(Spacer(1, 12))
+
+    for programa in reporteFalta:
+        texto_programa = f"Para el programa {programa['programa']}, puedes cursar para cumplir los requisitos"
+        pp = Paragraph(texto_programa)
+        story.append(pp)
+        story.append(Spacer(1, 12))
+        for componente in programa['componentes']:
+            texto_componente = f"Para el componente {componente['nombre']}, haz cursado {componente['creditosVistos']} créditos de {componente['cantCreditos']} créditos. Para cursar los créditos que te hacen falta puedes ver:"
+            cp = Paragraph(texto_componente)
+            story.append(cp)
+            story.append(Spacer(1, 12))
+            for asignatura_info in componente['asignaturas']:
+                # Crear un párrafo con viñetas para cada asignatura
+                texto_asignatura = f"• {asignatura_info}"
+                p = Paragraph(texto_asignatura, estilo_bullet)
+                story.append(p)
+                story.append(Spacer(1, 12))
+            for subcomponente in componente['subcomponentes']:
+                texto_subcomponente = f"Para el subcomponente {subcomponente['nombre']}, haz cursado {subcomponente['creditosVistos']} créditos de {subcomponente.cantCreditos} créditos. Para cursar los créditos que te hacen falta puedes ver:"
+                sp = Paragraph(texto_subcomponente)
+                story.append(sp)
+                story.append(Spacer(1, 12))
+                for asignatura_info in subcomponente['asignaturas']:
+                    # Crear un párrafo con viñetas para cada asignatura
+                    texto_asignatura = f"• {asignatura_info}"
+                    p = Paragraph(texto_asignatura, estilo_bullet)
+                    story.append(p)
+                    story.append(Spacer(1, 12))
+    # Crear el documento PDF en memoria
+    buffer = BytesIO()
+    doc.build(story, canvasmaker=canvas.Canvas)
+
+    return buffer

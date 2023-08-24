@@ -349,3 +349,7 @@ def asignaturasSugeProgramaComun(data: dict = Body(...)):
     except Exception as e:
         print(f"Error: {e}")
         raise
+
+@router.get("/avancePDF/{id}")
+def avancePDF(id:int):
+    return negocioAvancePrograma.generar_pdf_avance_programa(id)

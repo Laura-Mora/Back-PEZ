@@ -84,7 +84,12 @@
                 }
             ],
             "asignaturasElectivas":[
-                {
+                  {
+                    "id" : 13,
+                    "nombre" : "Tópicos Avanzados en Analítica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  },{
                     "id" : 14,
                     "nombre" : "Diseño y Evaluación de Arquitecturas de Software ",
                     "poblacionObjetivo" : "Estudiantes posgrados",
