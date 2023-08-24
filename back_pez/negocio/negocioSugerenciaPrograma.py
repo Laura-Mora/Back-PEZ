@@ -183,20 +183,24 @@ def asignaturas_comun_programas(estudiante_id,id_programa):
     programaComparar = session.query(Programa).filter(Programa.id == id_programa).first()
     session.close()
     
-    asignaturasEstudiante = []
-    asignaturaProgramaRecomendado = []
+    asignaturasEstudiante = set()
+    asignaturaProgramaRecomendado = set()
 
     for programa in estudiante.programa:
-        asignaturasEstudiante.extend(obtener_asignaturas_requeridas_programa(programa.id))
+        asignaturasEstudiante.update(obtener_asignaturas_requeridas_programa(programa.id))
 
-    asignaturaProgramaRecomendado.extend(obtener_asignaturas_requeridas_programa(programaComparar.id))
+    asignaturaProgramaRecomendado.update(obtener_asignaturas_requeridas_programa(programaComparar.id))
 
-    asignaturas_comunes = []
-    
+    asignaturas_comunes = {}
+
     for asignatura_estudiante in asignaturasEstudiante:
         for asignatura_recomendado in asignaturaProgramaRecomendado:
-            if asignatura_estudiante.nombre == asignatura_recomendado.nombre and not(negocioAvancePrograma.ha_cursado_asignatura(estudiante.id,asignatura_recomendado.id)):
-                asignaturas_comunes.append(asignatura_estudiante)
+            if (
+                asignatura_estudiante.nombre == asignatura_recomendado.nombre
+                and not negocioAvancePrograma.ha_cursado_asignatura(estudiante.id, asignatura_recomendado.id)
+            ):
+                asignaturas_comunes[asignatura_estudiante.nombre] = asignatura_estudiante
                 print(asignatura_estudiante.nombre)
 
-    return asignaturas_comunes
+    return list(asignaturas_comunes.values())
+
