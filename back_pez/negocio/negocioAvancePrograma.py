@@ -5,6 +5,7 @@ from back_pez.db.model.perfilEstudiante import PerfilEstudiante
 from back_pez.db.model.programa import Programa
 from back_pez.db.model.subComponente import subComponente
 from back_pez.db.model.usuario import Usuario
+from negocio import negocioSugerenciaPrograma
 from db.dbconfig import engine
 from sqlalchemy import exists
 
@@ -113,6 +114,7 @@ def generar_avance_estudiante(estudiante_id):
                 avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas
                 
                 avance_componente['subcomponentes'].append(avance_subcomponente)
+                creditos_vistosCom += creditos_vistos
                 
                 # Verificar si se ha alcanzado la cantidad mínima de asignaturas por subcomponente
                 if asignaturas_contadas >= asignaturas_minimas:
@@ -374,6 +376,7 @@ def faltaParacompletarProgramas(estudiante_id):
                 avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas                
                 
                 avance_componente['subcomponentes'].append(avance_subcomponente)
+                creditos_vistosCom += creditos_vistos
                 
                 # Verificar si se ha alcanzado la cantidad mínima de asignaturas por subcomponente
                 if asignaturas_contadas >= asignaturas_minimas:
@@ -522,6 +525,7 @@ def avance_programa_recomendado(id_programa,estudiante_id):
             avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas  
               
             avance_componente['subcomponentes'].append(avance_subcomponente)
+            creditos_vistosCom += creditos_vistos
                 
                 # Verificar si se ha alcanzado la cantidad mínima de asignaturas por subcomponente
             if asignaturas_contadas >= asignaturas_minimas:
@@ -687,3 +691,69 @@ def enviar_correo_avance(archivo_adjunto, correo):
     # Enviar correo
     server.sendmail(remitente, destinatario, msg.as_string())
     server.quit()
+
+def generar_pdf_programa_suge(estudiante_id,id_programa):
+    session = Session()
+
+    estudiante = session.query(Usuario).options(
+        selectinload(Usuario.programa)).filter(Usuario.id == estudiante_id).first()
+    
+    correo = estudiante.correo
+    
+    session.close()
+
+    avance_json = avance_programa_recomendado(id_programa,estudiante_id)
+    avance_programa = json.loads(avance_json)
+
+    asignaturasComun = negocioSugerenciaPrograma.asignaturas_comun_programas(estudiante_id,id_programa)
+
+    doc = SimpleDocTemplate("avance_programa_sugerido.pdf", pagesize=letter)
+    story = []
+
+    # Estilo de párrafo para las viñetas
+    styles = getSampleStyleSheet()
+    estilo_bullet = styles["Bullet"]  
+
+    texto_programa = f"Para el programa {avance_programa['programa']}, este es tu avance hasta ahora"
+    pp = Paragraph(texto_programa)
+    story.append(pp)
+    story.append(Spacer(1, 12))
+    for componente in avance_programa['componentes']:
+        texto_componente = f"Para el componente {componente['nombre']}, haz cursado {componente['creditosVistos']} créditos de {componente['cantCreditos']} créditos."
+        cp = Paragraph(texto_componente)
+        story.append(cp)
+        story.append(Spacer(1, 12))
+        for asignatura_info in componente['asignaturas']:
+            texto_asignatura = f"• {asignatura_info}"
+            p = Paragraph(texto_asignatura, estilo_bullet)
+            story.append(p)
+            story.append(Spacer(1, 12))
+        for subcomponente in componente['subcomponentes']:
+            texto_subcomponente = f"Para el subcomponente {subcomponente['nombre']}, haz cursado {subcomponente['creditosVistos']} créditos de {subcomponente['cantCreditos']} créditos."
+            sp = Paragraph(texto_subcomponente)
+            story.append(sp)
+            story.append(Spacer(1, 12))
+            for asignatura_info in subcomponente['asignaturas']:
+                texto_asignatura = f"• {asignatura_info}"
+                p = Paragraph(texto_asignatura, estilo_bullet)
+                story.append(p)
+                story.append(Spacer(1, 12))
+
+    texto_asignaturaComun = f"Puedes cursar algunas de las siguientes asignaturas y te sirven para el programa que estas cursando y el sugerido"
+    acp = Paragraph(texto_asignaturaComun)
+    story.append(acp)
+    story.append(Spacer(1, 12))
+
+    for asignatura in asignaturasComun:
+        texto_asignatura = f" • {asignatura.nombre}"
+        ap = Paragraph(texto_asignatura)
+        story.append(ap)
+        story.append(Spacer(1, 12))
+
+    # Crear el documento PDF en memoria
+    buffer = BytesIO()
+    doc.build(story, canvasmaker=canvas.Canvas)
+
+    enviar_correo_avance("avance_programa_sugerido.pdf", correo)
+
+    return buffer

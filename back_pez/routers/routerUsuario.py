@@ -153,6 +153,16 @@ def avancePDF():
     }
     return Response(headers=headers)
 
+@router.options("/ProgramaComunPDF")
+def avancePDF():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 SECRET_KEY = "tu_secret_key_aqui"
@@ -363,3 +373,13 @@ def asignaturasSugeProgramaComun(data: dict = Body(...)):
 @router.get("/avancePDF/{id}")
 def avancePDF(id:int):
     return negocioAvancePrograma.generar_pdf_avance_programa(id)
+
+@router.post("/ProgramaComunPDF")
+def asignaturasSugeProgramaComun(data: dict = Body(...)):
+    try:
+        id_programa = data.get("idPrograma")
+        estudiante_id = data.get("idEstudiante")
+        return negocioAvancePrograma.generar_pdf_programa_suge(estudiante_id,id_programa)
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
