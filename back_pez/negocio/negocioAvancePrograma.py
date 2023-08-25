@@ -570,6 +570,15 @@ def avance_programa_recomendado(id_programa,estudiante_id):
 
 def generar_pdf_avance_programa(estudiante_id):
 
+    session = Session()
+
+    estudiante = session.query(Usuario).options(
+        selectinload(Usuario.programa)).filter(Usuario.id == estudiante_id).first()
+    
+    correo = estudiante.correo
+    
+    session.close()
+
     avance_json = generar_avance_estudiante(estudiante_id)
     avance_programa = json.loads(avance_json)
     reporteFalta_json = faltaParacompletarProgramas(estudiante_id)
@@ -639,7 +648,7 @@ def generar_pdf_avance_programa(estudiante_id):
     buffer = BytesIO()
     doc.build(story, canvasmaker=canvas.Canvas)
 
-    enviar_correo_avance("avance_programa.pdf", "lalis.mora98@gmail.com")
+    enviar_correo_avance("avance_programa.pdf", correo)
 
     return buffer
 

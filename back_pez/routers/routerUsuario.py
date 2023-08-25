@@ -143,6 +143,16 @@ def optionasignaturasSugeProgramaComun():
     }
     return Response(headers=headers)
 
+@router.options("/avancePDF/{id}")
+def avancePDF():
+    allowed_methods = ["GET", "OPTIONS","POST"]
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": ", ".join(allowed_methods),
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    }
+    return Response(headers=headers)
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 SECRET_KEY = "tu_secret_key_aqui"
