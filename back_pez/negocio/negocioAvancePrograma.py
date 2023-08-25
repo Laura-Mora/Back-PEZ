@@ -16,6 +16,11 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.pdfgen import canvas
 from io import BytesIO
 
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+
 Session = sessionmaker(bind=engine)
 
 import json
@@ -634,4 +639,42 @@ def generar_pdf_avance_programa(estudiante_id):
     buffer = BytesIO()
     doc.build(story, canvasmaker=canvas.Canvas)
 
+    enviar_correo_avance("avance_programa.pdf", "lalis.mora98@gmail.com")
+
     return buffer
+
+def enviar_correo_avance(archivo_adjunto, correo):
+    # Datos de configuración del correo
+    remitente = 'lalis.mora98@gmail.com'
+    contraseña = 'wtksfmxjegqagtpx'
+    servidor_smtp = 'smtp.gmail.com'
+    puerto = 587
+
+    destinatario = correo
+    #destinatario ='lalis.mora98@gmail.com'
+    asunto = 'Avance programa'
+    mensaje = 'Buenos días, adjunto el avance del programa.'
+
+    # Crear objeto MIME para el correo
+    msg = MIMEMultipart()
+    msg['From'] = remitente
+    msg['To'] = destinatario
+    msg['Subject'] = asunto
+
+    # Agregar cuerpo del mensaje
+    msg.attach(MIMEText(mensaje, 'plain'))
+
+    # Agregar archivo adjunto
+    with open(archivo_adjunto, "rb") as adjunto:
+        part = MIMEApplication(adjunto.read(), Name=archivo_adjunto)
+        part['Content-Disposition'] = f'attachment; filename="{archivo_adjunto}"'
+        msg.attach(part)
+
+    # Establecer conexión con el servidor SMTP
+    server = smtplib.SMTP(host=servidor_smtp, port=puerto)
+    server.starttls()
+    server.login(remitente, contraseña)
+
+    # Enviar correo
+    server.sendmail(remitente, destinatario, msg.as_string())
+    server.quit()
