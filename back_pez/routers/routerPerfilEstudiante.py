@@ -125,51 +125,72 @@ def crear_perfil(data: dict = Body(...)):
         id_modos = data.get("modosUsuario")
         session = Session()
 
-        cantidad_perfiles = session.query(func.count(PerfilEstudiante.id)).scalar()
-        nuevo_id = cantidad_perfiles + 1
+        usuario_db = session.query(Usuario).filter(Usuario.id == idUsuario).first()
 
-        asignaturas  = session.query(Asignatura).filter(Asignatura.id.in_(id_asignaturas)).all()
-        tematicas  = session.query(Tematica).filter(Tematica.id.in_(id_tematicas)).all()
-        competencias  = session.query(Competencia).filter(Competencia.id.in_(id_competencias)).all()
-        actividades  = session.query(Actividad).filter(Actividad.id.in_(id_actividades)).all()
-        hoarios  = session.query(Horario).filter(Horario.id.in_(id_horarios)).all()
-        modalidades  = session.query(ComponenteClase).filter(ComponenteClase.id.in_(id_modalidad)).all()
-        modos  = session.query(ModoEnsenianza).filter(ModoEnsenianza.id.in_(id_modos)).all()
+        if usuario_db.perfilEstudiante:
+            perfil = usuario_db.perfilEstudiante
+            perfil.profesion = profesion
+            perfil.areaDesempenio = areaDesempenio
+            perfil.motivacion = motivo
+            perfil.javeriano = javeriano
+            perfil.semestre = semestre
+            perfil.asignaturasCursadas = session.query(Asignatura).filter(Asignatura.id.in_(id_asignaturas)).all()
+            perfil.modalidadPreferencia = session.query(ComponenteClase).filter(ComponenteClase.id.in_(id_modalidad)).all()
+            perfil.modoEnsenianzaPreferencia = session.query(ModoEnsenianza).filter(ModoEnsenianza.id.in_(id_modos)).all()
+            perfil.horariosPreferencias = session.query(Horario).filter(Horario.id.in_(id_horarios)).all()
+            perfil.competenciasGusto = session.query(Competencia).filter(Competencia.id.in_(id_competencias)).all()
+            perfil.actividadesGusto = session.query(Actividad).filter(Actividad.id.in_(id_actividades)).all()
+            perfil.tematicasGusto = session.query(Tematica).filter(Tematica.id.in_(id_tematicas)).all()
+            session.add(usuario_db)
+            session.commit()
+            session.close()
+        else:
 
-        nuevo_perfil = PerfilEstudiante(
-            id = nuevo_id,
-            profesion = profesion,
-            javeriano = javeriano,
-            semestre = semestre,
-            areaDesempenio = areaDesempenio,
-            motivacion = motivo,
-            asignaturasCursadas = asignaturas,
-            modalidadPreferencia = modalidades,
-            modoEnsenianzaPreferencia = modos,
-            horariosPreferencias = hoarios,
-            competenciasGusto = competencias,
-            actividadesGusto = actividades,
-            tematicasGusto = tematicas
-        )
+            cantidad_perfiles = session.query(func.count(PerfilEstudiante.id)).scalar()
+            nuevo_id = cantidad_perfiles + 1
 
-        session.add(nuevo_perfil)
+            asignaturas  = session.query(Asignatura).filter(Asignatura.id.in_(id_asignaturas)).all()
+            tematicas  = session.query(Tematica).filter(Tematica.id.in_(id_tematicas)).all()
+            competencias  = session.query(Competencia).filter(Competencia.id.in_(id_competencias)).all()
+            actividades  = session.query(Actividad).filter(Actividad.id.in_(id_actividades)).all()
+            hoarios  = session.query(Horario).filter(Horario.id.in_(id_horarios)).all()
+            modalidades  = session.query(ComponenteClase).filter(ComponenteClase.id.in_(id_modalidad)).all()
+            modos  = session.query(ModoEnsenianza).filter(ModoEnsenianza.id.in_(id_modos)).all()
 
-        session.commit()
-        session.close()
+            nuevo_perfil = PerfilEstudiante(
+                id = nuevo_id,
+                profesion = profesion,
+                javeriano = javeriano,
+                semestre = semestre,
+                areaDesempenio = areaDesempenio,
+                motivacion = motivo,
+                asignaturasCursadas = asignaturas,
+                modalidadPreferencia = modalidades,
+                modoEnsenianzaPreferencia = modos,
+                horariosPreferencias = hoarios,
+                competenciasGusto = competencias,
+                actividadesGusto = actividades,
+                tematicasGusto = tematicas
+            )
 
-        session2 = Session()
+            session.add(nuevo_perfil)
 
-        usuario_db = session2.query(Usuario).filter(Usuario.id == idUsuario).first()
+            session.commit()
+            session.close()
 
-        cantidad_perfiles2 = session2.query(func.count(PerfilEstudiante.id)).scalar()
-        perfil = session2.query(PerfilEstudiante).filter(PerfilEstudiante.id == cantidad_perfiles2).first()
-        
-        usuario_db.perfilEstudiante = perfil
-        usuario_db.perfilEstudiante_id = nuevo_id
-        session2.add(usuario_db)
+            session2 = Session()
 
-        session2.commit()
-        session2.close()
+            usuario_db = session2.query(Usuario).filter(Usuario.id == idUsuario).first()
+
+            cantidad_perfiles2 = session2.query(func.count(PerfilEstudiante.id)).scalar()
+            perfil = session2.query(PerfilEstudiante).filter(PerfilEstudiante.id == cantidad_perfiles2).first()
+            
+            usuario_db.perfilEstudiante = perfil
+            usuario_db.perfilEstudiante_id = nuevo_id
+            session2.add(usuario_db)
+
+            session2.commit()
+            session2.close()
 
         return usuario_db
 
