@@ -213,6 +213,17 @@
                     "nombre" : "Software para Procesadores ",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 4
+                  },
+                  {
+                    "id" : 74,
+                    "nombre" : "Trabajo de grado inducción a la investigación",
+                    "poblacionObjetivo" : "Estudiantes MINSC",
+                    "creditos" : 4
+                  }, {
+                    "id" : 76,
+                    "nombre" : "seguridad Ofensiva 2",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
                   }
             ]
         },
@@ -278,6 +289,18 @@
                   {
                     "id" : 53,
                     "nombre" : "Gerencia de proyectos TIC",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  },
+                  {
+                    "id" : 75,
+                    "nombre" : "Gerencia de Innovación",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  },
+                  {
+                    "id" : 77,
+                    "nombre" : "Contabilidad Financiera",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 2
                   }
@@ -478,6 +501,16 @@
                   }, {
                     "id" : 39,
                     "nombre" : "Software para Procesadores ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 74,
+                    "nombre" : "Trabajo de grado inducción a la investigación",
+                    "poblacionObjetivo" : "Estudiantes MINSC",
+                    "creditos" : 4
+                  }, {
+                    "id" : 76,
+                    "nombre" : "seguridad Ofensiva 2",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 4
                   }

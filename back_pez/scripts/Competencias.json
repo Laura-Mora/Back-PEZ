@@ -732,6 +732,42 @@
     }, {
       "id" : 244,
       "nombre" : "NA"
-    } 
+    }, {
+      "id" : 245,
+      "nombre" : "ideas fuerza y metodologías y el desarrollo de capacidades y habilidades de trabajo en innovación"
+    }, {
+      "id" : 246,
+      "nombre" : "Identifica conceptos de seguridad ofensiva en la nube."
+    }, {
+      "id" : 247,
+      "nombre" : "Reconoce herramientas óptimas para identificación de brechas de seguridad en la infraestructura tecnológica de la nube"
+    }, {
+      "id" : 248,
+      "nombre" : "Prepara escenarios de laboratorio para la realización de ataques controlados en laboratorios de nube."
+    }, {
+      "id" : 249,
+      "nombre" : "Utiliza herramientas de seguridad ofensiva con fines éticos en entornos de nube de diferentes proveedores."
+    },{
+      "id" : 250,
+      "nombre" : "Reconocer a la contabilidad financiera como un sistema de información. "
+    }, {
+      "id" : 251,
+      "nombre" : "Describir las características cualitativas de la información contable y aplicarla a casos específicos de toma de decisiones."
+    }, {
+      "id" : 252,
+      "nombre" : "Comprender las características cualitativas de los estados financieros. "
+    }, {
+      "id" : 253,
+      "nombre" : "Identificar los estados financieros básicos."
+    }, {
+      "id" : 254,
+      "nombre" : "Analizar el origen de la financiación en una compañía. "
+    }, {
+      "id" : 255,
+      "nombre" : "Reconocer la utilidad práctica del análisis financiero."
+    }, {
+      "id" : 256,
+      "nombre" : "Identificar y comprender las limitaciones propias del análisis a la información financiera. "
+    }     
   ]
 }

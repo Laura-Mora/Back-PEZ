@@ -97,6 +97,18 @@
                     "nombre" : "Taller de Desarrollo de Habilidades Gerenciales II",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 1
+                },
+                {
+                    "id" : 75,
+                    "nombre" : "Gerencia de Innovación",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                },
+                {
+                    "id" : 77,
+                    "nombre" : "Contabilidad Financiera",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
                 }
             ]
         },

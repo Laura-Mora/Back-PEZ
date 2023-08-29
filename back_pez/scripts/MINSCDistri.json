@@ -58,6 +58,11 @@
                     "nombre" : "Software para Procesadores ",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 4
+                  }, {
+                    "id" : 76,
+                    "nombre" : "seguridad Ofensiva 2",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
                   }
             ]
         }

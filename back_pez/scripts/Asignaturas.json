@@ -5746,6 +5746,385 @@
           "nombre" : "NA"
         }
       ]
+    },
+    {
+      "id" : 74,
+      "nombre" : "Trabajo de grado inducción a la investigación",
+      "poblacionObjetivo" : "Estudiantes MINSC",
+      "creditos" : 4,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":1,
+        "nombre":"presencial"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":3,
+        "nombre":"teorico-practico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ],
+      "competencias" : [
+        {
+          "id" : 244,
+          "nombre" : "NA"
+        } 
+      ],
+      "actividades" : [
+        {
+          "id":4,
+          "nombre":"proyecto"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 460,
+          "nombre" : "NA"
+        }
+      ]
+    },
+    {
+      "id" : 75,
+      "nombre" : "Gerencia de Innovación",
+      "poblacionObjetivo" : "Estudiantes posgrados",
+      "creditos" : 2,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":2,
+        "nombre":"virtual"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":1,
+        "nombre":"teorico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ],
+      "competencias" : [
+        {
+          "id" : 245,
+          "nombre" : "ideas fuerza y metodologías y el desarrollo de capacidades y habilidades de trabajo en innovación"
+        } 
+      ],
+      "actividades" : [
+        {
+          "id":1,
+          "nombre":"taller"
+        },
+        {
+          "id":6,
+          "nombre":"tareas"
+        },
+        {
+            "id":13,
+            "nombre":"casos"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id":461,
+          "nombre": "Introducción e Innovacion y Emprendimiento"
+        }, 
+        {
+          "id" : 462,
+          "nombre" : "Organizando el proceso de descubrimiento y llenando el embudo de nuevas oportunidades"
+        }, 
+        {
+          "id" : 463,
+          "nombre" : "Innovacion Estrategica e Innovación de Modelo de Negocio"
+        }, 
+        {
+          "id" : 464,
+          "nombre" : "Evaluando y organizando las nuevas oportunidades"
+        }, 
+        {
+          "id" : 465,
+          "nombre" : "Gestionando los Recursos, el Riesgo y la Velocidad de los Proyectos de Innovación"
+        }, 
+        {
+          "id" : 466,
+          "nombre" : "Mercados Emergentes"
+        }
+      ]
+    },
+    {
+      "id" : 76,
+      "nombre" : "seguridad Ofensiva 2",
+      "poblacionObjetivo" : "Estudiantes posgrados",
+      "creditos" : 4,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":1,
+        "nombre":"presencial"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":3,
+        "nombre":"teorico-practico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ],
+      "competencias" : [
+        {
+          "id" : 246,
+          "nombre" : "Identifica conceptos de seguridad ofensiva en la nube."
+        }, {
+          "id" : 247,
+          "nombre" : "Reconoce herramientas óptimas para identificación de brechas de seguridad en la infraestructura tecnológica de la nube"
+        }, {
+          "id" : 248,
+          "nombre" : "Prepara escenarios de laboratorio para la realización de ataques controlados en laboratorios de nube."
+        }, {
+          "id" : 249,
+          "nombre" : "Utiliza herramientas de seguridad ofensiva con fines éticos en entornos de nube de diferentes proveedores."
+        }  
+      ],
+      "actividades" : [
+        {
+          "id":1,
+          "nombre":"taller"
+        },
+        {
+          "id":2,
+          "nombre":"parcial"
+        },
+        {
+          "id":3,
+          "nombre":"quiz"
+        },
+        {
+          "id":4,
+          "nombre":"proyecto"
+        },
+        {
+          "id":9,
+          "nombre":"exposición"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 467,
+          "nombre" : "Configuración de Ngrok"
+        }, 
+        {
+          "id" : 468,
+          "nombre" : "Estructura de comandos con AWS CLI Tool. Enumeración de IAM. Permisos sobre IAM. Permisos en Políticas sobre IAM. "
+        }, 
+        {
+          "id" : 469,
+          "nombre" : "Vulnerabilidades en componentes de AWS."
+        }, 
+        {
+          "id" : 470,
+          "nombre" : "Hacking de servicios Bucket, Hacking de servicios S3, Hacking de servicios EC2."
+        }, 
+        {
+          "id" : 471,
+          "nombre" : "Escalamiento de Privilegios"
+        }, 
+        {
+          "id" : 472,
+          "nombre" : "Ataques a Serverless con funciones Lambda"
+        }, 
+        {
+          "id" : 473,
+          "nombre" : "Automatización con Prowler, Cloudsplaining y Pacu."
+        }, 
+        {
+          "id" : 474,
+          "nombre" : "Hacking avanzado de Aplicaciones WEB orientado a AWS."
+        }, 
+        {
+          "id" : 475,
+          "nombre" : "API Penetration Testing."
+        }, 
+        {
+          "id" : 476,
+          "nombre" : "Protecciones sobre AWS: CloudTrail, CloudWatch, GuardDuty, Inspector, Shield y Web Application Firewall."
+        }, 
+        {
+          "id" : 477,
+          "nombre" : "Zero Trust Framework."
+        }, 
+        {
+          "id" : 478,
+          "nombre" : "Introducción a Microsoft Azure. Limitaciones de una prueba de penetración en Azure. Clasificación de componentes en Azure."
+        }, 
+        {
+          "id" : 479,
+          "nombre" : "Estructura de comandos con AZ CLI Tool. Enumeración de Usuarios en Azure y O365. Recursos compartidos no autenticados en Azure."
+        }, 
+        {
+          "id" : 480,
+          "nombre" : "Escalamiento de Privilegios en Azure. Ataques a Serverless con Azure Functions."
+        }, 
+        {
+          "id" : 481,
+          "nombre" : "Introducción a Google Cloud Platform (GCP). Limitaciones de una prueba de penetración en GCP. Clasificación de componentes en GCP."
+        }, 
+        {
+          "id" : 482,
+          "nombre" : "Estructura en Google-Console. Uso de kubectl."
+        }, 
+        {
+          "id" : 483,
+          "nombre" : "Hacking CI/CD Pipelines. Hacking a GKE. Hacking a GCS. Escalamiento de Privilegios."
+        }, 
+        {
+          "id" : 484,
+          "nombre" : "Automatización con kube-hunter and Peirates. Introducción a otros servicios en la nube: IBM Cloud, Oracle Cloud, Alibaba Cloud. Salesforce y Digital Ocean."
+        }
+      ]
+    },
+    {
+      "id" : 77,
+      "nombre" : "Contabilidad Financiera",
+      "poblacionObjetivo" : "Estudiantes posgrados",
+      "creditos" : 2,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":1,
+        "nombre":"presencial"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":1,
+        "nombre":"teorico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ],
+      "competencias" : [
+        {
+          "id" : 250,
+          "nombre" : "Reconocer a la contabilidad financiera como un sistema de información. "
+        }, {
+          "id" : 251,
+          "nombre" : "Describir las características cualitativas de la información contable y aplicarla a casos específicos de toma de decisiones."
+        }, {
+          "id" : 252,
+          "nombre" : "Comprender las características cualitativas de los estados financieros. "
+        }, {
+          "id" : 253,
+          "nombre" : "Identificar los estados financieros básicos."
+        }, {
+          "id" : 254,
+          "nombre" : "Analizar el origen de la financiación en una compañía. "
+        }, {
+          "id" : 255,
+          "nombre" : "Reconocer la utilidad práctica del análisis financiero."
+        }, {
+          "id" : 256,
+          "nombre" : "Identificar y comprender las limitaciones propias del análisis a la información financiera. "
+        }  
+      ],
+      "actividades" : [
+        {
+          "id":1,
+          "nombre":"taller"
+        },
+        {
+          "id":2,
+          "nombre":"parcial"
+        },
+        {
+          "id":4,
+          "nombre":"proyecto"
+        },
+        {
+            "id":13,
+            "nombre":"casos"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 485,
+          "nombre" : "Objetivos y alcance de la contabilidad, Ramas de la Contabilidad, La contabilidad y otras disciplinas."
+        }, 
+        {
+          "id" : 486,
+          "nombre" : "La contabilidad y la toma de decisiones, La contabilidad como ente económico, La contabilidad y la globalización. Flujo del sistema de información."
+        }, 
+        {
+          "id" : 487,
+          "nombre" : "Toma de decisiones y análisis de estrategias."
+        }, 
+        {
+          "id" : 488,
+          "nombre" : "Introducción, Objetivos de los estados financieros, Hipótesis fundamentales, Características cualitativas de los estados financieros."
+        }, 
+        {
+          "id" : 489,
+          "nombre" : "Elementos de los estados financieros, Reconocimiento y Medición de los estados financieros. "
+        }, 
+        {
+          "id" : 490,
+          "nombre" : "Elementos de los estados financieros, Reconocimiento y Medición de los estados financieros. "
+        }, 
+        {
+          "id" : 491,
+          "nombre" : "Los recursos intrínsecos de la empresa y la teoría de la partida doble."
+        }, 
+        {
+          "id" : 492,
+          "nombre" : "Presentación de estados financieros (Balance General y Estado de Resultados). Requerimientos para el cumplimiento de la NIIF para Pymes. Hechos después del periodo informado. "
+        }, 
+        {
+          "id" : 493,
+          "nombre" : "Estado de situación financiera o balance general"
+        }, 
+        {
+          "id" : 494,
+          "nombre" : "Estado de resultados: (Definición, objetivos y elementos). "
+        }, 
+        {
+          "id" : 495,
+          "nombre" : "Introducción. Herramientas financieras y toma de decisiones gerenciales. Objetivo general. Objetivos específicos. Análisis Horizontal y Análisis Vertical. Capital de Trabajo."
+        }, 
+        {
+          "id" : 496,
+          "nombre" : "Razones Financieras. Razones de liquidez, Actividad o rotación, endeudamiento o apalancamiento, rentabilidad, razones de valor de mercado de la empresa."
+        }
+      ]
     }
   ]
 }
