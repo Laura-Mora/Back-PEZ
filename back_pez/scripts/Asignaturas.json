@@ -6125,6 +6125,209 @@
           "nombre" : "Razones Financieras. Razones de liquidez, Actividad o rotación, endeudamiento o apalancamiento, rentabilidad, razones de valor de mercado de la empresa."
         }
       ]
+    },
+    {
+      "id" : 78,
+      "nombre" : "Diseño de Softw.Basado en Patrones",
+      "poblacionObjetivo" : "Estudiantes posgrados",
+      "creditos" : 2,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":1,
+        "nombre":"presencial"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":1,
+        "nombre":"teorico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ],
+      "competencias" : [
+        {
+          "id" : 257,
+          "nombre" : "Comprender la utilidad de los estilos y patrones arquitectónicos en el proceso de diseño de arquitecturas de software"
+        }, {
+          "id" : 258,
+          "nombre" : "Conocer, entender, evaluar y justificar el uso o no de patrones de software así como establecer el nivel de abstracción, las alternativas y relaciones posibles a la hora de elegir entre uno u otro durante la construcción de sistemas de software"
+        }  
+      ],
+      "actividades" : [
+        {
+          "id":1,
+          "nombre":"taller"
+        },
+        {
+          "id":3,
+          "nombre":"quiz"
+        },
+        {
+          "id":4,
+          "nombre":"proyecto"
+        },
+        {
+          "id":5,
+          "nombre":"articulo"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 497,
+          "nombre" : "Introducción a los Patrones de Software."
+        }, 
+        {
+          "id" : 498,
+          "nombre" : "Influencia del uso de patrones en el proceso de construcción de sistemas de software."
+        }, 
+        {
+          "id" : 499,
+          "nombre" : "Patrones de Diseño"
+        }, 
+        {
+          "id" : 500,
+          "nombre" : "Definición y Uso de Patrones de Software"
+        }, 
+        {
+          "id" : 501,
+          "nombre" : "Dominios o Contextos de uso de patrones"
+        }, 
+        {
+          "id" : 502,
+          "nombre" : "Catálogos de patrones de Software"
+        }, 
+        {
+          "id" : 503,
+          "nombre" : "Metamodelos de Diseño"
+        }, 
+        {
+          "id" : 504,
+          "nombre" : "Principios de Diseño"
+        }, 
+        {
+          "id" : 505,
+          "nombre" : "Métodos de Diseño"
+        }, 
+        {
+          "id" : 506,
+          "nombre" : "Estilos y Patrones Arquitectónicos"
+        }, 
+        {
+          "id" : 507,
+          "nombre" : "Patrones de concurrencia"
+        }, 
+        {
+          "id" : 508,
+          "nombre" : "Patrones de integración"
+        }
+      ]
+    },
+    {
+      "id" : 79,
+      "nombre" : "Diseño y Evaluación Arquitectura SW",
+      "poblacionObjetivo" : "Estudiantes posgrados",
+      "creditos" : 2,
+      "complejidad" : "Media",
+      "modalidad":{
+        "id":1,
+        "nombre":"presencial"
+      },
+      "profesores":[
+        {
+            "id":2,
+            "nombre":"NA"
+        }
+      ],
+      "modoEnsenianza" : {
+        "id":1,
+        "nombre":"teorico"
+      },
+      "horarios": [
+        {
+          "id":7,
+          "dia":"NA",
+          "hora":"00:00:00"
+        }
+      ],
+      "competencias" : [
+        {
+          "id" : 259,
+          "nombre" : "Diseñar y evaluar arquitecturas de software usando al menos una técnica para cada caso"
+        }    
+      ],
+      "actividades" : [
+        {
+          "id":1,
+          "nombre":"taller"
+        },
+        {
+          "id":3,
+          "nombre":"quiz"
+        },
+        {
+          "id":4,
+          "nombre":"proyecto"
+        },
+        {
+          "id":5,
+          "nombre":"articulo"
+        },
+        {
+            "id":9,
+            "nombre":"exposición"
+        }
+      ],
+      "tematicas" : [
+        {
+          "id" : 509,
+          "nombre" : "Arquitectura de Software"
+        }, 
+        {
+          "id" : 510,
+          "nombre" : "Características y roles del arquitecto de software"
+        }, 
+        {
+          "id" : 511,
+          "nombre" : "Atributos de calidad"
+        }, 
+        {
+          "id" : 512,
+          "nombre" : "Documentación de AS"
+        }, 
+        {
+          "id" : 513,
+          "nombre" : "Diseño de Arquitecturas de Software"
+        }, 
+        {
+          "id" : 514,
+          "nombre" : "Metamodelos de diseño"
+        }, 
+        {
+          "id" : 515,
+          "nombre" : "Métodos de diseño de AS"
+        }, 
+        {
+          "id" : 516,
+          "nombre" : "Estilos arquitectónicos"
+        }, 
+        {
+          "id" : 517,
+          "nombre" : "Evaluación de Arquitecturas de Software"
+        }, 
+        {
+          "id" : 518,
+          "nombre" : "Métodos de evaluación de AS"
+        }
+      ]
     }
   ]
 }

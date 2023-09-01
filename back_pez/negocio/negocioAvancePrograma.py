@@ -340,7 +340,8 @@ def faltaParacompletarProgramas(estudiante_id):
                         if ha_cursado_asignatura(estudiante_id, asignatura.id):
                             creditos_vistos += asignatura.creditos
                             asignaturas_contadas += 1
-                        
+                            asignaturas_vistas.add(asignatura.id)
+
                         if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
                             break
 
@@ -350,6 +351,7 @@ def faltaParacompletarProgramas(estudiante_id):
                         if ha_cursado_asignatura(estudiante_id, asignatura.id):
                             creditos_vistos += asignatura.creditos
                             asignaturas_contadas += 1
+                            asignaturas_vistas.add(asignatura.id)
                         
                         if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
                             break
@@ -360,7 +362,7 @@ def faltaParacompletarProgramas(estudiante_id):
                         if asignatura.id not in asignaturas_vistas:
                             # Verificar si el estudiante ha cursado la asignatura
                             if not ha_cursado_asignatura(estudiante_id, asignatura.id):
-                                asignaturas_vistas.add(asignatura.id)
+
                                 # Agregar la asignatura al avance del estudiante
                                 avance_subcomponente["asignaturas"].append(asignatura.nombre)
 
@@ -368,7 +370,7 @@ def faltaParacompletarProgramas(estudiante_id):
                         if asignatura.id not in asignaturas_vistas:
                             # Verificar si el estudiante ha cursado la asignatura
                             if not ha_cursado_asignatura(estudiante_id, asignatura.id):
-                                asignaturas_vistas.add(asignatura.id)
+
                                 # Agregar la asignatura al avance del estudiante
                                 avance_subcomponente["asignaturas"].append(asignatura.nombre)
 
@@ -389,6 +391,7 @@ def faltaParacompletarProgramas(estudiante_id):
                     if ha_cursado_asignatura(estudiante_id, asignatura.id):
                         creditos_vistosCom += asignatura.creditos
                         asignaturas_contadasCom += 1
+                        asignaturas_vistas.add(asignatura.id)
                         
                     if creditos_vistosCom >= creditos_requeridosCom:
                         break
@@ -400,6 +403,7 @@ def faltaParacompletarProgramas(estudiante_id):
                     if ha_cursado_asignatura(estudiante_id, asignatura.id):
                         creditos_vistosCom += asignatura.creditos
                         asignaturas_contadasCom += 1
+                        asignaturas_vistas.add(asignatura.id)
                         
                     if creditos_vistosCom >= creditos_requeridosCom:
                         break
@@ -409,7 +413,6 @@ def faltaParacompletarProgramas(estudiante_id):
                     if asignatura.id not in asignaturas_vistas:
                         # Verificar si el estudiante ha cursado la asignatura
                         if not ha_cursado_asignatura(estudiante_id, asignatura.id):
-                            asignaturas_vistas.add(asignatura.id)
                             # Agregar la asignatura al avance del estudiante
                             avance_componente["asignaturas"].append(asignatura.nombre)
 
@@ -419,12 +422,9 @@ def faltaParacompletarProgramas(estudiante_id):
                     if asignatura.id not in asignaturas_vistas:
                         # Verificar si el estudiante ha cursado la asignatura
                         if not ha_cursado_asignatura(estudiante_id, asignatura.id):
-                            asignaturas_vistas.add(asignatura.id)
                             # Agregar la asignatura al avance del estudiante
                             avance_componente["asignaturas"].append(asignatura.nombre)
                             
-                        if creditos_vistosCom >= creditos_requeridosCom:
-                            break
 
             avance_componente['cantCreditos'] = creditos_requeridosCom
             avance_componente['creditosVistos'] = creditos_vistosCom

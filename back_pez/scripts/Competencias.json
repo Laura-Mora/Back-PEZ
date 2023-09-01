@@ -768,6 +768,15 @@
     }, {
       "id" : 256,
       "nombre" : "Identificar y comprender las limitaciones propias del análisis a la información financiera. "
-    }     
+    }, {
+      "id" : 257,
+      "nombre" : "Comprender la utilidad de los estilos y patrones arquitectónicos en el proceso de diseño de arquitecturas de software"
+    }, {
+      "id" : 258,
+      "nombre" : "Conocer, entender, evaluar y justificar el uso o no de patrones de software así como establecer el nivel de abstracción, las alternativas y relaciones posibles a la hora de elegir entre uno u otro durante la construcción de sistemas de software"
+    }, {
+      "id" : 259,
+      "nombre" : "Diseñar y evaluar arquitecturas de software usando al menos una técnica para cada caso"
+    }       
   ]
 }

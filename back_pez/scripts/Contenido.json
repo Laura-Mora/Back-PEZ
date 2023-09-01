@@ -1603,6 +1603,94 @@
     {
       "id" : 496,
       "nombre" : "Razones Financieras. Razones de liquidez, Actividad o rotación, endeudamiento o apalancamiento, rentabilidad, razones de valor de mercado de la empresa."
+    }, 
+    {
+      "id" : 497,
+      "nombre" : "Introducción a los Patrones de Software."
+    }, 
+    {
+      "id" : 498,
+      "nombre" : "Influencia del uso de patrones en el proceso de construcción de sistemas de software."
+    }, 
+    {
+      "id" : 499,
+      "nombre" : "Patrones de Diseño"
+    }, 
+    {
+      "id" : 500,
+      "nombre" : "Definición y Uso de Patrones de Software"
+    }, 
+    {
+      "id" : 501,
+      "nombre" : "Dominios o Contextos de uso de patrones"
+    }, 
+    {
+      "id" : 502,
+      "nombre" : "Catálogos de patrones de Software"
+    }, 
+    {
+      "id" : 503,
+      "nombre" : "Metamodelos de Diseño"
+    }, 
+    {
+      "id" : 504,
+      "nombre" : "Principios de Diseño"
+    }, 
+    {
+      "id" : 505,
+      "nombre" : "Métodos de Diseño"
+    }, 
+    {
+      "id" : 506,
+      "nombre" : "Estilos y Patrones Arquitectónicos"
+    }, 
+    {
+      "id" : 507,
+      "nombre" : "Patrones de concurrencia"
+    }, 
+    {
+      "id" : 508,
+      "nombre" : "Patrones de integración"
+    }, 
+    {
+      "id" : 509,
+      "nombre" : "Arquitectura de Software"
+    }, 
+    {
+      "id" : 510,
+      "nombre" : "Características y roles del arquitecto de software"
+    }, 
+    {
+      "id" : 511,
+      "nombre" : "Atributos de calidad"
+    }, 
+    {
+      "id" : 512,
+      "nombre" : "Documentación de AS"
+    }, 
+    {
+      "id" : 513,
+      "nombre" : "Diseño de Arquitecturas de Software"
+    }, 
+    {
+      "id" : 514,
+      "nombre" : "Metamodelos de diseño"
+    }, 
+    {
+      "id" : 515,
+      "nombre" : "Métodos de diseño de AS"
+    }, 
+    {
+      "id" : 516,
+      "nombre" : "Estilos arquitectónicos"
+    }, 
+    {
+      "id" : 517,
+      "nombre" : "Evaluación de Arquitecturas de Software"
+    }, 
+    {
+      "id" : 518,
+      "nombre" : "Métodos de evaluación de AS"
     }
   ]
 }

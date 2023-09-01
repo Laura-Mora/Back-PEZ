@@ -68,6 +68,16 @@
                     "nombre" : "Tópicos Avanzados en Analítica ",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 4
+                  }, {
+                    "id" : 78,
+                    "nombre" : "Diseño de Softw.Basado en Patrones",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  }, {
+                    "id" : 79,
+                    "nombre" : "Diseño y Evaluación Arquitectura SW",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
                   }
             ]
         },
@@ -224,6 +234,16 @@
                     "nombre" : "seguridad Ofensiva 2",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 4
+                  },{
+                    "id" : 78,
+                    "nombre" : "Diseño de Softw.Basado en Patrones",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  },{
+                    "id" : 79,
+                    "nombre" : "Diseño y Evaluación Arquitectura SW",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
                   }
             ]
         },
