@@ -37,10 +37,14 @@ def generar_avance_estudiante(estudiante_id):
         avance['programa'] = programa.nombre
         programa_id = programa.id
         avance['componentes'] = []
+        avance['cantCreditos'] = programa.cantCreditos
+        avance['cantCreditosCursados'] = 0
         
        # Obtener los componentes del programa
         componentes = obtener_componentes_programa(programa_id)
         asignaturas_vistas = set()
+
+        cantCreditosCursados = 0
         
         for componente in componentes:
             componente_id = componente.id
@@ -151,7 +155,11 @@ def generar_avance_estudiante(estudiante_id):
             avance_componente['cantCreditos'] = creditos_requeridosCom
             avance_componente['creditosVistos'] = creditos_vistosCom
 
+            cantCreditosCursados += creditos_vistosCom
+
             avance['componentes'].append(avance_componente)
+        
+        avance['cantCreditosCursados'] = cantCreditosCursados
 
         avances.append(avance)
     
@@ -288,6 +296,9 @@ def faltaParacompletarProgramas(estudiante_id):
         avance['programa'] = programa.nombre
         programa_id = programa.id
         avance['componentes'] = []
+        avance['cantCreditos'] = programa.cantCreditos
+        avance['cantCreditosCursados'] = 0
+        cantCreditosCursados = 0
         
        # Obtener los componentes del programa
         componentes = obtener_componentes_programa(programa_id)
@@ -356,7 +367,7 @@ def faltaParacompletarProgramas(estudiante_id):
                         if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
                             break
 
-                if creditos_vistos < creditos_requeridos:
+                if creditos_vistos < creditos_requeridos or asignaturas_contadas <= asignaturas_minimas:
                     #Calcular asignaturas subcomponente
                     for asignatura in obtener_asignaturasOB_subcomponente(subcomponente_id):
                         if asignatura.id not in asignaturas_vistas:
@@ -429,7 +440,11 @@ def faltaParacompletarProgramas(estudiante_id):
             avance_componente['cantCreditos'] = creditos_requeridosCom
             avance_componente['creditosVistos'] = creditos_vistosCom
 
+            cantCreditosCursados += creditos_vistosCom
+
             avance['componentes'].append(avance_componente)
+        
+        avance['cantCreditosCursados'] = cantCreditosCursados
 
         avances.append(avance)
             # Convertir el avance en JSON
@@ -449,6 +464,9 @@ def avance_programa_recomendado(id_programa,estudiante_id):
     avance['programa'] = programa.nombre
     programa_id = programa.id
     avance['componentes'] = []
+    avance['cantCreditos'] = programa.cantCreditos
+    avance['cantCreditosCursados'] = 0
+    cantCreditosCursados = 0
         
        # Obtener los componentes del programa
     componentes = obtener_componentes_programa(programa_id)
@@ -562,7 +580,11 @@ def avance_programa_recomendado(id_programa,estudiante_id):
         avance_componente['cantCreditos'] = creditos_requeridosCom
         avance_componente['creditosVistos'] = creditos_vistosCom
 
+        cantCreditosCursados += creditos_vistosCom
+
         avance['componentes'].append(avance_componente)
+
+    avance['cantCreditosCursados'] = cantCreditosCursados
 
     
     session.close()

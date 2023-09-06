@@ -81,6 +81,11 @@
                     "nombre" : "Seguridad en Redes ",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 4
+                  },{
+                    "id" : 76,
+                    "nombre" : "seguridad Ofensiva II",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
                   }
             ]
         }
