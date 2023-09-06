@@ -39,6 +39,7 @@ def generar_avance_estudiante(estudiante_id):
         avance['componentes'] = []
         avance['cantCreditos'] = programa.cantCreditos
         avance['cantCreditosCursados'] = 0
+        avance['requisitoInglesCumplido'] = ha_cumplido_requisito(estudiante_id)
         
        # Obtener los componentes del programa
         componentes = obtener_componentes_programa(programa_id)
@@ -168,7 +169,20 @@ def generar_avance_estudiante(estudiante_id):
     
     return avance_json
 
+def ha_cumplido_requisito(estudiante_id):
+    requisito = False
+    session = Session()
+    
+    estudiante = session.query(Usuario).options(
+        selectinload(Usuario.perfilEstudiante)).filter(Usuario.id == estudiante_id).first()
+    perfil = session.query(PerfilEstudiante).options(
+        selectinload(PerfilEstudiante.asignaturasCursadas)).filter(PerfilEstudiante.id == estudiante.perfilEstudiante_id).first()
+    
+    requisito = perfil.requisitoIngles
+    
+    session.close()
 
+    return requisito
 
 def obtener_programas_estudiante(estudiante_id):
 
@@ -298,6 +312,7 @@ def faltaParacompletarProgramas(estudiante_id):
         avance['componentes'] = []
         avance['cantCreditos'] = programa.cantCreditos
         avance['cantCreditosCursados'] = 0
+        avance['requisitoInglesCumplido'] = ha_cumplido_requisito(estudiante_id)
         cantCreditosCursados = 0
         
        # Obtener los componentes del programa
@@ -467,6 +482,7 @@ def avance_programa_recomendado(id_programa,estudiante_id):
     avance['cantCreditos'] = programa.cantCreditos
     avance['cantCreditosCursados'] = 0
     cantCreditosCursados = 0
+    avance['requisitoInglesCumplido'] = ha_cumplido_requisito(estudiante_id)
         
        # Obtener los componentes del programa
     componentes = obtener_componentes_programa(programa_id)
