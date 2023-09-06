@@ -6,7 +6,7 @@ from .base import Base
 
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, ForeignKeyConstraint, Integer, String
+from sqlalchemy import Column, ForeignKeyConstraint, Integer, String, Boolean
 from sqlalchemy import Table
 from sqlalchemy import ForeignKey
 
@@ -29,6 +29,7 @@ class Programa(Base):
     id = Column(Integer, primary_key=True)
     nombre = Column(String)
     cantCreditos = Column(Integer)
+    requisitoIngles = Column(Boolean)
     componentes = relationship(Componente,secondary = programas_componentes)
     
 class ProgramaModel(BaseModel):
@@ -37,3 +38,4 @@ class ProgramaModel(BaseModel):
     nombre:str
     cantCreditos: int
     componentes: List[ComponenteModelo]
+    requisitoIngles: bool

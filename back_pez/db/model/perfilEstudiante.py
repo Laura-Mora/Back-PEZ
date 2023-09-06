@@ -97,6 +97,7 @@ class PerfilEstudiante(Base):
     id = Column(Integer, primary_key=True)
     profesion = Column(String)
     javeriano = Column(Boolean)
+    requisitoIngles = Column(Boolean)
     semestre = Column(Integer)
     areaDesempenio = Column(String)
     motivacion = Column(String)
@@ -114,6 +115,7 @@ class PerfilEstudianteModelo(BaseModel):
     id: int
     profesion: str
     javeriano: bool
+    requisitoIngles: bool
     semestre: int
     areaDesempenio: str
     motivacion: str

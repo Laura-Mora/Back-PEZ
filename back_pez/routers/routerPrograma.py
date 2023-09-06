@@ -59,7 +59,7 @@ def crear_programa(response: ProgramaModel):
     componentes_ids = [actividad.id for actividad in response.componentes]
     print("HOLA")
     componentes = session.query(Componente).filter(Componente.id.in_(componentes_ids)).all()
-    nuevo_programa = Programa(id=response.id,nombre=response.nombre,cantCreditos=response.cantCreditos,componentes=componentes)
+    nuevo_programa = Programa(id=response.id,nombre=response.nombre,cantCreditos=response.cantCreditos,requisitoIngles=response.requisitoIngles,componentes=componentes)
     session.add(nuevo_programa)
     session.commit()
     session.close()

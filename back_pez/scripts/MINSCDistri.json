@@ -65,12 +65,382 @@
                     "creditos" : 4
                   }
             ]
+        },
+        {
+            "id":14,
+            "nombre":"Cientifica información MINSC Distri",
+            "cantCreditos":8,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 1,
+                    "nombre" : "Gestión de proyectos informáticos. ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }
+            ],
+            "asignaturasElectivas":[
+                {
+                    "id" : 2,
+                    "nombre" : "Arquitectura Empresarial ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                },
+                  {
+                    "id" : 3,
+                    "nombre" : "Gestión de Conocimiento ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 4,
+                    "nombre" : "Inteligencia de Negocios ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 5,
+                    "nombre" : "Métodos y Aplicaciones en Analítica I ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 6,
+                    "nombre" : "Métodos y Aplicaciones en Analítica II ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 7,
+                    "nombre" : "Adaptación de Información ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 8,
+                    "nombre" : "Seguridad en Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 9,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 10,
+                    "nombre" : "Tópicos Avanzados en Ing. De Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  },
+                  {
+                    "id" : 11,
+                    "nombre" : "Diseño de Software basado en Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 12,
+                    "nombre" : "Tópicos Avanzados en Bases de Datos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  },
+                  {
+                    "id" : 13,
+                    "nombre" : "Tópicos Avanzados en Analítica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  },{
+                    "id" : 14,
+                    "nombre" : "Diseño y Evaluación de Arquitecturas de Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 15,
+                    "nombre" : "Ingeniería de Requerimientos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 16,
+                    "nombre" : "Sistemas Inteligentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 17,
+                    "nombre" : "Sistemas MultiAgentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 18,
+                    "nombre" : "Robótica Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 19,
+                    "nombre" : "Reconocimiento de Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 20,
+                    "nombre" : "Procesamiento de Imágenes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 21,
+                    "nombre" : "Aprendizaje Profundo ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 22,
+                    "nombre" : "Aprendizaje de Maquina ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 24,
+                    "nombre" : "Procesamiento de Lenguaje Natural ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 25,
+                    "nombre" : "Computación Gráfica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 26,
+                    "nombre" : "Realidad Virtual ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 27,
+                    "nombre" : "Visualización Científica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 28,
+                    "nombre" : "Geometría Computacional ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 29,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 30,
+                    "nombre" : "Sistemas Distribuidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  },
+                  {
+                    "id" : 74,
+                    "nombre" : "Trabajo de grado inducción a la investigación",
+                    "poblacionObjetivo" : "Estudiantes MINSC",
+                    "creditos" : 4
+                  },{
+                    "id" : 78,
+                    "nombre" : "Diseño de Softw.Basado en Patrones",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  },{
+                    "id" : 79,
+                    "nombre" : "Diseño y Evaluación Arquitectura SW",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                  }
+            ]
+        },
+        {
+            "id":15,
+            "nombre":"Electivas MINSC Distri",
+            "cantCreditos":4,
+            "asignaturasElectivas":[
+                {
+                    "id" : 3,
+                    "nombre" : "Gestión de Conocimiento ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 4,
+                    "nombre" : "Inteligencia de Negocios ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 5,
+                    "nombre" : "Métodos y Aplicaciones en Analítica I ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 6,
+                    "nombre" : "Métodos y Aplicaciones en Analítica II ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 7,
+                    "nombre" : "Adaptación de Información ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 8,
+                    "nombre" : "Seguridad en Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 9,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 10,
+                    "nombre" : "Tópicos Avanzados en Ing. De Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 11,
+                    "nombre" : "Diseño de Software basado en Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 12,
+                    "nombre" : "Tópicos Avanzados en Bases de Datos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 13,
+                    "nombre" : "Tópicos Avanzados en Analítica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 14,
+                    "nombre" : "Diseño y Evaluación de Arquitecturas de Software ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 15,
+                    "nombre" : "Ingeniería de Requerimientos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados"
+                  }, {
+                    "id" : 16,
+                    "nombre" : "Sistemas Inteligentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 17,
+                    "nombre" : "Sistemas MultiAgentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 18,
+                    "nombre" : "Robótica Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 19,
+                    "nombre" : "Reconocimiento de Patrones ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 20,
+                    "nombre" : "Procesamiento de Imágenes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 21,
+                    "nombre" : "Aprendizaje Profundo ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 22,
+                    "nombre" : "Aprendizaje de Maquina ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 24,
+                    "nombre" : "Procesamiento de Lenguaje Natural ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 25,
+                    "nombre" : "Computación Gráfica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 26,
+                    "nombre" : "Realidad Virtual ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 27,
+                    "nombre" : "Visualización Científica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 28,
+                    "nombre" : "Geometría Computacional ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 29,
+                    "nombre" : "Computación de Alto Desempeño ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 30,
+                    "nombre" : "Sistemas Distribuidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 31,
+                    "nombre" : "Seguridad Informática ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 32,
+                    "nombre" : "Gestión y Diseño de Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 33,
+                    "nombre" : "Sistemas Operativos Tiempo Real ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 34,
+                    "nombre" : "Sistemas Embebidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 35,
+                    "nombre" : "Seguridad Ofensiva ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 36,
+                    "nombre" : "Informática Forense ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 37,
+                    "nombre" : "Seguridad en Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 38,
+                    "nombre" : "Computación Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 39,
+                    "nombre" : "Software para Procesadores ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 74,
+                    "nombre" : "Trabajo de grado inducción a la investigación",
+                    "poblacionObjetivo" : "Estudiantes MINSC",
+                    "creditos" : 4
+                  }, {
+                    "id" : 76,
+                    "nombre" : "seguridad Ofensiva II",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }
+            ]
         }
     ],
     "programa":[{
         "id": 4,
         "nombre":"Maestría en Ingeniería de Sistemas y Computación profundización Sistemas Distribuidos",
         "cantCreditos": 40,
+        "requisitoIngles": true,
         "componentes":[
             {
                 "id":13,
@@ -78,8 +448,8 @@
                 "cantCreditos":20
             },
             {
-                "id":4,
-                "nombre":"Cientifica información",
+                "id":14,
+                "nombre":"Cientifica información MINSC Distri",
                 "cantCreditos":8
             },
             {
@@ -98,8 +468,8 @@
               "cantCreditos":4
             },
             {
-              "id":11,
-              "nombre":"Electivas MINSC",
+              "id":15,
+              "nombre":"Electivas MINSC Distri",
               "cantCreditos":4
             }
         ]

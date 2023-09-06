@@ -201,6 +201,7 @@
         "id":1,
         "nombre":"Maestría en Analítica para la Inteligencia de Negocios",
         "cantCreditos": 40,
+        "requisitoIngles": true,
         "componentes":[
             {
                 "id":1,

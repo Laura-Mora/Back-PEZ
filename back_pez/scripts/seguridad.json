@@ -195,7 +195,107 @@
                     "nombre" : "Inglés para posgrados 2",
                     "poblacionObjetivo" : "Estudiantes posgrados",
                     "creditos" : 2
-                }
+                },{
+                    "id" : 5,
+                    "nombre" : "Métodos y Aplicaciones en Analítica I ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, 
+                {
+                    "id" : 6,
+                    "nombre" : "Métodos y Aplicaciones en Analítica II ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, 
+                {
+                    "id" : 13,
+                    "nombre" : "Tópicos Avanzados en Analítica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                },
+                {
+                    "id" : 45,
+                    "nombre" : "Entorno económico y político de los Negocios",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                },
+                {
+                    "id" : 46,
+                    "nombre" : "Liderazgo y Dirección de equipos e individuos",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }, 
+                {
+                    "id" : 47,
+                    "nombre" : " Innovación y Creatividad",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }, 
+                {
+                    "id" : 48,
+                    "nombre" : "Estrategia Competitiva e Innovación",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                },
+                {
+                    "id" : 49,
+                    "nombre" : "Taller de Desarrollo de Habilidades Gerenciales I",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                }, 
+                {
+                    "id" : 50,
+                    "nombre" : "Taller de Desarrollo de Habilidades Gerenciales II",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                },
+                {
+                    "id" : 75,
+                    "nombre" : "Gerencia de Innovación",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                },
+                {
+                    "id" : 77,
+                    "nombre" : "Contabilidad Financiera",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                },{
+                    "id" : 31,
+                    "nombre" : "Seguridad Informática ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 32,
+                    "nombre" : "Gestión y Diseño de Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 33,
+                    "nombre" : "Sistemas Operativos Tiempo Real ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 34,
+                    "nombre" : "Sistemas Embebidos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  },  {
+                    "id" : 37,
+                    "nombre" : "Seguridad en Redes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 38,
+                    "nombre" : "Computación Móvil ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }, {
+                    "id" : 39,
+                    "nombre" : "Software para Procesadores ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                  }
             ]
         },
         {
@@ -216,6 +316,7 @@
         "id": 3,
         "nombre":"Maestría en Seguridad Digital",
         "cantCreditos": 40,
+        "requisitoIngles": true,
         "componentes":[
             {
                 "id":7,

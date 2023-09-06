@@ -541,6 +541,7 @@
         "id": 2,
         "nombre":"Maestría en Ingeniería de Sistemas y Computación profundización SISINFO",
         "cantCreditos": 40,
+        "requisitoIngles": true,
         "componentes":[
             {
                 "id":3,
