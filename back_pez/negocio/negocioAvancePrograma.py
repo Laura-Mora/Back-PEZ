@@ -382,7 +382,27 @@ def faltaParacompletarProgramas(estudiante_id):
                         if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
                             break
 
-                if creditos_vistos < creditos_requeridos or asignaturas_contadas <= asignaturas_minimas:
+                if creditos_vistos < creditos_requeridos:
+                    #Calcular asignaturas subcomponente
+                    for asignatura in obtener_asignaturasOB_subcomponente(subcomponente_id):
+                        if asignatura.id not in asignaturas_vistas:
+                            # Verificar si el estudiante ha cursado la asignatura
+                            if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+
+                                # Agregar la asignatura al avance del estudiante
+                                avance_subcomponente["asignaturas"].append(asignatura.nombre)
+
+                    for asignatura in obtener_asignaturasEle_subcomponente(subcomponente_id):
+                        if asignatura.id not in asignaturas_vistas:
+                            # Verificar si el estudiante ha cursado la asignatura
+                            if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+
+                                # Agregar la asignatura al avance del estudiante
+                                avance_subcomponente["asignaturas"].append(asignatura.nombre)
+
+                creditos_vistosCom += creditos_vistos
+                
+                if asignaturas_minimas > 0 and creditos_vistosCom < creditos_requeridosCom:
                     #Calcular asignaturas subcomponente
                     for asignatura in obtener_asignaturasOB_subcomponente(subcomponente_id):
                         if asignatura.id not in asignaturas_vistas:
@@ -404,7 +424,7 @@ def faltaParacompletarProgramas(estudiante_id):
                 avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas                
                 
                 avance_componente['subcomponentes'].append(avance_subcomponente)
-                creditos_vistosCom += creditos_vistos
+                
                 
                 # Verificar si se ha alcanzado la cantidad mínima de asignaturas por subcomponente
                 if asignaturas_contadas >= asignaturas_minimas:
