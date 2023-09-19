@@ -763,6 +763,9 @@ def generar_pdf_programa_suge(estudiante_id,id_programa):
     avance_json = avance_programa_recomendado(id_programa,estudiante_id)
     avance_programa = json.loads(avance_json)
 
+    falta_json = faltaParacompletarProgramaSuge(id_programa,estudiante_id)
+    falta_programa = json.loads(falta_json)
+
     asignaturasComun = negocioSugerenciaPrograma.asignaturas_comun_programas(estudiante_id,id_programa)
 
     doc = SimpleDocTemplate("avance_programa_sugerido.pdf", pagesize=letter)
@@ -777,6 +780,31 @@ def generar_pdf_programa_suge(estudiante_id,id_programa):
     story.append(pp)
     story.append(Spacer(1, 12))
     for componente in avance_programa['componentes']:
+        texto_componente = f"Para el componente {componente['nombre']}, haz cursado {componente['creditosVistos']} créditos de {componente['cantCreditos']} créditos."
+        cp = Paragraph(texto_componente)
+        story.append(cp)
+        story.append(Spacer(1, 12))
+        for asignatura_info in componente['asignaturas']:
+            texto_asignatura = f"• {asignatura_info}"
+            p = Paragraph(texto_asignatura, estilo_bullet)
+            story.append(p)
+            story.append(Spacer(1, 12))
+        for subcomponente in componente['subcomponentes']:
+            texto_subcomponente = f"Para el subcomponente {subcomponente['nombre']}, haz cursado {subcomponente['creditosVistos']} créditos de {subcomponente['cantCreditos']} créditos."
+            sp = Paragraph(texto_subcomponente)
+            story.append(sp)
+            story.append(Spacer(1, 12))
+            for asignatura_info in subcomponente['asignaturas']:
+                texto_asignatura = f"• {asignatura_info}"
+                p = Paragraph(texto_asignatura, estilo_bullet)
+                story.append(p)
+                story.append(Spacer(1, 12))
+
+    texto_programaFlata = f"Para el programa {falta_programa['programa']}, puedes ver estas asignaturas"
+    pf = Paragraph(texto_programaFlata)
+    story.append(pf)
+    story.append(Spacer(1, 12))
+    for componente in falta_programa['componentes']:
         texto_componente = f"Para el componente {componente['nombre']}, haz cursado {componente['creditosVistos']} créditos de {componente['cantCreditos']} créditos."
         cp = Paragraph(texto_componente)
         story.append(cp)
@@ -815,3 +843,191 @@ def generar_pdf_programa_suge(estudiante_id,id_programa):
     enviar_correo_avance("avance_programa_sugerido.pdf", correo)
 
     return buffer
+
+def faltaParacompletarProgramaSuge(id,estudiante_id):
+     # Obtener los programas en los que está inscrito el estudiante
+    session = Session()
+    programa = session.query(Programa).options(
+        selectinload(Programa.componentes)).filter(Programa.id == id).first()
+    session.close()
+    
+
+    avance = {}
+    avance['programa'] = programa.nombre
+    programa_id = programa.id
+    avance['componentes'] = []
+    avance['cantCreditos'] = programa.cantCreditos
+    avance['cantCreditosCursados'] = 0
+    avance['requisitoInglesCumplido'] = ha_cumplido_requisito(estudiante_id)
+    cantCreditosCursados = 0
+        
+       # Obtener los componentes del programa
+    componentes = obtener_componentes_programa(programa_id)
+    asignaturas_vistas = set()
+        
+    for componente in componentes:
+        componente_id = componente.id
+
+        avance_componente = {}  # Crear un nuevo diccionario para cada componente
+        avance_componente['nombre'] = componente.nombre
+        avance_componente['asignaturas'] = []
+        avance_componente['subcomponentes'] = []
+        avance_componente['cantCreditos'] = 0
+        avance_componente['creditosVistos'] = 0
+            
+        creditos_requeridosCom = componente.cantCreditos  # Cantidad de créditos requeridos para el componente
+        creditos_vistosCom = 0 
+            
+        asignaturas_contadasCom = 0
+            
+            # Obtener los subcomponentes del componente
+        subcomponentes = obtener_subcomponentes_componente(componente_id)
+
+        for subcomponente in subcomponentes:
+            subcomponente_id = subcomponente.id
+            avance_subcomponente = {}
+            avance_subcomponente['nombre'] = subcomponente.nombre
+            avance_subcomponente['asignaturas'] = []
+            avance_subcomponente['creditosVistos'] = 0
+            avance_subcomponente['asignaturas_minimas'] = 0
+                
+            print(subcomponente.nombre)
+            creditos_vistos = 0  # Variable para almacenar los créditos vistos por el estudiante
+            asignaturas_contadas = 0
+
+            if subcomponente.cantCreditos is not None:
+                creditos_requeridos = subcomponente.cantCreditos
+                avance_subcomponente['cantCreditos'] = creditos_requeridos
+            else:
+                creditos_requeridos = -1
+
+            if subcomponente.cantAsignaturas is not None:
+                asignaturas_minimas = subcomponente.cantAsignaturas
+            else:
+                asignaturas_minimas = 0
+                
+            for asignatura in obtener_asignaturasOB_subcomponente(subcomponente_id):
+                if asignatura.id not in asignaturas_vistas:
+                        # Verificar si el estudiante ha cursado la asignatura
+                    if ha_cursado_asignatura(estudiante_id, asignatura.id):
+                        creditos_vistos += asignatura.creditos
+                        asignaturas_contadas += 1
+                        asignaturas_vistas.add(asignatura.id)
+
+                    if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
+                        break
+
+            for asignatura in obtener_asignaturasEle_subcomponente(subcomponente_id):
+                if asignatura.id not in asignaturas_vistas:
+                        # Verificar si el estudiante ha cursado la asignatura
+                    if ha_cursado_asignatura(estudiante_id, asignatura.id):
+                        creditos_vistos += asignatura.creditos
+                        asignaturas_contadas += 1
+                        asignaturas_vistas.add(asignatura.id)
+                        
+                    if creditos_vistos >= creditos_requeridos and creditos_requeridos > -1:
+                        break
+
+            if creditos_vistos < creditos_requeridos:
+                    #Calcular asignaturas subcomponente
+                for asignatura in obtener_asignaturasOB_subcomponente(subcomponente_id):
+                    if asignatura.id not in asignaturas_vistas:
+                            # Verificar si el estudiante ha cursado la asignatura
+                        if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+
+                                # Agregar la asignatura al avance del estudiante
+                            avance_subcomponente["asignaturas"].append(asignatura.nombre)
+
+                for asignatura in obtener_asignaturasEle_subcomponente(subcomponente_id):
+                    if asignatura.id not in asignaturas_vistas:
+                            # Verificar si el estudiante ha cursado la asignatura
+                        if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+
+                                # Agregar la asignatura al avance del estudiante
+                            avance_subcomponente["asignaturas"].append(asignatura.nombre)
+
+            creditos_vistosCom += creditos_vistos
+                
+            if asignaturas_minimas > 0 and creditos_vistosCom < creditos_requeridosCom:
+                    #Calcular asignaturas subcomponente
+                for asignatura in obtener_asignaturasOB_subcomponente(subcomponente_id):
+                    if asignatura.id not in asignaturas_vistas:
+                            # Verificar si el estudiante ha cursado la asignatura
+                        if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+
+                                # Agregar la asignatura al avance del estudiante
+                            avance_subcomponente["asignaturas"].append(asignatura.nombre)
+
+                for asignatura in obtener_asignaturasEle_subcomponente(subcomponente_id):
+                    if asignatura.id not in asignaturas_vistas:
+                            # Verificar si el estudiante ha cursado la asignatura
+                        if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+
+                                # Agregar la asignatura al avance del estudiante
+                            avance_subcomponente["asignaturas"].append(asignatura.nombre)
+
+            avance_subcomponente['creditosVistos'] = creditos_vistos
+            avance_subcomponente['asignaturas_minimas'] = asignaturas_minimas                
+                
+            avance_componente['subcomponentes'].append(avance_subcomponente)
+                
+                
+                # Verificar si se ha alcanzado la cantidad mínima de asignaturas por subcomponente
+            if asignaturas_contadas >= asignaturas_minimas:
+                asignaturas_contadasCom += 1
+            
+        asiganturasCompoOB = obtener_asignaturasOB_componente(componente_id)
+        for asignatura in asiganturasCompoOB:
+            if asignatura.id not in asignaturas_vistas:
+                    # Verificar si el estudiante ha cursado la asignatura
+                if ha_cursado_asignatura(estudiante_id, asignatura.id):
+                    creditos_vistosCom += asignatura.creditos
+                    asignaturas_contadasCom += 1
+                    asignaturas_vistas.add(asignatura.id)
+                        
+                if creditos_vistosCom >= creditos_requeridosCom:
+                    break
+            
+        asignaturasCompoEle = obtener_asignaturasEle_componente(componente_id)
+        for asignatura in asignaturasCompoEle:
+            if asignatura.id not in asignaturas_vistas:
+                    # Verificar si el estudiante ha cursado la asignatura
+                if ha_cursado_asignatura(estudiante_id, asignatura.id):
+                    creditos_vistosCom += asignatura.creditos
+                    asignaturas_contadasCom += 1
+                    asignaturas_vistas.add(asignatura.id)
+                        
+                if creditos_vistosCom >= creditos_requeridosCom:
+                    break
+
+        if creditos_vistosCom < creditos_requeridosCom:
+            for asignatura in asiganturasCompoOB:
+                if asignatura.id not in asignaturas_vistas:
+                        # Verificar si el estudiante ha cursado la asignatura
+                    if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+                            # Agregar la asignatura al avance del estudiante
+                        avance_componente["asignaturas"].append(asignatura.nombre)
+
+                
+            asignaturasCompoEle = obtener_asignaturasEle_componente(componente_id)
+            for asignatura in asignaturasCompoEle:
+                if asignatura.id not in asignaturas_vistas:
+                        # Verificar si el estudiante ha cursado la asignatura
+                    if not ha_cursado_asignatura(estudiante_id, asignatura.id):
+                            # Agregar la asignatura al avance del estudiante
+                         avance_componente["asignaturas"].append(asignatura.nombre)
+                            
+
+        avance_componente['cantCreditos'] = creditos_requeridosCom
+        avance_componente['creditosVistos'] = creditos_vistosCom
+
+        cantCreditosCursados += creditos_vistosCom
+
+        avance['componentes'].append(avance_componente)
+        
+    avance['cantCreditosCursados'] = cantCreditosCursados
+
+
+    avance_json = json.dumps(avance, indent=4, ensure_ascii=False)
+    
+    return avance_json
