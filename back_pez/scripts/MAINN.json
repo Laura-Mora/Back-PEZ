@@ -1,0 +1,218 @@
+{
+    "subComponentes":[
+        {
+            "id":1,
+            "nombre":"Eje Analítico",
+            "cantCreditos":12,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 5,
+                    "nombre" : "Métodos y Aplicaciones en Analítica I ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, 
+                {
+                    "id" : 6,
+                    "nombre" : "Métodos y Aplicaciones en Analítica II ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, 
+                {
+                    "id" : 13,
+                    "nombre" : "Tópicos Avanzados en Analítica ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }
+            ]
+        },
+        {
+            "id":2,
+            "nombre":"Eje de Gestión de Información",
+            "cantCreditos":6,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 2,
+                    "nombre" : "Arquitectura Empresarial ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                },
+                {
+                    "id" : 44,
+                    "nombre" : "Gestión de datos ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }
+            ]
+        },
+        {
+            "id":3,
+            "nombre":"Eje organizacional Fundamentación MAINN",
+            "cantCreditos":2,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 40,
+                    "nombre" : "Manejo responsable de la Información",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }
+            ]
+        },
+        {
+            "id":4,
+            "nombre":"Eje Organizacional Profundización MAINN",
+            "cantCreditos":8,
+            "asignaturasElectivas":[
+                {
+                    "id" : 45,
+                    "nombre" : "Entorno económico y político de los Negocios",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                },
+                {
+                    "id" : 46,
+                    "nombre" : "Liderazgo y Dirección de equipos e individuos",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                }, 
+                {
+                    "id" : 47,
+                    "nombre" : " Innovación y Creatividad",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }, 
+                {
+                    "id" : 48,
+                    "nombre" : "Estrategia Competitiva e Innovación",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 3
+                },
+                {
+                    "id" : 49,
+                    "nombre" : "Taller de Desarrollo de Habilidades Gerenciales I",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                }, 
+                {
+                    "id" : 50,
+                    "nombre" : "Taller de Desarrollo de Habilidades Gerenciales II",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 1
+                },
+                {
+                    "id" : 75,
+                    "nombre" : "Gerencia de Innovación",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                },
+                {
+                    "id" : 77,
+                    "nombre" : "Contabilidad Financiera",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 2
+                }
+            ]
+        },
+        {
+            "id":5,
+            "nombre":"Electivas MAINN",
+            "cantCreditos":8,
+            "asignaturasElectivas":[
+                {
+                    "id" : 4,
+                    "nombre" : "Inteligencia de Negocios ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                },
+                {
+                    "id" : 16,
+                    "nombre" : "Sistemas Inteligentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }, 
+                {
+                    "id" : 17,
+                    "nombre" : "Sistemas MultiAgentes ",
+                    "poblacionObjetivo" : "Estudiantes posgrados",
+                    "creditos" : 4
+                }
+            ]
+        },
+        {
+            "id":6,
+            "nombre":"Trabajo de Grado Aplicado MAINN",
+            "cantCreditos":4,
+            "asignaturasObligatorias":[
+                {
+                    "id" : 71,
+                    "nombre" : "Trabajo de Grado Aplicado Práctico",
+                    "poblacionObjetivo" : "Estudiantes MAINN",
+                    "creditos" : 4
+                }
+            ]
+        }
+    ],
+    "componentes":[
+        {
+            "id":1,
+            "nombre":"Fundamentación MAINN",
+            "cantCreditos":20,
+            "subcomponentes":[
+                {
+                    "id":1,
+                    "nombre":"Eje Analítico",
+                    "cantCreditos":12
+                },
+                {
+                    "id":2,
+                    "nombre":"Eje de Gestión de Información",
+                    "cantCreditos":6
+                },
+                {
+                    "id":3,
+                    "nombre":"Eje organizacional Fundamentación MAINN",
+                    "cantCreditos":2
+                }
+            ]
+        },
+        {
+            "id":2,
+            "nombre":"Profundización MAINN",
+            "cantCreditos":20,
+            "subcomponentes":[
+                {
+                    "id":4,
+                    "nombre":"Eje Organizacional Profundización MAINN",
+                    "cantCreditos":8
+                },
+                {
+                    "id":5,
+                    "nombre":"Electivas MAINN",
+                    "cantCreditos":8
+                },
+                {
+                    "id":6,
+                    "nombre":"Trabajo de Grado Aplicado MAINN",
+                    "cantCreditos":4
+                }
+            ]
+        }  
+    ],
+    "programa":[{
+        "id":1,
+        "nombre":"Maestría en Analítica para la Inteligencia de Negocios",
+        "cantCreditos": 40,
+        "requisitoIngles": true,
+        "componentes":[
+            {
+                "id":1,
+                "nombre":"Fundamentación MAINN",
+                "cantCreditos":20
+            },
+            {
+                "id":2,
+                "nombre":"Profundización MAINN",
+                "cantCreditos":20
+            }
+        ]
+    }]
+}

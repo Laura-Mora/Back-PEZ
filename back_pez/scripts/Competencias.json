@@ -1,0 +1,782 @@
+{"competencias":
+  [
+    {
+      "id" : 1,
+      "nombre" : "practicar habilidades gerenciales y de gestión informática básicas"
+    }, {
+      "id" : 2,
+      "nombre" : "aplicar metodologías y técnicas de planeación, desarrollo y evaluación de proyectos"
+    }, {
+      "id" : 3,
+      "nombre" : "identificar los impactos tanto positivos como negativos que generan los proyectos informáticos"
+    }, {
+      "id" : 4,
+      "nombre" : "relacionar modelos de investigación e innovación con la gestión de proyectos de informática"
+    }, {
+      "id" : 5,
+      "nombre" : "comunicar proyectos informáticos usando diversos medios, considerando diversos grupos de interés y diferentes dimensiones ente las que incluyen la tecnológica, financiera, social y ambiental."
+    }, {
+      "id" : 6,
+      "nombre" : "Explicar el concepto de arquitectura empresarial "
+    }, {
+      "id" : 7,
+      "nombre" : "Modelar las organizaciones basándose en los 4 dominios principales propuestos por el marco TOGAF (negocio, datos, aplicaciones, y tecnología) "
+    }, {
+      "id" : 8,
+      "nombre" : "Producir vistas particulares para cada dominio de arquitectura "
+    }, {
+      "id" : 9,
+      "nombre" : "Producir vistas de integración entre dominios "
+    }, {
+      "id" : 10,
+      "nombre" : "Conocer los principales conceptos, clasificaciones y propiedades del conocimiento, así como el nuevo contexto que se desarrolla y aplica en las organizaciones."
+    }, {
+      "id" : 11,
+      "nombre" : "Identificar los principales conceptos, ciclos de vida, modelos e historia de la gestión del conocimiento, "
+    }, {
+      "id" : 12,
+      "nombre" : "Reconocer la manera de generar valor y potencial innovador a través la aplicación de la gestión de conocimiento en las organizaciones."
+    }, {
+      "id" : 13,
+      "nombre" : "Describir las diferentes actividades y tareas que se desarrollan en los procesos de conocimiento de las organizaciones."
+    }, {
+      "id" : 14,
+      "nombre" : "Determinar las etapas que se deben seguir para la construcción de un sistema de gestión del conocimiento en una organización."
+    }, {
+      "id" : 15,
+      "nombre" : "Identificar relaciones estratégicas entre los procesos de negocios y la gestión de conocimiento mediada por TIC."
+    }, {
+      "id" : 16,
+      "nombre" : "Identificar el modelo de medición apropiado para la gestión del conocimiento organizacional."
+    }, {
+      "id" : 17,
+      "nombre" : "Visión de las problemáticas asociadas en las empresas con respecto a cómo tomar decisiones apoyados en sistemas de computación."
+    }, {
+      "id" : 18,
+      "nombre" : "Realizar análisis y diseño de sistemas de apoyo a la toma de decisiones."
+    }, {
+      "id" : 19,
+      "nombre" : "Diseñar y construir bodegas de datos."
+    }, {
+      "id" : 20,
+      "nombre" : "Definir modelos de análisis OLAP."
+    }, {
+      "id" : 21,
+      "nombre" : "Diseñar y construir modelos de analítica de datos."
+    }, {
+      "id" : 22,
+      "nombre" : "Entender los conceptos básicos de la era de Big Data."
+    }, {
+      "id" : 23,
+      "nombre" : "Identificar elementos de los recursos y del entorno de una organización que permitan orientar estratégicamente el análisis de datos."
+    }, {
+      "id" : 24,
+      "nombre" : "Obtener un conjunto de datos limpio para analítica a partir de un conjunto de datos crudos con ayuda de software especializado."
+    }, {
+      "id" : 25,
+      "nombre" : "Explicar y contrastar los elementos y objetivos básicos de los siguientes paradigmas y técnicas de analítica: paradigma estadístico, paradigma de machine learning, modelo lineal general, modelos basados en distancia/reducción de dimensiones y modelos basados en el teorema de Bayes. "
+    }, {
+      "id" : 26,
+      "nombre" : "Seleccionar una técnica analítica básica adecuada al objetivo de minería de datos y al objetivo de negocio planteados. "
+    }, {
+      "id" : 27,
+      "nombre" : "Programar exitosamente el modelo analítico básico seleccionado en software especializado. "
+    }, {
+      "id" : 28,
+      "nombre" : "Evaluar los resultados del modelo analítico desarrollado en términos de los objetivos del negocio y los objetivos de minería de datos."
+    }, {
+      "id" : 29,
+      "nombre" : "Explicar y contrastar los elementos y objetivos básicos de los siguientes paradigmas y técnicas de analítica: redes neuronales, ensambles, máquinas de soporte vectorial y simluación/optimización"
+    }, {
+      "id" : 30,
+      "nombre" : "Identificar cuál de los paradigmas y técnicas analíticas enseñadas es adecuada al objetivo de minería de datos y al objetivo de negocio planteados. "
+    }, {
+      "id" : 31,
+      "nombre" : "Programar exitosamente modelos analíticos dentro de los paradigmas y técnicas analíticas enseñadas en software especializado. "
+    }, {
+      "id" : 32,
+      "nombre" : "Evaluar los resultados del modelo analítico desarrollado en términos de los objetivos del negocio y los objetivos de minería de datos."
+    }, {
+      "id" : 33,
+      "nombre" : "Identificar los factores propios de la computación ubicua/móvil y pervasiva que influyen en el acceso a Sistemas de Información y en la adaptación de la información. "
+    }, {
+      "id" : 34,
+      "nombre" : "Identificar los factores propios de la ergonomía, reglamentación y adaptación al despliegue que influyen en el despliegue de información. "
+    }, {
+      "id" : 35,
+      "nombre" : "Describir un usuario con sus nuevas propiedades y necesidades de información, así como su dispositivo de acceso y contexto."
+    }, {
+      "id" : 36,
+      "nombre" : "Comparar alternativas en el modelado de usuario, su dispositivo y su contexto para la entrega de información al usuario. "
+    }, {
+      "id" : 37,
+      "nombre" : "Diseñar perfiles que permitan el enriquecimiento de servicios en aplicaciones adaptativas. "
+    }, {
+      "id" : 38,
+      "nombre" : "Diseñar aplicaciones que adaptan la información al usuario basándose en sus características, necesidades y dispositivo de acceso."
+    }, {
+      "id" : 39,
+      "nombre" : "Implementar programas con niveles de seguridad aceptables"
+    }, {
+      "id" : 40,
+      "nombre" : "Describir y aplicar conceptos, principios y técnicas relacionadas con la seguridad del software. "
+    }, {
+      "id" : 41,
+      "nombre" : "Identificar problemas legales y éticos asociados con la seguridad del software. "
+    }, {
+      "id" : 42,
+      "nombre" : "Demostrar entendimiento de las amenazas, vulnerabilidades y riesgos asociados a la información en diferentes escenarios. "
+    }, {
+      "id" : 43,
+      "nombre" : "Familiarizarse los conceptos básicos de la programación segura y eficiente"
+    }, {
+      "id" : 44,
+      "nombre" : "Comprendido el funcionamiento y la utilidad de los sistemas de cómputo de alto desempeño, además de haber adquirido la visión necesaria para diseñar una solución computacional acorde a las necesidades de problemas específicos desde el enfoque empresarial e investigativo de la e-ciencia. Para lograr esta meta, el estudiante: aprenderá las infraestructuras básicas existentes, los conceptos claves de la programación concurrente, algunos algoritmos altamente utilizados, la validación formal de los sistemas de este tipo y el uso de aplicaciones ya existentes en el entorno de e-ciencia y los principios detrás del Big Data, tales como Mapreduce (Hadoop) y procesamiento in-memory (Spark)."
+    }, {
+      "id" : 45,
+      "nombre" : "Comparar nuevas tecnologías para la construcción de software "
+    }, {
+      "id" : 46,
+      "nombre" : "Proponer una solución basada en ingeniería dirigida por modelos "
+    }, {
+      "id" : 47,
+      "nombre" : "Conocer los mecanismos necesarios para el desarrollo de familias de productos de software a través de un esquema de líneas de productos teniendo en cuenta la variabilidad. "
+    }, {
+      "id" : 48,
+      "nombre" : "Aplicar los procedimientos necesarios para la  implementación de una línea de productos de software."
+    }, {
+      "id" : 49,
+      "nombre" : "Aplicar los conceptos de los modelos tradicionales de bases de datos"
+    }, {
+      "id" : 50,
+      "nombre" : "Identificar nuevos paradigmas para la administración de datos"
+    }, {
+      "id" : 51,
+      "nombre" : "Diferenciar nuevas tendencias de modelado en cuanto a persistencia de datos"
+    }, {
+      "id" : 52,
+      "nombre" : "Desarrollar habilidades como la comunicación oral y escrita através de la interacción con profesores internacionales"
+    }, {
+      "id" : 53,
+      "nombre" : "Explicar y contrastar los elementos y objetivos básicos de los siguientes paradigmas y técnicas de analítica: grafos, Deep learning, procesamiento del lenguaje natural. "
+    }, {
+      "id" : 54,
+      "nombre" : "Identificar cuándo uno de los paradigmas y técnicas analíticas enseñadas es adecuada al objetivo de minería de datos y al objetivo de negocio planteados. "
+    }, {
+      "id" : 55,
+      "nombre" : "Programar exitosamente modelos analíticos dentro de los paradigmas y técnicas analíticas enseñadas en software especializado. "
+    }, {
+      "id" : 56,
+      "nombre" : "Evaluar los resultados del modelo analítico desarrollado en términos de los objetivos del negocio y los objetivos de minería de datos."
+    }, {
+      "id" : 57,
+      "nombre" : "Diseñar y evaluar arquitecturas de software usando al menos una técnica para cada caso. "
+    }, {
+      "id" : 58,
+      "nombre" : "Afianzar competencias técnicas implementando el diseño en una plataforma computacional."
+    }, {
+      "id" : 59,
+      "nombre" : "Analizar y resolver problemas utilizando conceptos y herramientas de Redes Neuronales, Lógica Difusa, Algoritmos Genéticos, Aprendizaje de Máquina aplicados en el marco de los Agentes racionales y los Sistemas MultiAgentes. Adicionalmente al conocimiento técnico, el estudio de la inteligencia, el manejo del conocimiento y el trabajar con un paradigma de diseño de sistemas inteligentes permiten desarrollar la capacidad de abstracción y las habilidades para solución de problemas de los estudiantes. Estos conocimientos y capacidades trascienden más allá del área de sistemas inteligentes debido al amplio campo de aplicaciones de los mismos. De igual manera, la metodología del curso, orientada a la investigación, contribuye a la consolidación de las competencias de búsqueda, análisis, síntesis y presentación oral y escrita de conocimiento científico."
+    }, {
+      "id" : 60,
+      "nombre" : "N/A"
+    }, {
+      "id" : 61,
+      "nombre" : "Construir modelos matemáticos de plataformas robóticas móviles"
+    }, {
+      "id" : 62,
+      "nombre" : "Aplicar métodos de localización para la navegación autónoma de robots"
+    }, {
+      "id" : 63,
+      "nombre" : "Diseñar arquitecturas de control para la navegación autónoma de robots"
+    }, {
+      "id" : 64,
+      "nombre" : "Emplear herramientas computacionales para modelado,  simulación y control de robots."
+    }, {
+      "id" : 65,
+      "nombre" : "Proponer la solución a problemas de clasificación de acuerdo a las condiciones o requerimientos. "
+    }, {
+      "id" : 66,
+      "nombre" : "Utilizar herramientas computacionales para el diseño de algoritmos de clasificación."
+    }, {
+      "id" : 67,
+      "nombre" : "Identificar diferentes métodos de solución para los problemas propuestos en Reconocimiento de Patrones."
+    }, {
+      "id" : 68,
+      "nombre" : "Definir la concepción de una solución desde la generación y el análisis de los datos hasta la implementación del clasificador."
+    }, {
+      "id" : 69,
+      "nombre" : "Identificar los diferentes tipos de problemas que son solucionables con algoritmos de aprendizaje profundo. "
+    }, {
+      "id" : 70,
+      "nombre" : "Detallar el proceso de ingeniería para el uso de un algoritmo de aprendizaje profundo. "
+    }, {
+      "id" : 71,
+      "nombre" : "Depurar numéricamente implementaciones de algoritmos de aprendizaje de máquina. "
+    }, {
+      "id" : 72,
+      "nombre" : "Usar herramientas de software disponibles (python, matlab o tensorflow) para usar algoritmos de aprendizaje profundo."
+    }, {
+      "id" : 73,
+      "nombre" : "Identificar los diferentes tipos de problemas que son solucionables con algoritmos de aprendizaje de máquina. "
+    }, {
+      "id" : 74,
+      "nombre" : "Detallar el proceso de ingeniería para el uso de un algoritmo de aprendizaje de máquina. "
+    }, {
+      "id" : 75,
+      "nombre" : "Depurar numéricamente implementaciones de algoritmos de aprendizaje de máquina. "
+    }, {
+      "id" : 76,
+      "nombre" : "Usar herramientas de software disponibles (en python o matlab) para usar algoritmos de aprendizaje de máquina."
+    }, {
+      "id" : 77,
+      "nombre" : "Identificar las aplicaciones del procesamiento de lenguaje natural. "
+    }, {
+      "id" : 78,
+      "nombre" : "Detallar el proceso de integración de tecnología de procesamiento de lenguaje natural en un ambiente de ejecución. "
+    }, {
+      "id" : 79,
+      "nombre" : "Aplicar el proceso de entrenamiento de un sistema de procesamiento de lenguaje natural. "
+    }, {
+      "id" : 80,
+      "nombre" : "Usar herramientas de software disponibles."
+    }, {
+      "id" : 81,
+      "nombre" : "Analizar y resolver problemas utilizando conceptos y herramientas de computación gráfica aplicados en el marco de problemas reales. Adicionalmente al conocimiento técnico, el estudio de la computación gráfica permite desarrollar la capacidad de abstracción y las habilidades para solución de problemas de los estudiantes. Estos conocimientos y capacidades trascienden más allá del área específica debido al amplio campo de aplicaciones."
+    }, {
+      "id" : 82,
+      "nombre" : "Programación de dispositivos de entrada/salida: desarrollo básico de habilidades de programación de dispositivos y electrónica digital, y desarrollo avanzado de técnicas de uso de sistemas operativos. "
+    }, {
+      "id" : 83,
+      "nombre" : "Creación y uso de ambientes gráficos tridimensionales. Generación y uso de nuevos paradigmas en el área de la interacción hombre-máquina."
+    }, {
+      "id" : 84,
+      "nombre" : "Usar herramientas de computación gráfica para la representación visual de datos."
+    }, {
+      "id" : 85,
+      "nombre" : "Potenciar el uso de herramientas de cómputo de alto desempeño y procesamiento de imagenes para procesar y representar grandes volumenes de datos."
+    }, {
+      "id" : 86,
+      "nombre" : "Desarrollar  habilidades de investigación en entornos interdisciplinarios, al proveer herramientas de comunicación para expresar ideas científicas adicionales a las tradicionales, tanto oralmente como por escrito\""
+    }, {
+      "id" : 87,
+      "nombre" : " funcionamiento y la utilidad de los sistemas de cómputo de alto desempeño, además de haber adquirido la visión necesaria para diseñar una solución computacional acorde a las necesidades de problemas específicos desde el enfoque empresarial e investigativo de la e-ciencia. Para lograr esta meta, el estudiante: aprenderá las infraestructuras básicas existentes, los conceptos claves de la programación concurrente, algunos algoritmos altamente utilizados, la validación formal de los sistemas de este tipo y el uso de aplicaciones ya existentes en el entorno de e-ciencia y los principios detrás del Big Data, tales como Mapreduce (Hadoop) y procesamiento in-memory (Spark)."
+    }, {
+      "id" : 88,
+      "nombre" : "Incentivar habilidades investigativas para conocer las diferentes problemáticas en el área"
+    }, {
+      "id" : 89,
+      "nombre" : "Proponer estrategias y políticas de Seguridad Informática."
+    }, {
+      "id" : 90,
+      "nombre" : "Comprender la normativa, procedimientos y programas de seguridad en una organización"
+    }, {
+      "id" : 91,
+      "nombre" : "Identificar las amenazas y las vulnerabilidades en cuanto a la información y el entorno informático con el fin de aplicar las medidas de protección y/o prevención correspondientes."
+    }, {
+      "id" : 92,
+      "nombre" : "Evaluar herramientas y recursos para minimizar riesgos, mitigar los efectos de acciones hostiles y garantizar la continuidad del negocio."
+    }, {
+      "id" : 93,
+      "nombre" : "Comprender y gestionar tanto los aspectos tecnológicos, humanos, legales y éticos que inciden en la Seguridad Informática."
+    }, {
+      "id" : 94,
+      "nombre" : "Realizar un análisis de requerimientos para el diseño de una red"
+    }, {
+      "id" : 95,
+      "nombre" : "Conocer las técnicas de simulación que permitirán validar si un diseño de red es adecuado. "
+    }, {
+      "id" : 96,
+      "nombre" : "Adquirir los conocimientos y habilidades necesarias para administrar de manera adecuada los recursos de la infraestructura de telecomunicaciones de una organización."
+    }, {
+      "id" : 97,
+      "nombre" : "Desarrollar habilidades para el trabajo en grupo a través del diseño e implementación de un proyecto."
+    }, {
+      "id" : 98,
+      "nombre" : " Identificar los componentes principales de un sistema operativo genérico."
+    }, {
+      "id" : 99,
+      "nombre" : "Caracterizar una solución con respecto a sus restricciones temporales."
+    }, {
+      "id" : 100,
+      "nombre" : "Dimensionar las tareas que deben realizarse para cumplir con las restricciones de tiempo real de la aplicación."
+    }, {
+      "id" : 101,
+      "nombre" : "Diferenciar las gamas de sistemas operativos."
+    }, {
+      "id" : 102,
+      "nombre" : "Implementar soluciones basadas en un RTOS abierto."
+    }, {
+      "id" : 103,
+      "nombre" : "Implementar cada uno de los hilos del RTOS que cumplan con las restricciones temporales de un sistema de tiempo real."
+    }, {
+      "id" : 104,
+      "nombre" : "Identificar las ventajas y desventajas de implementación de una solución de un sistema embebido en un sistema operativo."
+    }, {
+      "id" : 105,
+      "nombre" : "Desarrollar una solución embebida haciendo uso de un sistema operativo POSIX en especial GNU/Linux."
+    }, {
+      "id" : 106,
+      "nombre" : "Seleccionar con criterio los componentes hardware y softwarenecesarios para implementar una aplicación embebida usando un SBC."
+    }, {
+      "id" : 107,
+      "nombre" : "Identificar los conceptos de seguridad ofensiva"
+    }, {
+      "id" : 108,
+      "nombre" : " Identificar las herramientas mas optimas para identificación e brechas de seguridad en la infraestructura tecnológica"
+    }, {
+      "id" : 109,
+      "nombre" : "Preparar escenarios de laboratorio para la realización de ataques controlados."
+    }, {
+      "id" : 110,
+      "nombre" : "Hacer uso de herramientas de seguridad ofensiva con fines éticos."
+    }, {
+      "id" : 111,
+      "nombre" : "Identificar las consideraciones legales asociadas a la materialización de un delito o incidente de seguridad."
+    }, {
+      "id" : 112,
+      "nombre" : "Reconocer los dispositivos electrónicos que puedan ser utilizados como evidencia digital. "
+    }, {
+      "id" : 113,
+      "nombre" : "Conocer las herramientas tecnológicas existentes para el manejo de la evidencia digital."
+    }, {
+      "id" : 114,
+      "nombre" : "Realizar la adquisición de evidencia digital manteniendo la integridad en todas las etapas de la informática forense."
+    }, {
+      "id" : 115,
+      "nombre" : "Garantizar la preservación de la evidencia digital que puede ser presentada en juicio.."
+    }, {
+      "id" : 116,
+      "nombre" : "Capacidad de investigar y comunicar los resultados de la investigación."
+    }, {
+      "id" : 117,
+      "nombre" : "Determinar las vulnerabilidades de un sistema de comunicaciones a través de herramientas de especializadas."
+    }, {
+      "id" : 118,
+      "nombre" : "Aplicar las técnicas de cifrado para la generación de claves y la transmisión segura de la información."
+    }, {
+      "id" : 119,
+      "nombre" : "Implementar adecuadamente mecanismos de seguridad en redes de datos mediante la configuración de dispositivos de red especializados "
+    }, {
+      "id" : 120,
+      "nombre" : "Configurar los protocolos de seguridad que permitan la transmisión segura de los datos."
+    }, {
+      "id" : 121,
+      "nombre" : "Aplicar estrategias, políticas de seguridad y normativa relacionada con la seguridad informática con el fin de minimizar los ataques e intrusiones."
+    }, {
+      "id" : 122,
+      "nombre" : "Integrar eficientemente los diferentes equipos y algoritmos en una solución de seguridad para una red de comunicaciones de tal manera que se limiten las vulnerabilidades y los ataques a los que el sistema esté expuesto."
+    }, {
+      "id" : 123,
+      "nombre" : "Apropiar los conceptos básicos sobre las redes de comunicación y datos que se utilizan en las comunicaciones móviles e inalámbricas. "
+    }, {
+      "id" : 124,
+      "nombre" : "Apropiar los modelos, conceptos, te¿cnicas y tecnologi¿as para modelar, disen¿ar y construir aplicaciones basadas en el uso de dispositivos mo¿viles. "
+    }, {
+      "id" : 125,
+      "nombre" : "Aplicar los conceptos en proyectos derivados de problemáticas reales, a través de la propuesta y construcción de una aplicación móvil dentro de un grupo de trabajo."
+    }, {
+      "id" : 126,
+      "nombre" : "Dispositivos de E / S en sistemas de computador embebido.  Aplicación de máquinas de estados finitos para procesos concurrentes.  Diseño de rutinas para atención de E / S mediante interrupciones.  Arquitecturas de software para sistemas de computador embebido.  Fundamentos básicos de RTOS (Sistemas operativos en tiempo real)."
+    }, {
+      "id" : 127,
+      "nombre" : "identificar los elementos para una reflexión sistemática sobre el balance adecuado de los grandes desafíos éticos del manejo de información (privacidad, seguridad, exactitud y propiedad de la información)."
+    }, {
+      "id" : 128,
+      "nombre" : "Identificar  las buenas prácticas y la legislación vigente para el tratamiento de información."
+    }, {
+      "id" : 129,
+      "nombre" : "Identificar las posiciones más influyentes en los debates filosóficos contemporáneos alrededor de la tecnología. "
+    }, {
+      "id" : 130,
+      "nombre" : "Predecir el impacto que tiene el asumir (así sea de manera implícita o inadvertida) una posición filosófica determinada (ya sea en el ámbito ético, epistemológico o metodológico) para el ejercicio y desarrollo de la ingeniería. -Debatir a propósito de la relación que existe entre el ejercicio de la ingeniería y otros ámbitos de la actividad humana.  "
+    }, {
+      "id" : 131,
+      "nombre" : "Diagnosticar y explorar soluciones frente un problema concreto que involucre muy significativamente artefactos técnicos, utilizando las herramientas conceptuales propias de la filosofía de la tecnología.  "
+    }, {
+      "id" : 132,
+      "nombre" : "Desarrollar textos argumentativos breves con estructuras adecuadas y contenidos claros y coherentes."
+    }, {
+      "id" : 133,
+      "nombre" : "Aplicar las técnicas y conceptos para representar situaciones que sean modelables por medio de la teoría de grafos."
+    }, {
+      "id" : 134,
+      "nombre" : "Presentar soluciones a problemas de la teoría de grafos por medio de algoritmos."
+    }, {
+      "id" : 135,
+      "nombre" : "Analizar la complejidad de los algoritmos diseñados para resolver problemas de teoría de grafos. "
+    }, {
+      "id" : 136,
+      "nombre" : "Usar la teoría de grafos para representar problemas de ciencias, ciencias sociales, bioinformática o ingeniería para su modelación y solución."
+    }, {
+      "id" : 137,
+      "nombre" : "Identificar nuevas tendencias tecnológicas para la solución de problemas en las ciencias de la computación."
+    }, {
+      "id" : 138,
+      "nombre" : "Desarrollar habilidades como la comunicación oral y escrita a través de la interacción con profesores expertos en el tema."
+    }, {
+      "id" : 139,
+      "nombre" : "Consolidación de información en datos estructurados"
+    }, {
+      "id" : 140,
+      "nombre" : "Consolidación de información en datos no estructurados"
+    }, {
+      "id" : 141,
+      "nombre" : "Análisis básico de datos"
+    }, {
+      "id" : 142,
+      "nombre" : "Preparación de datos"
+    }, {
+      "id" : 143,
+      "nombre" : "Explicar el entorno macro y microeonómico de un negocio específico."
+    }, {
+      "id" : 144,
+      "nombre" : "Identificar los impactos de factores específicos ajenos a los negocios, pero previsibles, para incorporarlos como insumo continuo de las decisiones empresariales."
+    }, {
+      "id" : 145,
+      "nombre" : "Desarrollar la capacidad de realizar estrategias de decisión flexibles que incorporen diversos escenarios, ante la existencia de entornos económicos cambiantes."
+    }, {
+      "id" : 146,
+      "nombre" : "Evaluar de que los negocios no responden exclusivamente a decisiones aisladas de las firmas sino que están condicionados por el entorno."
+    }, {
+      "id" : 147,
+      "nombre" : "Capacidad de comprender el valor de la diversidad de las habilidades blandas al liderar positivamente su propia carrera y el desarrollo de otros. "
+    }, {
+      "id" : 148,
+      "nombre" : "Tendrá la claridad de un modelo de construcción y conformación de un equipo de trabajo que se adapte a las circunstancias y trabaje por un desempñeo sostenible, bajo la metodologia de un Aprendizaje Organizacional."
+    }, {
+      "id" : 149,
+      "nombre" : "Realizar análisis sistémicos y sistemáticos que desde el análisis de tendencias, competitivo, mercado, competencia y modelo de negocios que permitan determinar estrategias y proyectos para innovar en las organizaciones."
+    }, {
+      "id" : 150,
+      "nombre" : "Priorizar y diseñar estrategias y perfiles de proyectos innovadores que incrementen la competitividad de las empresas."
+    }, {
+      "id" : 151,
+      "nombre" : "Comprender los impulsores clave de la gestión de la innovación."
+    }, {
+      "id" : 152,
+      "nombre" : " Comprender  los fundamentos del concepto de modelo de negocio."
+    }, {
+      "id" : 153,
+      "nombre" : " Integrar diferentes perspectivas en una visión sistémica de los problemas relacionados con la competitividad empresarial."
+    }, {
+      "id" : 154,
+      "nombre" : "Diagnosticar los elementos implícitos en cada una de las Habilidades Gerenciales trabajadas y aplicar las estrategias de intervención adecuadas. "
+    }, {
+      "id" : 155,
+      "nombre" : "Aplicar Habilidades y Destrezas que los faculten para superar el papel meramente utilitario de estas habilidades y que posean dominio, no sólo a nivel de los conocimientos, sino también, en las actitudes de tres grandes grupos de Habilidades clasificadas, en relación con: "
+    }, {
+      "id" : 156,
+      "nombre" : "a. La comunicación Total (Verbal, No Verbal Y escrita)"
+    }, {
+      "id" : 157,
+      "nombre" : "b. La toma de decisiones"
+    }, {
+      "id" : 158,
+      "nombre" : "c. El trabajo en equipo"
+    }, {
+      "id" : 159,
+      "nombre" : "d. La gestión administrativa moderna. "
+    }, {
+      "id" : 160,
+      "nombre" : "Adquirir confianza y seguridad para utilizar las técnicas y poner en práctica sus habilidades en el trabajo diario."
+    }, {
+      "id" : 161,
+      "nombre" : "Identificar los conceptos básicos de seguridad digital."
+    }, {
+      "id" : 162,
+      "nombre" : "Identificar las herramientas mas optimas para la prevención y solución de los ataques a la información."
+    }, {
+      "id" : 163,
+      "nombre" : "Preparar experimentos cuyo propósito sea la protección de la información digital."
+    }, {
+      "id" : 164,
+      "nombre" : "Estar familiarizado con los antecedentes en seguridad digital para formar el criterio."
+    }, {
+      "id" : 165,
+      "nombre" : "Hacer uso de herramientas de seguridad digital con fines éticos."
+    }, {
+      "id" : 166,
+      "nombre" : "Realizar diagnóstico de seguridad de la información, empleando normas y estándares de referencia para la evaluación de controles y niveles de maduración de estos."
+    }, {
+      "id" : 167,
+      "nombre" : "Analizar los riesgos cibernéticos que atenten contra los activos de información e infraestructuras críticas de las organizaciones, por medio de la identificación, evaluación, cuantificación y gestión de estos teniendo en cuenta las diferentes metodología de riesgos."
+    }, {
+      "id" : 168,
+      "nombre" : "Diseñar planes de tratamiento de riesgos, y con ello, eliminar, reducir, transferir o aceptar los riesgos cibernéticos de acuerdo con el contexto de cada organización."
+    }, {
+      "id" : 169,
+      "nombre" : "Definir una estrategia de gestión de proyectos TIC sensibilizadas en proyectos reales; revisados en casos y en el proyecto del curso."
+    }, {
+      "id" : 170,
+      "nombre" : "Aplicar competencias blandas en la gestión de los proyectos de TIC."
+    }, {
+      "id" : 171,
+      "nombre" : "Aplicar metodologías de gestión de proyectos  a casos reales."
+    }, {
+      "id" : 172,
+      "nombre" : "Comprender las tecnologías disruptivas. "
+    }, {
+      "id" : 173,
+      "nombre" : "Identificar tecnologías que afectan a las organizaciones."
+    }, {
+      "id" : 174,
+      "nombre" : "Apoyar la transformación digital de las organizaciones incorporando nuevas tecnologíasas alineadas con la estrategia planteada."
+    }, {
+      "id" : 175,
+      "nombre" : "Comprender el papel que juegan las Tecnologías Digitales en la transformación digital de las organizaciones, pasando de ser simplemente el soporte de las áreas funcionales a un dinamizador de la estrategia corporativa."
+    }, {
+      "id" : 176,
+      "nombre" : "Gestionar y actualizar su plan estratégico de tecnología (PETI) de acuerdo con la coyuntura actual de su entorno. "
+    }, {
+      "id" : 177,
+      "nombre" : "Mediante un gobierno e indicadores de gestión bien definidos, podrá implementar su hoja de ruta que lo lleven a cumplir sus objetivos específicos "
+    }, {
+      "id" : 178,
+      "nombre" : "Gobernar con las mejores prácticas todos las actividades que lleven al área de TI a generar beneficios operacionales.  "
+    }, {
+      "id" : 179,
+      "nombre" : "Gestionar su arquitectura empresarial de tal forma que este alineada con los procesos organizacionales. "
+    }, {
+      "id" : 180,
+      "nombre" : "Gobernar sus datos e información de tal forma que permita entender y conocer al cliente de TI. "
+    }, {
+      "id" : 181,
+      "nombre" : "Gestionar servicios tecnológicos de valor, baja inversión y mínimo riesgo para su   organización."
+    }, {
+      "id" : 182,
+      "nombre" : "Aplicar los conceptos básicos de protección de la información en el desarrollo de una arquitectura de software."
+    }, {
+      "id" : 183,
+      "nombre" : "Reconocer posibles escenarios de manifestación de las vulnerabilidades en el diseño de una arquitectura de software."
+    }, {
+      "id" : 184,
+      "nombre" : "Revisar y cuestionar algunas prácticas de programación que pueden implicar vulnerabilidades en el software."
+    }, {
+      "id" : 185,
+      "nombre" : "Ajustar y mantener una postura de confiabilidad y control sobre la especificación de la seguridad en el diseño de una arquitectura de software."
+    }, {
+      "id" : 186,
+      "nombre" : "Promover la aplicación de buenas prácticas de seguridad en el desarrollo de arquitecturas de software, como una forma para fortalecer una cultura de seguridad de la información basado en prácticas concretas."
+    }, {
+      "id" : 187,
+      "nombre" : "plicar conocimientos sobre la gestión de los servicios de Tecnologías de la Información y las Comunicaciones durante el ciclo de vida de estos servicios."
+    }, {
+      "id" : 188,
+      "nombre" : "Gestionar adecuadamente los riesgos  considerando los costos de la generación y operación de los servicios."
+    }, {
+      "id" : 189,
+      "nombre" : "Aplicar en casos reales conceptos de diseño, transición y  operación de los servicios tecnológicos teniendo en cuenta  los procesos, las personas y las herramientas como los tres componentes fundamentales de dichos servicios."
+    }, {
+      "id" : 190,
+      "nombre" : "Clasificar los diferentes derechos y deberes de los consumidores."
+    }, {
+      "id" : 191,
+      "nombre" : "Conocer el tratamiento de datos a nivel nacional e internacional."
+    }, {
+      "id" : 192,
+      "nombre" : "Administrar conforme a la Ley las bases de datos."
+    }, {
+      "id" : 193,
+      "nombre" : "Diferenciar entre una práctica y una cláusula abusiva."
+    }, {
+      "id" : 194,
+      "nombre" : "Adquirir un manejo apropiado de los conceptos filosóficos relevantes en el campo de la ética."
+    }, {
+      "id" : 195,
+      "nombre" : "Identificar elementos de cohesión y coherencia presentes en un texto y usarlos en los textos que se escribirán. "
+    }, {
+      "id" : 196,
+      "nombre" : "Identificar las ideas generales y específicas de textos de complejidad media relacionados con su área de estudio. "
+    }, {
+      "id" : 197,
+      "nombre" : "Identificar ideas que expresan hechos, opiniones o inferencias en el texto.  "
+    }, {
+      "id" : 198,
+      "nombre" : "Descomponer la estructura de un texto escrito y aplicar los principios de esa estructura en el texto que se va a producir.  "
+    }, {
+      "id" : 199,
+      "nombre" : "Usar organizadores gráficos para resumir el contenido del texto que se lee y desarrollar el organizador gráfico de su propio texto con base en esa estructura. "
+    }, {
+      "id" : 200,
+      "nombre" : "Escribir párrafos con la estructura del párrafo del texto investigativo en inglés y resúmenes (abstracts) de artículos de carácter científico propios de su área de estudio, con un grado de complejidad propio del nivel B1 según MCER. "
+    }, {
+      "id" : 201,
+      "nombre" : "Parafrasear las ideas en un texto utilizando diferentes mecanismos para no desvirtuar las ideas del original y para evitar el plagio."
+    }, {
+      "id" : 202,
+      "nombre" : "Presentar los elementos esenciales de una investigación frente a otros utilizando recursos retóricos para sus presentaciones públicas."
+    }, {
+      "id" : 203,
+      "nombre" : "Estructurar de manera lógica una presentación utilizando recursos visuales y de lenguaje adecuados, para así demostrar que comprenden las diferencias entre culturas dentro del ámbito académico."
+    }, {
+      "id" : 204,
+      "nombre" : "Utilizar de manera adecuada los gestos y el lenguaje corporal durante una presentación oral formal. "
+    }, {
+      "id" : 205,
+      "nombre" : "Identificar el tratamiento de datos a nivel nacional e internacional."
+    }, {
+      "id" : 206,
+      "nombre" : "Administrar conforme a la Ley las bases de datos."
+    }, {
+      "id" : 207,
+      "nombre" : "Distinguir las diferentes categorías de datos personales."
+    }, {
+      "id" : 208,
+      "nombre" : "Identificar las diferentes normas aplicables según la jurisdicción y sus implicaciones globales."
+    }, {
+      "id" : 209,
+      "nombre" : "Clasificar los diferentes derechos y deberes de los consumidores."
+    }, {
+      "id" : 210,
+      "nombre" : "Diferenciar entre una práctica y una cláusula abusiva"
+    }, {
+      "id" : 211,
+      "nombre" : "Juzgar los efectos de las garantías y niveles de servicio debidos al consumidor digital"
+    }, {
+      "id" : 212,
+      "nombre" : "Identificar los diferentes tipos y regímenes aplicables a los consumidores digitales."
+    }, {
+      "id" : 213,
+      "nombre" : "Evaluar las principales vulnerabilidades y amenazas presentes en los sistemas industriales e infraestructuras críticas."
+    }, {
+      "id" : 214,
+      "nombre" : "Aplicar las técnicas adecuadas para mitigar los riesgos de seguridad en entornos industriales y del IoT."
+    }, {
+      "id" : 215,
+      "nombre" : "Interpretar adecuadamente la normativa y las buenas prácticas relacionadas con la ciberseguridad industrial."
+    }, {
+      "id" : 216,
+      "nombre" : "Implementar adecuadamente las técnicas de seguridad a nivel físico durante el desarrollo de aplicaciones IoT."
+    }, {
+      "id" : 217,
+      "nombre" : "Identificar los conceptos básicos de seguridad digital."
+    }, {
+      "id" : 218,
+      "nombre" : "Identificar las herramientas mas optimas para la prevención y solución de los ataques a la información."
+    }, {
+      "id" : 219,
+      "nombre" : "Preparar experimentos cuyo propósito sea la protección de la información digital."
+    }, {
+      "id" : 220,
+      "nombre" : "Estar familiarizado con los antecedentes en seguridad digital para formar el criterio."
+    }, {
+      "id" : 221,
+      "nombre" : "Hacer uso de herramientas de seguridad digital con fines éticos."
+    }, {
+      "id" : 222,
+      "nombre" : "Describir la relación existente entre gerencia y tecnología de la protección en ciberseguridad."
+    }, {
+      "id" : 223,
+      "nombre" : "Identificar la terminología y los conceptos esenciales de la ciberseguridad."
+    }, {
+      "id" : 224,
+      "nombre" : "Identificar los mejores tipos de controles en materia de ciberseguridad y ciberdefensa."
+    }, {
+      "id" : 225,
+      "nombre" : "Desarrollar una trayectoria profesional en ciberseguridad."
+    }, {
+      "id" : 226,
+      "nombre" : "Conocer el glosario técnico de la ciberseguridad y la ciberdefensa"
+    }, {
+      "id" : 227,
+      "nombre" : "Proponer soluciones innovadoras a los problemas de ciberseguridad y ciberdefensa"
+    }, {
+      "id" : 228,
+      "nombre" : "Describir con propiedad los elementos constitutivos de un sistema de ciberseguridad y ciberdefensa"
+    }, {
+      "id" : 229,
+      "nombre" : "Comprende el concepto de riesgo de negocio no financiero."
+    }, {
+      "id" : 230,
+      "nombre" : "Identifica y organiza los diferentes conceptos de riesgo no financiero."
+    }, {
+      "id" : 231,
+      "nombre" : "Diseña y desarrolla el proceso de Gestión de Riesgos."
+    }, {
+      "id" : 232,
+      "nombre" : "Entiende las alternativas en el tratamiento y mejora del Sistema de Gestión de Riesgos."
+    }, {
+      "id" : 233,
+      "nombre" : "Articular el SGR con los sistemas MECI y CE. 041 de la SFC (Sector Público y Financiero Colombiano)."
+    }, {
+      "id" : 234,
+      "nombre" : "Identifica el Marco de la Gestión de Riesgos."
+    }, {
+      "id" : 235,
+      "nombre" : "Explicar los conceptos fundamentales sobre el alcance y las técnicas existentes de la auditoría de tecnología para las organizaciones."
+    }, {
+      "id" : 236,
+      "nombre" : "Identificar los modelos de mejores prácticas para el control y administración de TI en una organización."
+    }, {
+      "id" : 237,
+      "nombre" : "Diferenciar los elementos necesarios para diseñar pruebas de auditoría asistidas por computador - TAACS. "
+    }, {
+      "id" : 238,
+      "nombre" : "Analizar los conceptos de administración de riesgos de TI, así como los principales riesgos asociados al uso de información y tecnologías relacionadas y sus controles principales."
+    }, {
+      "id" : 239,
+      "nombre" : "Analizar de forma críticas los estándares y buenas prácticas en seguridad digital. "
+    }, {
+      "id" : 240,
+      "nombre" : "Reconocer riesgos claves alrededor de los fundamentos de seguridad y control en las iniciativas organizacionales. "
+    }, {
+      "id" : 241,
+      "nombre" : "Identificar los requerimientos normativos en temas de seguridad digital aplicables a su entorno de trabajo. "
+    }, {
+      "id" : 242,
+      "nombre" : "Proponer alternativas de estrategias de seguridad y control para los contextos específicos de las empresas. "
+    }, {
+      "id" : 243,
+      "nombre" : "Seleccionar las buenas prácticas y estándares de seguridad digital ajustados a las exigencias del negocio."
+    }, {
+      "id" : 244,
+      "nombre" : "NA"
+    }, {
+      "id" : 245,
+      "nombre" : "ideas fuerza y metodologías y el desarrollo de capacidades y habilidades de trabajo en innovación"
+    }, {
+      "id" : 246,
+      "nombre" : "Identifica conceptos de seguridad ofensiva en la nube."
+    }, {
+      "id" : 247,
+      "nombre" : "Reconoce herramientas óptimas para identificación de brechas de seguridad en la infraestructura tecnológica de la nube"
+    }, {
+      "id" : 248,
+      "nombre" : "Prepara escenarios de laboratorio para la realización de ataques controlados en laboratorios de nube."
+    }, {
+      "id" : 249,
+      "nombre" : "Utiliza herramientas de seguridad ofensiva con fines éticos en entornos de nube de diferentes proveedores."
+    },{
+      "id" : 250,
+      "nombre" : "Reconocer a la contabilidad financiera como un sistema de información. "
+    }, {
+      "id" : 251,
+      "nombre" : "Describir las características cualitativas de la información contable y aplicarla a casos específicos de toma de decisiones."
+    }, {
+      "id" : 252,
+      "nombre" : "Comprender las características cualitativas de los estados financieros. "
+    }, {
+      "id" : 253,
+      "nombre" : "Identificar los estados financieros básicos."
+    }, {
+      "id" : 254,
+      "nombre" : "Analizar el origen de la financiación en una compañía. "
+    }, {
+      "id" : 255,
+      "nombre" : "Reconocer la utilidad práctica del análisis financiero."
+    }, {
+      "id" : 256,
+      "nombre" : "Identificar y comprender las limitaciones propias del análisis a la información financiera. "
+    }, {
+      "id" : 257,
+      "nombre" : "Comprender la utilidad de los estilos y patrones arquitectónicos en el proceso de diseño de arquitecturas de software"
+    }, {
+      "id" : 258,
+      "nombre" : "Conocer, entender, evaluar y justificar el uso o no de patrones de software así como establecer el nivel de abstracción, las alternativas y relaciones posibles a la hora de elegir entre uno u otro durante la construcción de sistemas de software"
+    }, {
+      "id" : 259,
+      "nombre" : "Diseñar y evaluar arquitecturas de software usando al menos una técnica para cada caso"
+    }       
+  ]
+}
